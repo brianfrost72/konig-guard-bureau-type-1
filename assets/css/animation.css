@@ -1,0 +1,106 @@
+/* === ANIMASI FLIP === */
+.flip-item {
+  transform: rotateY(90deg);
+  opacity: 0;
+  transition: 2s ease-in-out;
+}
+
+.flip-item.animate {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+/* === ANIMASI BOUNCE-IN === */
+.bounce-in {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+.bounce-in.animate {
+  opacity: 1;
+  animation: bounce-in 1s ease forwards;
+}
+
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* === ANIMASI HI There === */
+.hithere {
+  opacity: 0; /* supaya tidak muncul sebelum muncul di layar */
+  transform: scale(0.7);
+}
+
+/* mulai animasi ketika dapat class .animate */
+.hithere.animate {
+  opacity: 1;
+  animation: hithere 1s ease forwards;
+}
+@keyframes hithere {
+  30% {
+    transform: scale(1.2);
+  }
+  40%,
+  60% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.2);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* === ANIMASI Bounce === */
+.bounce {
+  opacity: 0;
+  transform: translateY(0); /* posisi dasar */
+  will-change: transform, opacity;
+}
+
+/* saat terlihat: tambahkan class .animate agar animasi dimulai */
+.bounce.animate {
+  opacity: 1;
+  animation: bounce 2s ease;
+  /* animation-delay di-set via JS */
+}
+
+/* keyframes tetap sama */
+@keyframes bounce {
+  70% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(-15%);
+  }
+  90% {
+    transform: translateY(0%);
+  }
+  95% {
+    transform: translateY(-7%);
+  }
+  97% {
+    transform: translateY(0%);
+  }
+  99% {
+    transform: translateY(-3%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
