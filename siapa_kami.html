@@ -35,24 +35,25 @@
       <div class="loading"><span></span><span></span><span></span><span></span></div>
     </div>/.preloader -->
 
-      <!-- =========================
-        Header
-    =========================== -->
       <header class="header header-transparent header-layout1">
         <nav class="navbar navbar-expand-lg sticky-navbar">
           <div class="container-fluid">
             <a class="navbar-brand" href="/">
               <img
-                src="assets/images/logo/logo-light.png"
+                src="assets/images/logo/logo_terang.png"
                 class="logo-light"
                 alt="logo"
               />
               <img
-                src="assets/images/logo/logo-dark.png"
+                src="assets/images/logo/logo_terang.png"
                 class="logo-dark"
                 alt="logo"
               />
             </a>
+            <!-- <div class="nav-logo">
+              <img src="assets/images/logo/logo.png" alt="logo" />
+              <a href="#" class="shimmer-text">KONIG GUARD BUREAU&#174;</a>
+            </div> -->
             <button class="navbar-toggler" type="button">
               <span class="menu-lines"><span></span></span>
             </button>
@@ -108,7 +109,7 @@
                       <div class="row mx-0">
                         <div class="col-sm-6 dropdown-menu-col">
                           <a
-                            href="services.html"
+                            href="layanan-keamanan.html"
                             class="nav__item-link dropdown-menu-title"
                             >Jasa Keamanan</a
                           >
@@ -125,7 +126,7 @@
                               <a
                                 class="nav__item-link"
                                 href="services-single.html"
-                                >Pengawalan Khusus</a
+                                >Bodyguard</a
                               >
                             </li>
                             <!-- /.nav-item -->
@@ -133,7 +134,15 @@
                               <a
                                 class="nav__item-link"
                                 href="services-single.html"
-                                >Sistem Pengamanan</a
+                                >Pengamanan Event</a
+                              >
+                            </li>
+                            <!-- /.nav-item -->
+                            <li class="nav__item">
+                              <a
+                                class="nav__item-link"
+                                href="services-single.html"
+                                >Detektif swasta</a
                               >
                             </li>
                             <!-- /.nav-item -->
@@ -142,7 +151,7 @@
                         <!-- /.col-sm-6 -->
                         <div class="col-sm-6 dropdown-menu-col">
                           <a
-                            href="industries.html"
+                            href="layanan-operasional.html"
                             class="nav__item-link dropdown-menu-title"
                             >Fasilitas & Operasional</a
                           >
@@ -179,6 +188,14 @@
                               >
                             </li>
                             <!-- /.nav-item -->
+                            <li class="nav__item">
+                              <a
+                                class="nav__item-link"
+                                href="industries-single.html"
+                                >Jasa Pengacara</a
+                              >
+                            </li>
+                            <!-- /.nav-item -->
                             <!-- /.nav-item -->
                           </ul>
                         </div>
@@ -188,34 +205,6 @@
                     </li>
                     <!-- /.nav-item -->
                   </ul>
-                </li>
-                <!-- /.nav-item -->
-                <li class="nav__item has-dropdown">
-                  <a
-                    href="#"
-                    data-toggle="dropdown"
-                    class="dropdown-toggle nav__item-link"
-                    >Media & Informasi</a
-                  >
-                  <ul class="dropdown-menu">
-                    <li class="nav__item">
-                      <a href="blog.html" class="nav__item-link">Berita</a>
-                    </li>
-                    <!-- /.nav-item -->
-                    <li class="nav__item">
-                      <a href="blog-single-post.html" class="nav__item-link"
-                        >Testimoni Pelanggan</a
-                      >
-                    </li>
-                    <!-- /.nav-item -->
-                    <li class="nav__item">
-                      <a href="case-study-grid.html" class="nav__item-link"
-                        >Galeri</a
-                      >
-                    </li>
-                    <!-- /.nav-item -->
-                  </ul>
-                  <!-- /.dropdown-menu -->
                 </li>
                 <!-- /.nav-item -->
                 <li class="nav__item has-dropdown">
@@ -288,6 +277,33 @@
                   </ul>
                 </li>
                 <!-- /.nav-item -->
+                <li class="nav__item has-dropdown">
+                  <a
+                    href="#"
+                    data-toggle="dropdown"
+                    class="dropdown-toggle nav__item-link"
+                    >Media & Informasi</a
+                  >
+                  <ul class="dropdown-menu">
+                    <li class="nav__item">
+                      <a href="blog.html" class="nav__item-link">Berita</a>
+                    </li>
+                    <!-- /.nav-item -->
+                    <li class="nav__item">
+                      <a href="blog-single-post.html" class="nav__item-link"
+                        >Testimoni Pelanggan</a
+                      >
+                    </li>
+                    <!-- /.nav-item -->
+                    <li class="nav__item">
+                      <a href="case-study-grid.html" class="nav__item-link"
+                        >Galeri</a
+                      >
+                    </li>
+                    <!-- /.nav-item -->
+                  </ul>
+                  <!-- /.dropdown-menu -->
+                </li>
               </ul>
               <!-- /.navbar-nav -->
               <button class="close-mobile-menu d-block d-lg-none">
@@ -299,17 +315,10 @@
               class="navbar-actions d-none d-xl-flex align-items-center list-unstyled mb-0"
             >
               <!-- <li>
-                <button class="action__btn action__btn-search">
-                  <i class="icon-search"></i>
-                </button>
-              </li> -->
-              <li>
-                <a
-                  href="contact-us.html"
-                  class="btn btn__white action__btn action__btn-contact"
-                  >Kontak Kami</a
+                <a href="#" class="btn btn__white action__btn login_btn"
+                  >Login</a
                 >
-              </li>
+              </li> -->
               <li>
                 <div class="phone__number">
                   <div class="phone__icon">
@@ -331,6 +340,7 @@
         </nav>
         <!-- /.navabr -->
       </header>
+      <!-- /.Header -->
       <!-- ========================
        page title 
     =========================== -->
@@ -384,17 +394,19 @@
         <div class="profile-wrapper text-center">
           <!-- Logo -->
           <img
-            src="assets/images/your-logo.png"
+            src="assets/images/logo/logo_terang.png"
             alt="Logo"
-            style="max-width: 120px"
-            class="mb-3 bounce"
+            style="max-width: 50%"
+            class="mb-3 pb-5 bounce"
           />
 
           <!-- Title -->
-          <h3 class="fw-bold mb-4 bounce-in">KONIG GUARD BUREAU</h3>
+          <!-- <h3 class="fw-bold mb-4 bounce-in" style="color: #ceab6f">
+            KONIG GUARD BUREAU
+          </h3> -->
 
           <!-- Description -->
-          <p class="mx-auto mb-5 bounce-in" style="max-width: 900px">
+          <p class="mx-auto mb-90 bounce-in" style="max-width: 900px">
             KONIG GUARD BUREAU adalah perusahaan penyedia Jasa Fasilitas &
             Operasional yang menghadirkan tenaga kerja unggul untuk mendukung
             kinerja dan kelancaran operasional perusahaan Anda. Mulai dari
@@ -406,7 +418,9 @@
           <!-- Visi & Misi -->
           <div class="row text-start justify-content-center">
             <div class="col-md-5 mb-4 bounce-in">
-              <h5 class="fw-bold text-center mb-3">VISI</h5>
+              <h5 class="fw-bold text-center mb-3" style="color: #ceab6f">
+                VISI
+              </h5>
               <p>
                 Menjadi perusahaan penyedia jasa fasilitas dan operasional
                 terdepan di Indonesia dengan layanan berkualitas, tenaga kerja
@@ -416,7 +430,9 @@
             </div>
 
             <div class="col-md-5 bounce-in">
-              <h5 class="fw-bold text-center mb-3">MISI</h5>
+              <h5 class="fw-bold text-center mb-3" style="color: #ceab6f">
+                MISI
+              </h5>
               <ol style="padding-left: 18px">
                 <li>
                   Memberikan pelayanan terbaik bagi seluruh pengguna jasa di
@@ -444,8 +460,11 @@
                   <!-- <h6 class="footer-widget__title">Quick Contacts</h6> -->
                   <h5 class="ft-title">ABOUT <span>US</span></h5>
 
-                  <a href="/" class="shimmer-text"
-                    ><img src="assets/images/logo/logo.png" alt="logo"
+                  <a href="/"
+                    ><img
+                      src="assets/images/logo/logo_terang.png"
+                      class="mb-20 w-100 h-60"
+                      alt="logo-footer"
                   /></a>
                   <p>
                     PT. KONIG GUARD BUREAU adalah Perusahaan Penyedia Jasa
@@ -481,13 +500,10 @@
                   class="social-icons list-unstyled justify-content-start mb-0"
                 >
                   <li>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                   </li>
                   <li>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                  </li>
-                  <li>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
                   </li>
                 </ul>
               </div>
@@ -585,6 +601,7 @@
         </div>
         <!-- /.footer-secondary -->
       </footer>
+      <!-- /.Footer -->
     </div>
     <!-- /.wrapper -->
     <div class="search-popup">

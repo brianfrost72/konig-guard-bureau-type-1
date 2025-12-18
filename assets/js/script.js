@@ -1,6 +1,7 @@
 // ===================== DATA LAYANAN =====================
 const servicesData = [
   {
+    key: "security",
     title: "Jasa Security",
     tagline:
       "Keamanan kuat, perlindungan menyeluruh.<br>Kami hadir sebagai garda utama untuk keamanan aset Anda.",
@@ -8,12 +9,13 @@ const servicesData = [
 
 Petugas keamanan kami telah melalui pelatihan intensif dalam prosedur pengamanan modern, analisa risiko, hingga komunikasi taktis. Mereka tidak hanya menjaga lingkungan tetap aman, namun juga menghadirkan ketenangan bagi seluruh pihak di dalamnya. Dengan kehadiran satpam Konig Guard Bureau yang sigap, disiplin, dan berintegritas, produktivitas perusahaan akan meningkat karena seluruh kegiatan dapat berlangsung tanpa gangguan.`,
     imgIndex: "assets/images/jasa/security/security.jpg",
-    imgService: "assets/images/jasa/security/security-detail.jpg",
-    link: "#",
+    imgService: "assets/images/jasa/security/security.jpg",
+    link: "jasa_keamanan.html#jasa_security",
     showOnIndex: true,
     showOnService: true,
   },
   {
+    key: "bodyguard",
     title: "Jasa Bodyguard",
     tagline:
       "Perlindungan personal kelas profesional.<br>Selalu siap mengawal langkah penting Anda.",
@@ -21,12 +23,13 @@ Petugas keamanan kami telah melalui pelatihan intensif dalam prosedur pengamanan
 
 Bodyguard kami memiliki keahlian dalam bela diri, pengamatan ancaman, protokol keselamatan, serta pengaturan rute pengawalan. Setiap pengawalan direncanakan melalui analisa risiko yang matang dan metode pengamanan yang selalu disesuaikan dengan kondisi di lapangan.`,
     imgIndex: "assets/images/jasa/security/bodyguard.jpg",
-    imgService: "assets/images/jasa/security/bodyguard-detail.jpg",
-    link: "#",
+    imgService: "assets/images/jasa/security/bodyguard.jpg",
+    link: "jasa_keamanan.html#jasa_bodyguard",
     showOnIndex: true,
     showOnService: true,
   },
   {
+    key: "pengamanan_event",
     title: "Jasa Pengamanan Event",
     tagline:
       "Acara aman, pengalaman maksimal.<br>Keamanan menyeluruh untuk setiap momen penting.",
@@ -34,8 +37,21 @@ Bodyguard kami memiliki keahlian dalam bela diri, pengamatan ancaman, protokol k
 
 Kami melakukan pemetaan area, mengatur arus keluar-masuk, serta mengantisipasi berbagai potensi gangguan. Dengan koordinasi tim yang kuat dan penggunaan prosedur pengamanan profesional, setiap acara dapat berjalan tertib, aman, dan memberikan pengalaman terbaik bagi seluruh peserta.`,
     imgIndex: "assets/images/jasa/security/eventsecurity.jpg",
-    imgService: "assets/images/jasa/security/eventsecurity-detail.jpg",
-    link: "#",
+    imgService: "assets/images/jasa/security/eventsecurity.jpg",
+    link: "jasa_keamanan.html#jasa_pengamanan_event",
+    showOnIndex: true,
+    showOnService: true,
+  },
+  {
+    key: "detektif_swasta",
+    title: "Jasa Detektif Swasta",
+    tagline: "Menyelidiki dengan Cermat, Mengungkap Fakta yang Tersembunyi.",
+    desc: `Kepercayaan adalah hal yang penting, namun kadang-kadang kita perlu memastikan bahwa apa yang terlihat benar adanya. Konig Guard Bureau menyediakan layanan detektif swasta untuk membantu mengungkap kebenaran yang tersembunyi di balik kasus pribadi, bisnis, atau hukum.
+
+Kami menggunakan metode penyelidikan yang canggih, dibantu oleh tim profesional yang berpengalaman, untuk memberikan laporan yang akurat dan terpercaya. Apakah itu untuk investigasi pasangan, pemeriksaan latar belakang, atau pengumpulan bukti hukum, kami siap membantu Anda menemukan jawaban yang Anda cari, dengan tetap menjaga kerahasiaan dan integritas prosesnya.`,
+    imgIndex: "assets/images/jasa/security/eventsecurity.jpg",
+    imgService: "assets/images/jasa/security/eventsecurity.jpg",
+    link: "jasa_keamanan.html#jasa_detektif_swasta",
     showOnIndex: true,
     showOnService: true,
   },
@@ -95,7 +111,7 @@ Dengan pengalaman di berbagai bidang hukum, tim kami mampu memberikan analisa se
       "Parkir tertata, pelayanan meningkat.<br>Kelancaran akses meningkatkan citra perusahaan.",
     desc: `Area parkir yang tertata rapi merupakan bagian dari pelayanan kualitas perusahaan terhadap karyawan maupun tamu.`,
     imgIndex: "assets/images/jasa/facility/parkir.jpg",
-    imgService: "assets/images/jasa/facility/parkir-detail.jpg",
+    imgService: "assets/images/jasa/facility/parkir.jpg",
     link: "#",
     showOnIndex: true,
     showOnService: true,
@@ -107,11 +123,14 @@ function renderServices(filterKey, isIndexPage) {
   const container = document.getElementById("services-container");
   if (!container) return;
 
-  container.innerHTML = "";
+  container.innerHTML = ""; // Clear the container
 
   const filteredData = servicesData.filter((item) => item[filterKey]);
 
-  filteredData.forEach((service) => {
+  // Menampilkan hanya 7 layanan pertama
+  const displayedServices = filteredData.slice(0, 7);
+
+  displayedServices.forEach((service) => {
     const item = document.createElement("div");
     item.className = "col-sm-6 col-md-6 col-lg-3 fancybox-item mb-0";
 
@@ -121,7 +140,7 @@ function renderServices(filterKey, isIndexPage) {
       ? `<p class="fancybox__desc flip-item">${service.tagline}</p>`
       : `<p class="fancybox__desc flip-item">${service.desc}</p>`;
 
-    item.innerHTML = `
+    item.innerHTML = ` 
       <div class="fancybox__img">
         <div class="bg-img">
           <img src="${imgSrc}" alt="${service.title}">
@@ -138,6 +157,30 @@ function renderServices(filterKey, isIndexPage) {
 
     container.appendChild(item);
   });
+
+  // Jika ada lebih dari 7 layanan, tambahkan box "Jasa Lebih Lanjut"
+  if (filteredData.length > 7) {
+    const moreServicesBox = document.createElement("div");
+    moreServicesBox.className =
+      "col-12 col-sm-6 col-md-6 col-lg-3 fancybox-item mb-0";
+
+    moreServicesBox.innerHTML = `
+      <div class="fancybox__img">
+        <div class="bg-img">
+          <img src="path/to/your/image.jpg" alt="Jasa Lebih Lanjut">
+        </div>
+      </div>
+      <div class="fancybox__body text-center">
+        <h4 class="fancybox__title flip-item">Jasa Lebih Lanjut</h4>
+        <p class="fancybox__desc flip-item">Klik di sini untuk melihat layanan lainnya</p>
+        <a href="layanan-operasional.html" class="btn btn__white btn__link flip-item">
+          Lihat Semua Layanan
+        </a>
+      </div>
+    `;
+
+    container.appendChild(moreServicesBox);
+  }
 }
 
 // ===================== LOGIC HALAMAN =====================
@@ -148,3 +191,63 @@ if (page.endsWith("index.html") || page === "/" || page === "") {
 } else if (page.endsWith("layanan.html") || page.includes("layanan")) {
   renderServices("showOnService", false);
 }
+
+// JASA LAYANAN KEAMANAN
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof servicesData === "undefined") {
+    console.error("servicesData tidak ditemukan");
+    return;
+  }
+
+  servicesData.forEach((service) => {
+    const tabPane = document.querySelector(
+      `.tab-pane[data-key="${service.key}"]`
+    );
+
+    if (!tabPane) {
+      console.warn("Tab pane tidak ada:", service.key);
+      return;
+    }
+
+    // TITLE
+    const titleEl = tabPane.querySelector(".process__title");
+    if (titleEl) {
+      titleEl.innerHTML = service.title;
+    }
+
+    // DESC
+    const descEl = tabPane.querySelector(".process__desc");
+    if (descEl) {
+      descEl.innerHTML = service.desc;
+    }
+
+    // IMAGE
+    const imgEl = tabPane.querySelector("#service-image");
+
+    if (imgEl) {
+      imgEl.src = service.imgService;
+      imgEl.alt = service.title;
+    } else {
+      console.warn("IMG tidak ditemukan di:", service.key);
+    }
+  });
+});
+
+// URL JASA KEAMANAN
+document.addEventListener("DOMContentLoaded", function () {
+  // Saat halaman dibuka pakai hash
+  if (window.location.hash) {
+    const hash = window.location.hash;
+    const tab = document.querySelector('.nav-tabs a[href="' + hash + '"]');
+    if (tab) tab.click();
+  }
+
+  // Saat tab diklik → update URL
+  document.querySelectorAll(".nav-tabs a").forEach((tab) => {
+    tab.addEventListener("click", function () {
+      const target = this.getAttribute("href");
+      history.pushState(null, "", target);
+    });
+  });
+});
