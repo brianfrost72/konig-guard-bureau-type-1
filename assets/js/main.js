@@ -29,11 +29,6 @@ $(function () {
   // Global variables
   const $win = $(window);
 
-  /*==========  Pre Loading   ==========*/
-  setTimeout(function () {
-    $(".preloader").remove();
-  }, 2000);
-
   /*==========   Mobile Menu   ==========*/
   $(".navbar-toggler").on("click", function () {
     $(".navbar-collapse").addClass("menu-opened");
@@ -65,7 +60,7 @@ $(function () {
   /*==========   Sticky Navbar   ==========*/
   $win.on("scroll", function () {
     if ($win.width() >= 992) {
-      var $stickyNavbar = $(".sticky-navbar"),
+      const $stickyNavbar = $(".sticky-navbar"),
         $secondaryNavbar = $(".secondary-nav");
       if ($win.scrollTop() > 150) {
         $stickyNavbar.addClass("is-sticky");
@@ -125,7 +120,7 @@ $(function () {
 
   /*==========   Set Background-img to section   ==========*/
   $(".bg-img").each(function () {
-    var imgSrc = $(this).children("img").attr("src");
+    let imgSrc = $(this).children("img").attr("src");
     $(this)
       .parent()
       .css({
@@ -219,23 +214,23 @@ $(function () {
   /*==========   Increase and Decrease Input Value   ==========*/
   // Increase Value
   $(".increase-qty").on("click", function () {
-    var $qty = $(this).parent().find(".input-number");
-    var currentVal = parseInt($qty.val());
+    let $qty = $(this).parent().find(".input-number");
+    let currentVal = parseInt($qty.val());
     if (!isNaN(currentVal)) {
       $qty.val(currentVal + 1);
     }
   });
   // Decrease Value
   $(".decrease-qty").on("click", function () {
-    var $qty = $(this).parent().find(".input-number");
-    var currentVal = parseInt($qty.val());
+    let $qty = $(this).parent().find(".input-number");
+    let currentVal = parseInt($qty.val());
     if (!isNaN(currentVal) && currentVal > 1) {
       $qty.val(currentVal - 1);
     }
   });
 
   /*==========  Contact Form validation  ==========*/
-  var contactForm = $("#contactForm"),
+  let contactForm = $("#contactForm"),
     contactResult = $(".contact-result");
   contactForm.validate({
     debug: false,
@@ -267,7 +262,7 @@ $(function () {
   $(".popup-video").magnificPopup({
     mainClass: "mfp-fade",
     removalDelay: 0,
-    preloader: false,
+    // preloader: false,
     fixedContentPos: false,
     type: "iframe",
     iframe: {
@@ -304,7 +299,7 @@ $(function () {
   $("select").niceSelect();
 
   /*==========   Range Slider  ==========*/
-  var $rangeSlider = $("#rangeSlider"),
+  let $rangeSlider = $("#rangeSlider"),
     $rangeSliderResult = $("#rangeSliderResult");
   $rangeSlider.slider({
     range: true,
@@ -391,3 +386,5 @@ document.addEventListener("keydown", (e) => {
     lightbox.classList.remove("show");
   }
 });
+
+// PRELOADER

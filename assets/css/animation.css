@@ -15,7 +15,7 @@
   opacity: 0;
   transform: scale(0.3);
 }
-
+ 
 .bounce-in.animate {
   opacity: 1;
   animation: bounce-in 1s ease forwards;

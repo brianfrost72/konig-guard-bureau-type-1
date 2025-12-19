@@ -9023,3 +9023,84 @@ figure.pelatihan:hover figcaption {
 .btn_mitra:hover {
   background: #1ebe5d;
 }
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0f1726 0%, #032b56 30%, #ceab6f 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1), opacity 0.5s ease;
+}
+
+.loader-container {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  text-align: center;
+}
+
+/* ✨ Logo kedap-kedip smooth */
+.preloader-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: blinkSmooth 2s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.6));
+}
+
+/* Animasi kedap-kedip halus */
+@keyframes blinkSmooth {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* Progress bar & teks loading tetap */
+.progress-bar {
+  position: absolute;
+  bottom: -50px;
+  left: -30px;
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #ceab6f, #263b72);
+  transition: width 0.2s ease;
+}
+
+.loading-text {
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.preloader-done {
+  transform: translateY(-100%);
+  opacity: 0;
+}
