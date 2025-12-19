@@ -56,6 +56,7 @@ Kami menggunakan metode penyelidikan yang canggih, dibantu oleh tim profesional 
     showOnService: true,
   },
   {
+    key: "cleaning_service",
     title: "Jasa Cleaning Service",
     tagline:
       "Bersih rapi, citra perusahaan meningkat.<br>Lingkungan sehat membentuk kinerja yang kuat.",
@@ -63,12 +64,13 @@ Kami menggunakan metode penyelidikan yang canggih, dibantu oleh tim profesional 
 
 Petugas kami memahami teknik kebersihan modern, penggunaan peralatan yang tepat, dan pemilihan bahan pembersih yang aman. Kami siap melayani berbagai area mulai dari perkantoran, fasilitas industri, hingga area publik.`,
     imgIndex: "assets/images/jasa/facility/cleaningservice.jpg",
-    imgService: "assets/images/jasa/facility/cleaningservice-detail.jpg",
-    link: "#",
+    imgService: "assets/images/jasa/facility/cleaningservice.jpg",
+    link: "jasa_operasional.html#jasa_cleaning_service",
     showOnIndex: true,
     showOnService: true,
   },
   {
+    key: "pramubakti",
     title: "Jasa Pramubakti",
     tagline:
       "Pelayanan ramah, operasional lebih mudah.<br>Mendukung administrasi dengan kualitas terbaik.",
@@ -76,12 +78,13 @@ Petugas kami memahami teknik kebersihan modern, penggunaan peralatan yang tepat,
 
 Dengan sikap ramah, cekatan, dan teliti, pramubakti kami membantu meningkatkan kualitas pelayanan perusahaan sehingga setiap proses kerja menjadi lebih teratur.`,
     imgIndex: "assets/images/jasa/facility/pramubakti.jpg",
-    imgService: "assets/images/jasa/facility/pramubakti-detail.jpg",
-    link: "#",
+    imgService: "assets/images/jasa/facility/pramubakti.jpg",
+    link: "jasa_operasional.html#jasa_pramubakti",
     showOnIndex: true,
     showOnService: true,
   },
   {
+    key: "pengacara",
     title: "Jasa Pengacara",
     tagline:
       "Legal kuat, bisnis lebih nyaman.<br>Keputusan tepat dengan analisa hukum terpercaya.",
@@ -89,30 +92,32 @@ Dengan sikap ramah, cekatan, dan teliti, pramubakti kami membantu meningkatkan k
 
 Dengan pengalaman di berbagai bidang hukum, tim kami mampu memberikan analisa serta solusi tepat demi melindungi kepentingan perusahaan.`,
     imgIndex: "assets/images/jasa/facility/pengacara.jpg",
-    imgService: "assets/images/jasa/facility/pengacara-detail.jpg",
-    link: "#",
+    imgService: "assets/images/jasa/facility/pengacara.jpg",
+    link: "jasa_operasional.html#jasa_pengacara",
     showOnIndex: true,
     showOnService: true,
   },
   {
+    key: "driver",
     title: "Jasa Driver",
     tagline:
       "Perjalanan aman, efisiensi maksimal.<br>Profesional dalam berkendara dan pelayanan.",
     desc: `Driver profesional memiliki peran penting dalam kelancaran mobilitas perusahaan. Layanan Jasa Driver Konig Guard Bureau menyediakan pengemudi terlatih yang memahami etika berkendara, keselamatan jalan, serta tata krama pelayanan.`,
     imgIndex: "assets/images/jasa/facility/driver.jpg",
-    imgService: "assets/images/jasa/facility/driver-detail.jpg",
-    link: "#",
+    imgService: "assets/images/jasa/facility/driver.jpg",
+    link: "jasa_operasional.html#jasa_driver",
     showOnIndex: true,
     showOnService: true,
   },
   {
+    key: "pengelola_parkir",
     title: "Pengelolaan Parkir",
     tagline:
       "Parkir tertata, pelayanan meningkat.<br>Kelancaran akses meningkatkan citra perusahaan.",
     desc: `Area parkir yang tertata rapi merupakan bagian dari pelayanan kualitas perusahaan terhadap karyawan maupun tamu.`,
     imgIndex: "assets/images/jasa/facility/parkir.jpg",
     imgService: "assets/images/jasa/facility/parkir.jpg",
-    link: "#",
+    link: "jasa_operasional.html#jasa_parkir",
     showOnIndex: true,
     showOnService: true,
   },
@@ -173,7 +178,7 @@ function renderServices(filterKey, isIndexPage) {
       <div class="fancybox__body text-center">
         <h4 class="fancybox__title flip-item">Jasa Lebih Lanjut</h4>
         <p class="fancybox__desc flip-item">Klik di sini untuk melihat layanan lainnya</p>
-        <a href="layanan-operasional.html" class="btn btn__white btn__link flip-item">
+        <a href="jasa_operasional.html#jasa_parkir" class="btn btn__white btn__link flip-item">
           Lihat Semua Layanan
         </a>
       </div>

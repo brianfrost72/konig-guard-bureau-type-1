@@ -339,3 +339,51 @@ $(function () {
   loadMore(".loadMoreportfolio", ".portfolio-hidden > .portfolio-item");
   loadMore(".loadMoreGallery", ".gallery-hidden > .gallery-img");
 });
+
+function setupPolaroids() {
+  const polaroids = document.querySelectorAll(".polaroid");
+  polaroids.forEach((polaroid) => {
+    const rotation = Math.random() * 10 - 5;
+    polaroid.style.transform = `rotate(${rotation}deg)`;
+
+    const delay = Math.random() * 0.5;
+    const img = polaroid.querySelector("img");
+    if (img) {
+      img.style.animationDelay = `${delay}s`;
+    }
+  });
+}
+
+// Event Listener nach dem Laden des DOMs hinzufügen, um die Funktion aufzurufen
+document.addEventListener("DOMContentLoaded", function () {
+  setupPolaroids();
+});
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const lightboxCaption = document.querySelector(".lightbox-caption");
+const closeBtn = document.querySelector(".lightbox-close");
+
+document.querySelectorAll(".polaroid img").forEach((img) => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightboxCaption.textContent = img.nextElementSibling?.textContent || "";
+    lightbox.classList.add("show");
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  lightbox.classList.remove("show");
+});
+
+lightbox.addEventListener("click", (e) => {
+  if (e.target === lightbox) {
+    lightbox.classList.remove("show");
+  }
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    lightbox.classList.remove("show");
+  }
+});
