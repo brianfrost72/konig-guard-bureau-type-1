@@ -340,6 +340,8 @@ $(function () {
   loadMore(".loadMoreGallery", ".gallery-hidden > .gallery-img");
 });
 
+// PELATIHAN
+
 function setupPolaroids() {
   const polaroids = document.querySelectorAll(".polaroid");
   polaroids.forEach((polaroid) => {
@@ -358,6 +360,8 @@ function setupPolaroids() {
 document.addEventListener("DOMContentLoaded", function () {
   setupPolaroids();
 });
+
+// GALERY
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.querySelector(".lightbox-img");

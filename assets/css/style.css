@@ -1090,7 +1090,7 @@ textarea {
 }
 
 .bg-overlay-primary:before {
-  background-color: #ceab6fd9;
+  background-color: #0f1726d9;
 }
 
 .bg-overlay-primary-gradient:before {
@@ -1262,7 +1262,7 @@ h6 {
 }
 .text__link a:not(.btn) {
   padding-bottom: 2px;
-  border-bottom: 2px solid #65b530;
+  border-bottom: 2px solid #ceab6f;
 }
 .text__link a:not(.btn).color-secondary {
   border-bottom-color: #222222;
@@ -1272,13 +1272,13 @@ h6 {
   border-bottom-color: #222222;
 }
 .text__link:hover a:not(.btn).color-secondary {
-  color: #65b530;
-  border-bottom-color: #65b530;
+  color: #ceab6f;
+  border-bottom-color: #ceab6f;
 }
 
 .text-underlined {
   color: #222222;
-  border-bottom: 2px solid #65b530;
+  border-bottom: 2px solid #ceab6f;
 }
 
 @media (max-width: 992px) {
@@ -1516,15 +1516,15 @@ h6 {
 .btn__primary.btn__outlined .icon-arrow-right,
 .btn__primary.btn__outlined .icon-arrow-left {
   color: #ffffff;
-  background-color: #65b530;
+  background-color: #ceab6f;
 }
 .btn__primary.btn__outlined:hover {
   color: #ffffff;
-  background-color: #65b530;
+  background-color: #ceab6f;
 }
 .btn__primary.btn__outlined:hover .icon-arrow-right,
 .btn__primary.btn__outlined:hover .icon-arrow-left {
-  color: #65b530;
+  color: #ceab6f;
   background-color: #ffffff;
 }
 .btn__primary-style2:before {
@@ -1540,10 +1540,10 @@ h6 {
 
 .btn__secondary {
   color: #ffffff;
-  background-color: #284982;
+  background-color: #ceab6f;
 }
 .btn__secondary:before {
-  background-color: #65b530 !important;
+  background-color: #284982 !important; /* Button Kontak_kami */
 }
 .btn__secondary .icon-filled {
   color: #222222;
@@ -1650,14 +1650,14 @@ h6 {
   border: 2px solid #ffffff;
 }
 .btn__white.btn__outlined:hover {
-  color: #65b530;
+  color: #ceab6f;
   background-color: #ffffff;
 }
 .btn__white-style2 {
-  color: #65b530;
+  color: #ceab6f;
 }
 .btn__white-style2:before {
-  background-color: #65b530 !important;
+  background-color: #ceab6f !important;
 }
 
 .btn__outlined {
@@ -1783,7 +1783,7 @@ h6 {
   height: 65px;
   border-radius: 50%;
   color: #ffffff;
-  background-color: #65b530;
+  background-color: #ceab6f;
   margin-bottom: 10px;
 }
 
@@ -3916,7 +3916,7 @@ input[type="radio"],
     Accordions
 ------------------------*/
 .accordion {
-  border-top: 4px solid #65b530;
+  border-top: 4px solid #263b72;
 }
 
 .accordion-item {
@@ -3934,7 +3934,7 @@ input[type="radio"],
   color: #222222;
 }
 .accordion-item .accordion-item__title:hover {
-  color: #65b530;
+  color: #263b72;
 }
 .accordion-item .accordion-item__title:after {
   content: "\f105";
@@ -3951,24 +3951,30 @@ input[type="radio"],
   height: 22px;
   border-radius: 50%;
   color: #ffffff;
-  background-color: #222222;
+  background-color: #284982;
 }
 .accordion-item.opened
   .accordion-item__header:not(.collapsed)
   .accordion-item__title {
-  color: #65b530;
+  color: #ceab6f;
 }
 .accordion-item.opened
   .accordion-item__header:not(.collapsed)
   .accordion-item__title:after {
   content: "\f107";
-  background-color: #65b530;
+  background-color: #263b72;
 }
 .accordion-item .accordion-item__body {
   padding-top: 20px;
 }
 .accordion-item .accordion-item__body p {
+  font-size: 15px;
+  color: #0f1726;
   margin-bottom: 0;
+}
+
+.accordion-item .accordion-item__body span {
+  color: #b59a69;
 }
 
 /* Mobile Phones and tablets */
@@ -4479,7 +4485,7 @@ input[type="radio"],
   width: 100%;
 }
 .slider .btn__white:not(.btn__link):not(.btn__outlined):before {
-  background-color: #65b530;
+  background-color: #ceab6f;
 }
 .slider .bg-overlay:after {
   content: "";
@@ -4912,7 +4918,7 @@ input[type="radio"],
   width: 33px;
   height: 33px;
   line-height: 31px;
-  color: #65b530;
+  color: #ceab6f;
   margin-right: 8px;
 }
 .fancyboxs-layout3 .fancybox-item-custom .btn__white.btn__link:hover {
@@ -8685,7 +8691,7 @@ figure.pelatihan:hover figcaption {
   transition: all 0.35s ease-in-out;
 }
 
-.lightbox {
+.lightbox-pelatihan {
   display: none;
   position: fixed;
   z-index: 999;
@@ -8696,12 +8702,12 @@ figure.pelatihan:hover figcaption {
   left: 0;
   background: rgba(9, 27, 39, 0.5);
 }
-.lightbox img {
+.lightbox-pelatihan img {
   max-width: 90%;
   max-height: 80%;
   margin-top: 5%;
 }
-.lightbox:target {
+.lightbox-pelatihan:target {
   outline: none;
   display: block;
 }
