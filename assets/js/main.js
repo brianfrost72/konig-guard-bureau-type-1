@@ -42,17 +42,69 @@ $(function () {
   const cursor = document.querySelector(".cursor");
 
   if (cursor) {
-    document.addEventListener("mousemove", (e) => {
-      cursor.style.top = e.pageY - 10 + "px";
-      cursor.style.left = e.pageX - 10 + "px";
+    const mouse = { x: 0, y: 0 };
+    const pos = { x: 0, y: 0 };
+    const prev = { x: 0, y: 0 };
+
+    let stretch = 0;
+    let angle = 0;
+
+    // CLICK SPRING
+    let click = 1;
+    let clickTarget = 1;
+
+    const speed = 0.15;
+    const clickSpeed = 0.25; // makin kecil makin lembut
+
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
     });
 
-    document.addEventListener("click", () => {
-      cursor.classList.add("expand");
-      setTimeout(() => {
-        cursor.classList.remove("expand");
-      }, 500);
+    document.addEventListener("mousedown", () => {
+      clickTarget = 2.2;
     });
+
+    document.addEventListener("mouseup", () => {
+      clickTarget = 1;
+    });
+
+    function animate() {
+      // FOLLOW
+      pos.x += (mouse.x - pos.x) * speed;
+      pos.y += (mouse.y - pos.y) * speed;
+
+      // VELOCITY
+      const dx = mouse.x - prev.x;
+      const dy = mouse.y - prev.y;
+      prev.x = mouse.x;
+      prev.y = mouse.y;
+
+      const velocity = Math.min(Math.sqrt(dx * dx + dy * dy) * 4, 150);
+      const targetStretch = (velocity / 150) * 0.4;
+
+      stretch += (targetStretch - stretch) * speed;
+
+      if (velocity > 20) {
+        angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+      }
+
+      // CLICK SPRING INTERPOLATION
+      click += (clickTarget - click) * clickSpeed;
+
+      cursor.style.transform = `
+      translate(${pos.x}px, ${pos.y}px)
+      rotate(${angle}deg)
+      scale(
+        ${(1 + stretch) * click},
+        ${(1 - stretch) * click}
+      )
+    `;
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
   }
 
   // ----------------------------------
