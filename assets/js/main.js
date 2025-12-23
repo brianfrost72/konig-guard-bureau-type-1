@@ -474,3 +474,39 @@ function validateCommentForm() {
 
   return true;
 }
+
+// SEARCH BOX
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("search-bar");
+  const resultsDiv = document.getElementById("search-results");
+
+  // prevent form reload
+  document
+    .getElementById("search-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+    });
+
+  searchInput.addEventListener("keyup", function () {
+    const query = searchInput.value.trim();
+
+    if (query.length === 0) {
+      resultsDiv.innerHTML = "";
+      return;
+    }
+
+    fetch("ajax-search.php", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: "q=" + encodeURIComponent(query),
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        resultsDiv.innerHTML = data;
+      })
+      .catch((err) => {
+        resultsDiv.innerHTML = "<p>Error saat mencari data</p>";
+        console.error(err);
+      });
+  });
+});

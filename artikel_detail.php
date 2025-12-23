@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <meta name="description" content="Sekure - Security Systems HTML5 Template">
   <link href="assets/images/favicon/favicon.png" rel="icon">
-  <title>Artikel - Security Systems HTML5 Template</title>
+  <title>Artikel - KONIG GUARD BUREAU</title>
 
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&family=Roboto:wght@400;700&display=swap">
@@ -105,9 +105,6 @@ if (isset($_POST['submit'])) {
 
 <body>
   <div class="wrapper">
-    <div class="preloader">
-      <div class="loading"><span></span><span></span><span></span><span></span></div>
-    </div><!-- /.preloader -->
 
     <!-- =========================
         Header
@@ -124,148 +121,169 @@ if (isset($_POST['submit'])) {
           </button>
           <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav mx-auto">
+              <li class="nav__item">
+                <a href="/" class="nav__item-link">Beranda</a>
+              </li>
               <li class="nav__item has-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Home</a>
+                <a
+                  href="#"
+                  data-toggle="dropdown"
+                  class="dropdown-toggle nav__item-link">Tentang Kami</a>
                 <ul class="dropdown-menu">
                   <li class="nav__item">
-                    <a href="index.html" class="nav__item-link">Home Modern</a>
-                  </li><!-- /.nav-item -->
+                    <a href="siapa_kami" class="nav__item-link">Siapa Kami?</a>
+                  </li>
+                  <!-- /.nav-item -->
                   <li class="nav__item">
-                    <a href="home-classic.html" class="nav__item-link">Home Classic</a>
-                  </li><!-- /.nav-item -->
+                    <a href="legalitas" class="nav__item-link">Legalitas Perusahaan</a>
+                  </li>
+                  <!-- /.nav-item -->
                   <li class="nav__item">
-                    <a href="home-shop.html" class="nav__item-link">Home Product</a>
-                  </li><!-- /.nav-item -->
-                </ul><!-- /.dropdown-menu -->
-              </li><!-- /.nav-item -->
+                    <a href="struktur" class="nav__item-link">Struktur Perusahaan</a>
+                  </li>
+                  <!-- /.nav-item -->
+                  <li class="nav__item">
+                    <a href="karir" class="nav__item-link">Karir</a>
+                  </li>
+                  <!-- /.nav-item -->
+                </ul>
+                <!-- /.dropdown-menu -->
+              </li>
+              <!-- /.nav-item -->
               <li class="nav__item has-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Company</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item">
-                    <a href="about-us.html" class="nav__item-link">About Us</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="how-it-works.html" class="nav__item-link">How It Works</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="team.html" class="nav__item-link">Leadership Team</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="awards.html" class="nav__item-link">Awards & Recognition</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="reviews.html" class="nav__item-link">Customers’ Reviews</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="pricing.html" class="nav__item-link">Packages & Pricing</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="locations.html" class="nav__item-link">Our Locations</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="faqs.html" class="nav__item-link">Help & FAQs</a>
-                  </li> <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="gallery.html" class="nav__item-link">Our Gallery</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="contact-us.html" class="nav__item-link">contact us</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="careers.html" class="nav__item-link">Careers</a>
-                  </li><!-- /.nav-item -->
-                </ul><!-- /.dropdown-menu -->
-              </li><!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Services & Industries</a>
+                <a
+                  href="#"
+                  data-toggle="dropdown"
+                  class="dropdown-toggle nav__item-link">Layanan Kami</a>
                 <ul class="dropdown-menu wide-dropdown-menu">
                   <li class="nav__item">
                     <div class="row mx-0">
                       <div class="col-sm-6 dropdown-menu-col">
-                        <a href="services.html" class="nav__item-link dropdown-menu-title">Services</a>
+                        <a
+                          href="jasa_keamanan"
+                          class="nav__item-link dropdown-menu-title">Jasa Keamanan</a>
                         <ul class="nav flex-column">
                           <li class="nav__item">
-                            <a class="nav__item-link" href="services-single.html">Business Security</a>
-                          </li> <!-- /.nav-item -->
+                            <a
+                              class="nav__item-link"
+                              href="jasa_keamanan#jasa_security">Pengamanan (Satpam)</a>
+                          </li>
+                          <!-- /.nav-item -->
                           <li class="nav__item">
-                            <a class="nav__item-link" href="services-single.html">Fire Detection</a>
-                          </li> <!-- /.nav-item -->
+                            <a
+                              class="nav__item-link"
+                              href="jasa_keamanan#jasa_bodyguard">Bodyguard</a>
+                          </li>
+                          <!-- /.nav-item -->
                           <li class="nav__item">
-                            <a class="nav__item-link" href="services-single.html">Access control</a>
-                          </li> <!-- /.nav-item -->
+                            <a
+                              class="nav__item-link"
+                              href="jasa_keamanan#jasa_pengamanan_event">Pengamanan Event</a>
+                          </li>
+                          <!-- /.nav-item -->
                           <li class="nav__item">
-                            <a class="nav__item-link" href="services-single.html">Alarm Systems</a>
-                          </li> <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="services-single.html">CCTV & Video</a>
-                          </li> <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="services-single.html">Smart Home</a>
-                          </li> <!-- /.nav-item -->
-                        </ul>
-                      </div><!-- /.col-sm-6 -->
-                      <div class="col-sm-6 dropdown-menu-col">
-                        <a href="industries.html" class="nav__item-link dropdown-menu-title">Industries</a>
-                        <ul class="nav flex-column">
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="industries-single.html">Pharmaceutic & Biotech</a>
-                          </li> <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="industries-single.html">Manufacturing & Logistics</a>
-                          </li> <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="industries-single.html">Healthcare Buildings</a>
-                          </li> <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="industries-single.html">Commercial Buildings</a>
-                          </li> <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="industries-single.html"> Finance & Banking</a>
-                          </li> <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a class="nav__item-link" href="industries-single.html">Office Buildings</a>
-                          </li> <!-- /.nav-item -->
+                            <a
+                              class="nav__item-link"
+                              href="jasa_keamanan#jasa_detektif_swasta">Detektif swasta</a>
+                          </li>
                           <!-- /.nav-item -->
                         </ul>
-                      </div><!-- /.col-sm-6 -->
-                    </div><!-- /.row -->
-                  </li><!-- /.nav-item -->
+                      </div>
+                      <!-- /.col-sm-6 -->
+                      <div class="col-sm-6 dropdown-menu-col">
+                        <a
+                          href="jasa_operasional"
+                          class="nav__item-link dropdown-menu-title">Fasilitas & Operasional</a>
+                        <ul class="nav flex-column">
+                          <li class="nav__item">
+                            <a
+                              class="nav__item-link"
+                              href="jasa_operasional#jasa_parkir">Pengelolaan Parkir</a>
+                          </li>
+                          <!-- /.nav-item -->
+                          <li class="nav__item">
+                            <a
+                              class="nav__item-link"
+                              href="jasa_operasional#jasa_driver">Jasa Driver</a>
+                          </li>
+                          <!-- /.nav-item -->
+                          <li class="nav__item">
+                            <a
+                              class="nav__item-link"
+                              href="jasa_operasional#jasa_cleaning_service">Cleaning Services</a>
+                          </li>
+                          <!-- /.nav-item -->
+                          <li class="nav__item">
+                            <a
+                              class="nav__item-link"
+                              href="jasa_operasional#jasa_pramubakti">Jasa Pramubakti</a>
+                          </li>
+                          <!-- /.nav-item -->
+                          <li class="nav__item">
+                            <a
+                              class="nav__item-link"
+                              href="jasa_operasional#jasa_pengacara">Jasa Pengacara</a>
+                          </li>
+                          <!-- /.nav-item -->
+                          <!-- /.nav-item -->
+                        </ul>
+                      </div>
+                      <!-- /.col-sm-6 -->
+                    </div>
+                    <!-- /.row -->
+                  </li>
+                  <!-- /.nav-item -->
                 </ul>
-              </li><!-- /.nav-item -->
+              </li>
+              <!-- /.nav-item -->
               <li class="nav__item has-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link active">News & Media</a>
+                <a
+                  href="#"
+                  data-toggle="dropdown"
+                  class="dropdown-toggle nav__item-link">Mitra &amp; Pelatihan</a>
                 <ul class="dropdown-menu">
                   <li class="nav__item">
-                    <a href="blog.html" class="nav__item-link">Blog Grid</a>
-                  </li><!-- /.nav-item -->
+                    <a href="mitra_konig" class="nav__item-link">Mitra Pengamanan Kami</a>
+                  </li>
+                  <!-- /.nav-item -->
                   <li class="nav__item">
-                    <a href="blog-single-post.html" class="nav__item-link">Single Blog Post</a>
-                  </li><!-- /.nav-item -->
+                    <a href="mitra_pelatihan" class="nav__item-link">Mitra Pelatihan</a>
+                  </li>
+                  <!-- /.nav-item -->
                   <li class="nav__item">
-                    <a href="case-study-modern.html" class="nav__item-link">Case Studies Modern</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="case-study-grid.html" class="nav__item-link">Case Studies Grid</a>
-                  </li><!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="case-study-single.html" class="nav__item-link">Single Case Study</a>
-                  </li><!-- /.nav-item -->
-                </ul><!-- /.dropdown-menu -->
-              </li><!-- /.nav-item -->
+                    <a href="pelatihan_konig" class="nav__item-link">Pelatihan Khusus</a>
+                  </li>
+                  <!-- /.nav-item -->
+                </ul>
+                <!-- /.dropdown-menu -->
+              </li>
+              <!-- /.nav-item -->
               <li class="nav__item has-dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle nav__item-link">Products</a>
+                <a
+                  href="#"
+                  data-toggle="dropdown"
+                  class="dropdown-toggle nav__item-link active">Media & Informasi</a>
                 <ul class="dropdown-menu">
                   <li class="nav__item">
-                    <a href="shop.html" class="nav__item-link">Shop Products</a>
-                  </li><!-- /.nav-item -->
+                    <a href="artikel" class="nav__item-link active">Artikel</a>
+                  </li>
+                  <!-- /.nav-item -->
                   <li class="nav__item">
-                    <a href="shop-single-product.html" class="nav__item-link">Single Product</a>
-                  </li><!-- /.nav-item -->
+                    <a href="testimony" class="nav__item-link">Testimoni Pelanggan</a>
+                  </li>
+                  <!-- /.nav-item -->
                   <li class="nav__item">
-                    <a href="shopping-cart.html" class="nav__item-link">Cart</a>
-                  </li><!-- /.nav-item -->
-                </ul><!-- /.dropdown-menu -->
-              </li><!-- /.nav-item -->
+                    <a href="galeri" class="nav__item-link">Galeri</a>
+                  </li>
+                  <!-- /.nav-item -->
+                  <li class="nav__item">
+                    <a href="kontak_kami" class="nav__item-link">Kontak Kami</a>
+                  </li>
+                  <!-- /.nav-item -->
+                </ul>
+                <!-- /.dropdown-menu -->
+              </li>
+              <!-- /.nav-item -->
             </ul><!-- /.navbar-nav -->
             <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
           </div><!-- /.navbar-collapse -->
@@ -281,8 +299,8 @@ if (isset($_POST['submit'])) {
                   <i class="icon-phone"></i>
                 </div>
                 <div>
-                  <a class="phone__link d-block" href="tel:00201061245741">02 01061245741</a>
-                  <a class="email__link d-block" href="mailto:Sekure@7oroof.com">Sekure@7oroof.com</a>
+                  <a class="phone__link d-block" href="tel:08111902759">0811 1902 759</a>
+                  <a class="email__link d-block" href="mailto:cs@konig.co.id">cs@konig.co.id</a>
                 </div>
               </div>
             </li>
@@ -402,7 +420,8 @@ if (isset($_POST['submit'])) {
                     <li class="comment__item">
                       <div class="comment__avatar">
                         <img src="/konig-guard-bureau-utama/admin/avatar_komen/<?php echo $row['komen_Avatar'] ?: 'default.png'; ?>"
-                           alt="avatar" />
+                          width="110" height="110"
+                          alt="avatar" />
                       </div>
 
                       <div class="comment__content">
@@ -433,7 +452,7 @@ if (isset($_POST['submit'])) {
 
             </div>
             <!-- /.blog-comments -->
-            <div class="blog-widget blog-comments-form mt-70">
+            <div class="blog-widget blog-comments-form mt-90">
               <h5 class="blog-widget__title">Leave A Reply</h5>
               <form name="comment" method="post" enctype="multipart/form-data">
                 <div class="row">
@@ -496,69 +515,60 @@ if (isset($_POST['submit'])) {
                     </form>
                   </div><!-- /.widget-content -->
                 </div><!-- /.widget-search -->
-                <div class="widget widget-posts">
-                  <h5 class="widget__title mb-10">Recent Posts</h5>
-                  <div class="widget__content">
-                    <!-- post item #1 -->
-                    <div class="widget-post-item d-flex align-items-center">
-                      <div class="widget-post__img">
-                        <a href="#"><img src="assets/images/blog/thumbs/2.jpg" alt="thumb"></a>
-                      </div><!-- /.widget-post-img -->
-                      <div class="widget-post__content">
-                        <span class="widget-post__date">Sep 19, 2022</span>
-                        <h4 class="widget-post__title"><a href="#">How Non IT Roles Can Use Security Solutions to
-                            Solve</a>
-                        </h4>
-                      </div><!-- /.widget-post-content -->
-                    </div><!-- /.widget-post-item -->
-                    <!-- post item #2 -->
-                    <div class="widget-post-item d-flex align-items-center">
-                      <div class="widget-post__img">
-                        <a href="#"><img src="assets/images/blog/thumbs/3.jpg" alt="thumb"></a>
-                      </div><!-- /.widget-post-img -->
-                      <div class="widget-post__content">
-                        <span class="widget-post__date">July 7, 2022</span>
-                        <h4 class="widget-post__title"><a href="#">Why Should Manufacturing & Companies</a>
-                        </h4>
-                      </div><!-- /.widget-post-content -->
-                    </div><!-- /.widget-post-item -->
-                    <!-- post item #3 -->
-                    <div class="widget-post-item d-flex align-items-center">
-                      <div class="widget-post__img">
-                        <a href="#"><img src="assets/images/blog/thumbs/1.jpg" alt="thumb"></a>
-                      </div><!-- /.widget-post-img -->
-                      <div class="widget-post__content">
-                        <span class="widget-post__date">March 13, 2022</span>
-                        <h4 class="widget-post__title"><a href="#">CKey Security Considerations For Designing Smarter</a>
-                        </h4>
-                      </div><!-- /.widget-post-content -->
-                    </div><!-- /.widget-post-item -->
-                  </div><!-- /.widget-content -->
-                </div><!-- /.widget-posts -->
+                <?php
+                if (isset($_GET['pageno'])) {
+                  $pageno = $_GET['pageno'];
+                } else {
+                  $pageno = 1;
+                }
+                $no_of_records_per_page = 3;
+                $offset = ($pageno - 1) * $no_of_records_per_page;
+
+
+                $total_pages_sql = "SELECT COUNT(*) FROM tblposts";
+                $result = mysqli_query($con, $total_pages_sql);
+                $total_rows = mysqli_fetch_array($result)[0];
+                $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+
+                $query = mysqli_query($con, "select tblposts.id as pid,tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 order by tblposts.id desc  LIMIT $offset, $no_of_records_per_page");
+                while ($row = mysqli_fetch_array($query)) {
+
+                ?>
+                  <div class="widget widget-posts">
+                    <h5 class="widget__title mb-10">Recent Posts</h5>
+                    <div class="widget__content">
+                      <!-- post item #1 -->
+                      <div class="widget-post-item d-flex align-items-center">
+                        <div class="widget-post__img">
+                          <a href="artikel_detail?nid=<?php echo htmlentities($row['pid']) ?>"><img src="admin/postimages/<?php echo htmlentities($row['PostImage']); ?>" alt="thumb"></a>
+                        </div><!-- /.widget-post-img -->
+                        <div class="widget-post__content">
+                          <span class="widget-post__date">Terbit pada <?php echo htmlentities($row['postingdate']); ?></span>
+                          <h4 class="widget-post__title"><a href="artikel_detail?nid=<?php echo htmlentities($row['pid']) ?>"><?php echo htmlentities($row['posttitle']); ?></a>
+                          </h4>
+                        </div><!-- /.widget-post-content -->
+                      </div><!-- /.widget-post-item -->
+                    </div><!-- /.widget-content -->
+                  </div><!-- /.widget-posts -->
+                <?php } ?>
                 <div class="widget widget-categories">
                   <h5 class="widget__title">Categories</h5>
                   <div class="widget-content">
                     <ul class="list-unstyled mb-0">
-                      <li><a href="#"><span>Pharmaceutic & Biotech </span><span class="cat-count">4</span></a></li>
-                      <li><a href="#"><span>Manufacturing & Logistics</span><span class="cat-count">0</span></a></li>
-                      <li><a href="#"><span>Healthcare Buildings</span><span class="cat-count">3</span></a></li>
-                      <li><a href="#"><span>Commercial Buildings</span><span class="cat-count">2</span></a></li>
-                      <li><a href="#"><span>Finance & Banking</span><span class="cat-count">1</span></a></li>
+                      <?php
+                      $query = mysqli_query($con, "SELECT id, CategoryName FROM tblcategory");
+                      while ($row = mysqli_fetch_array($query)) {
+                      ?>
+                        <li>
+                          <a href="category.php?catid=<?php echo htmlentities($row['CategoryName']); ?>">
+                            <span><?php echo htmlentities($row['CategoryName']); ?></span>
+                          </a>
+                        </li>
+                      <?php } ?>
                     </ul>
                   </div><!-- /.widget-content -->
                 </div><!-- /.widget-categories -->
-                <div class="widget widget-tags">
-                  <h5 class="widget__title">Tags</h5>
-                  <div class="widget-content">
-                    <ul class="list-unstyled mb-0">
-                      <li><a href="#">Insights</a></li>
-                      <li><a href="#">Industry</a></li>
-                      <li><a href="#">Modern</a></li>
-                      <li><a href="#">Corporate</a></li>
-                      <li><a href="#">Business</a></li>
-                    </ul>
-                  </div><!-- /.widget-content -->
-                </div><!-- /.widget-tags -->
               </aside><!-- /.sidebar -->
             </div><!-- /.col-lg-4 -->
           </div><!-- /.row -->

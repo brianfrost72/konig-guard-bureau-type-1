@@ -19,6 +19,9 @@ include('koneksi.php');
   <link
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <link rel="stylesheet" href="assets/css/bootstrap.css" />
   <link rel="stylesheet" href="assets/css/animation.css" />
   <link rel="stylesheet" href="assets/css/libraries.css" />
@@ -297,6 +300,17 @@ include('koneksi.php');
     <!-- ======================
       Blog Grid
     ========================= -->
+
+    <form class="search-container mt-30 mb-30" name="search" action="search.php" method="post">
+      <input type="text" id="search-bar" name="search-title" placeholder="Artikel apa yang kamu cari?" required>
+      <button type="submit" class="search-icon" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    </form>
+
+
+
+
     <section class="blog-grid">
       <div class="container">
         <div class="row">
