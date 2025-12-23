@@ -208,6 +208,7 @@ textarea {
   z-index: 500;
 }
 
+
 .row-gutter-0 {
   margin-left: 0;
   margin-right: 0;
@@ -1086,7 +1087,7 @@ textarea {
 }
 
 .bg-primary {
-  background-color: #65b530 !important;
+  background-color: #ceab6f !important;
 }
 
 .bg-secondary {
@@ -2859,8 +2860,8 @@ input[type="radio"],
   padding: 0;
   height: 100px;
   max-height: 100px;
-  background-color: #ffffff;
-  /*  dropdown-menu  */
+  background-color: #0f1726;
+  /*  dropdown-menu +   */
 }
 .navbar > .container,
 .navbar > .container-fluid {
@@ -2868,6 +2869,7 @@ input[type="radio"],
   height: 100px;
 }
 .navbar .navbar-brand {
+  width: 300px;
   padding: 0;
   margin: 0;
   line-height: 100px;
@@ -2934,7 +2936,7 @@ input[type="radio"],
   text-transform: capitalize;
   display: block;
   position: relative;
-  color: #222222;
+  color: #b59a69;
   line-height: 100px;
   letter-spacing: 0.4px;
   padding-right: 15px;
@@ -3586,12 +3588,12 @@ input[type="radio"],
     margin-right: 0;
   }
   .navbar .nav__item .nav__item-link {
-    color: #222222 !important;
+    color: #fff !important;
     line-height: 35px !important;
     padding-left: 15px;
   }
   .navbar .nav__item .nav__item-link:hover {
-    color: #65b530;
+    color: #ceab6f;
   }
   .navbar .nav__item .nav__item-link:before {
     display: none;
@@ -3617,7 +3619,7 @@ input[type="radio"],
     height: 100%;
     overflow-y: auto;
     padding: 50px 0 20px;
-    background-color: #ffffff;
+    background-color: #0f1726;
     transform: translateX(-100%);
     transition: 0.3s ease;
     transition-delay: 0.4s;
@@ -3644,8 +3646,8 @@ input[type="radio"],
     line-height: 33px;
     text-align: center;
     border-radius: 50%;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid #ceab6f;
+    color: #0f1726;
     cursor: pointer;
     opacity: 0;
     transform: scale(0.8);
@@ -3672,7 +3674,7 @@ input[type="radio"],
     content: "\f107";
   }
   .navbar .dropdown-menu {
-    background-color: white;
+    background-color: #ceab6f;
   }
   .navbar .dropdown-menu .nav__item {
     padding: 0 15px 0 30px;
@@ -3704,7 +3706,7 @@ input[type="radio"],
   }
   .header .navbar,
   .header-transparent .navbar {
-    background-color: #ffffff;
+    background-color: #0f1726;
   }
   .header .logo-dark,
   .header-transparent .logo-dark {
@@ -3725,7 +3727,7 @@ input[type="radio"],
   .header-transparent .navbar .navbar-toggler .menu-lines:before,
   .header-transparent .navbar .navbar-toggler .menu-lines:after,
   .header-transparent .navbar .navbar-toggler .menu-lines span {
-    background-color: #222222;
+    background-color: #ceab6f;
   }
   .header .navbar-expand-lg > .container,
   .header .navbar-expand-lg > .container-fluid,
@@ -6057,10 +6059,10 @@ input[type="radio"],
   height: 32px;
 }
 .blog-share .social-icons li a i {
-  background-color: #65b530;
+  background-color: #263b72;
 }
 .blog-share .social-icons li a:hover {
-  border-color: #222222;
+  border-color: #ceab6f;
   background-color: transparent;
 }
 .blog-share .social-icons li a:hover i {
@@ -6110,7 +6112,7 @@ input[type="radio"],
   font-size: 14px;
   font-weight: 700;
   line-height: 1;
-  color: #65b530;
+  color: #263b72;
 }
 .comments-list .comment__item .comment__content .comment__reply:hover {
   color: #222222;
@@ -6145,6 +6147,13 @@ input[type="radio"],
   display: none;
 }
 
+.post__desc-index {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
 @media (min-width: 1200px) {
   .blog-single .post-item .post__title {
     font-size: 40px;
@@ -7137,10 +7146,10 @@ textarea.form-control {
 }
 
 @media (min-width: 1200px) {
-  .sidebar.has-marign-right {
+  .sidebar.has-margin-right {
     margin-right: 40px;
   }
-  .sidebar.has-marign-left {
+  .sidebar.has-margin-left {
     margin-left: 40px;
   }
   .widget-member.shifted-top {
@@ -8753,7 +8762,7 @@ figure.pelatihan:hover figcaption {
 
 @media (max-width: 480px) {
   figure.pelatihan {
-    margin: 15px 33px;
+    margin: 15px 1px;
   }
 }
 
@@ -9227,7 +9236,7 @@ Scroll Up
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 
   /* PANAH */
-  font-size: 16px;
+  font-size: 13px;
   color: #263b72; /* default */
 
   /* posisi tengah */

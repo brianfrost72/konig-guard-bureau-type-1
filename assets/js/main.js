@@ -409,34 +409,68 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // GALERY
+document.addEventListener("DOMContentLoaded", () => {
+  // Ambil elemen-elemen DOM yang dibutuhkan
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.querySelector(".lightbox-img");
+  const lightboxCaption = document.querySelector(".lightbox-caption");
+  const closeBtn = document.querySelector(".lightbox-close");
 
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.querySelector(".lightbox-img");
-const lightboxCaption = document.querySelector(".lightbox-caption");
-const closeBtn = document.querySelector(".lightbox-close");
+  // Pastikan elemen-elemen ada sebelum menambahkan event listener
+  if (lightbox && lightboxImg && lightboxCaption && closeBtn) {
+    // Menambahkan event listener untuk setiap gambar dalam elemen polaroid
+    document.querySelectorAll(".polaroid img").forEach((img) => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.nextElementSibling?.textContent || "";
+        lightbox.classList.add("show");
+      });
+    });
 
-document.querySelectorAll(".polaroid img").forEach((img) => {
-  img.addEventListener("click", () => {
-    lightboxImg.src = img.src;
-    lightboxCaption.textContent = img.nextElementSibling?.textContent || "";
-    lightbox.classList.add("show");
-  });
-});
+    // Menambahkan event listener untuk tombol close pada lightbox
+    closeBtn.addEventListener("click", () => {
+      lightbox.classList.remove("show");
+    });
 
-closeBtn.addEventListener("click", () => {
-  lightbox.classList.remove("show");
-});
+    // Menambahkan event listener untuk menutup lightbox ketika mengklik area luar gambar
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("show");
+      }
+    });
 
-lightbox.addEventListener("click", (e) => {
-  if (e.target === lightbox) {
-    lightbox.classList.remove("show");
+    // Menambahkan event listener untuk menutup lightbox ketika menekan tombol "Escape"
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        lightbox.classList.remove("show");
+      }
+    });
+  } else {
+    console.error("Elemen-elemen yang dibutuhkan tidak ditemukan.");
   }
 });
 
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    lightbox.classList.remove("show");
+// Artikel Detail Page
+function validateCommentForm() {
+  if (!document.getElementById("name").value.trim()) {
+    alert("Nama wajib diisi!");
+    return false;
   }
-});
 
-// PRELOADER
+  if (!document.getElementById("email").value.trim()) {
+    alert("Email wajib diisi!");
+    return false;
+  }
+
+  if (!document.getElementById("avatar").value) {
+    alert("Avatar wajib diupload!");
+    return false;
+  }
+
+  if (!document.getElementById("comment").value.trim()) {
+    alert("Komentar wajib diisi!");
+    return false;
+  }
+
+  return true;
+}
