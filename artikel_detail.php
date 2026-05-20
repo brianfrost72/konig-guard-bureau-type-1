@@ -3,19 +3,35 @@ session_start();
 include('koneksi.php');
 
 /* =========================
+   BUAT CSRF TOKEN (SEKALI)
+========================= */
+if (empty($_SESSION['token'])) {
+  $_SESSION['token'] = bin2hex(random_bytes(32));
+}
+
+/* =========================
    FLASH MESSAGE (SETELAH REDIRECT)
 ========================= */
 if (!empty($_SESSION['comment_success'])) {
-  echo "<script>alert('{$_SESSION['comment_success']}');</script>";
+  echo "<script>alert('" . htmlspecialchars($_SESSION['comment_success']) . "');</script>";
   unset($_SESSION['comment_success']);
 }
 
 /* =========================
    PROSES SUBMIT KOMENTAR
 ========================= */
-if (isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
-  // VALIDASI FIELD WAJIB
+  /* =========================
+       VALIDASI CSRF
+    ========================= */
+  if (!isset($_POST['csrftoken']) || $_POST['csrftoken'] !== $_SESSION['token']) {
+    die('Invalid CSRF token');
+  }
+
+  /* =========================
+       VALIDASI FIELD
+    ========================= */
   if (
     empty($_POST['name']) ||
     empty($_POST['email']) ||
@@ -23,13 +39,15 @@ if (isset($_POST['submit'])) {
     empty($_FILES['komen_Avatar']['tmp_name'])
   ) {
     echo "<script>
-            alert('Semua field WAJIB diisi termasuk avatar!');
-            window.history.back();
-        </script>";
+                alert('Semua field WAJIB diisi termasuk avatar!');
+                window.history.back();
+              </script>";
     exit;
   }
 
-  // AMANKAN INPUT
+  /* =========================
+       AMANKAN INPUT
+    ========================= */
   $name    = mysqli_real_escape_string($con, $_POST['name']);
   $email   = mysqli_real_escape_string($con, $_POST['email']);
   $comment = mysqli_real_escape_string($con, $_POST['comment']);
@@ -38,7 +56,7 @@ if (isset($_POST['submit'])) {
   /* =========================
        FILE UPLOAD
     ========================= */
-  $fileName = $_FILES['komen_Avatar']['name']; // STRING
+  $fileName = $_FILES['komen_Avatar']['name'];
   $tmpFile  = $_FILES['komen_Avatar']['tmp_name'];
   $fileSize = $_FILES['komen_Avatar']['size'];
 
@@ -55,7 +73,9 @@ if (isset($_POST['submit'])) {
     exit;
   }
 
-  // FOLDER UPLOAD (REAL PATH)
+  /* =========================
+       FOLDER UPLOAD
+    ========================= */
   $uploadDir = __DIR__ . '/admin/avatar_komen/';
   if (!is_dir($uploadDir)) {
     mkdir($uploadDir, 0755, true);
@@ -64,7 +84,9 @@ if (isset($_POST['submit'])) {
   $avatarName = 'avatar_' . uniqid() . '.' . $ext;
   $uploadPath = $uploadDir . $avatarName;
 
-  move_uploaded_file($tmpFile, $uploadPath);
+  if (!move_uploaded_file($tmpFile, $uploadPath)) {
+    die('Upload avatar gagal');
+  }
 
   /* =========================
        INSERT DATABASE
@@ -84,6 +106,7 @@ if (isset($_POST['submit'])) {
   exit;
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -243,7 +266,7 @@ if (isset($_POST['submit'])) {
                   class="dropdown-toggle nav__item-link">Mitra &amp; Pelatihan</a>
                 <ul class="dropdown-menu">
                   <li class="nav__item">
-                    <a href="mitra_konig" class="nav__item-link">Mitra Pengamanan Kami</a>
+                    <a href="klien_kami" class="nav__item-link">Klien Kami</a>
                   </li>
                   <!-- /.nav-item -->
                   <li class="nav__item">
@@ -493,7 +516,7 @@ if (isset($_POST['submit'])) {
                     </div>
                     <!-- /.form-group -->
 
-                    <button type="submit" class="btn btn__primary btn__xl" name="submit">
+                    <button type="submit" class="btn btn__primary btn__xl mb-50" name="submit">
                       <i class="icon-filled icon-arrow-right"></i>
                       <span>Submit Comment</span>
                     </button>
@@ -509,8 +532,9 @@ if (isset($_POST['submit'])) {
                 <div class="widget widget-search bg-primary">
                   <h5 class="widget__title color-white">Search</h5>
                   <div class="widget__content">
-                    <form class="widget__form-search">
-                      <input type="text" class="form-control" placeholder="Search...">
+                    <form class="widget__form-search" name="search" action="search" method="post">
+                      <input type="text" class="form-control"
+                        name="searchtitle" placeholder="Cari Artikel..." required>
                       <button class="btn" type="submit"><i class="icon-search"></i></button>
                     </form>
                   </div><!-- /.widget-content -->
@@ -582,124 +606,141 @@ if (isset($_POST['submit'])) {
         <div class="footer-primary">
           <div class="container">
             <div class="row">
-              <div class="col-sm-12 col-md-12 col-lg-3">
+              <div class="col-sm-6 col-md-4 col-lg-4">
                 <div class="footer-widget-contact">
-                  <h6 class="footer-widget__title">Quick Contacts</h6>
-                  <p>If you have any questions or need help, feel free to contact with our team.</p>
+                  <!-- <h6 class="footer-widget__title">Quick Contacts</h6> -->
+                  <h5 class="ft-title">ABOUT <span>US</span></h5>
+
+                  <a href="/"><img
+                      src="assets/images/logo/logo_terang.png"
+                      class="mb-20 w-100 h-60"
+                      alt="logo-footer" /></a>
+                  <p>
+                    PT. KONIG GUARD BUREAU adalah Perusahaan Penyedia Jasa
+                    Outsourcing yang menghadirkan layanan Security, Cleaning
+                    Service, Administrasi, dan Driver untuk lingkungan kerja
+                    yang AMAN, NYAMAN, dan PROFESIONAL.
+                  </p>
                   <ul class="contact__list list-unstyled">
                     <li>
-                      <a href="mailto:Sekure@7oroof.com">
-                        <i class="contact__icon icon-email"></i> <span>Sekure@7oroof.com</span>
+                      <a href="mailto:cs@konig.co.id">
+                        <i class="contact__icon icon-email"></i>
+                        <span>cs@konig.co.id</span>
                       </a>
                     </li>
                     <li>
-                      <a href="tel:00201061245741">
-                        <i class="contact__icon icon-phone"></i> <span>(002) 01061245741</span>
+                      <a href="tel:08111902759">
+                        <i class="contact__icon icon-phone"></i>
+                        <span>(+62) 811 1902 759</span>
                       </a>
                     </li>
                   </ul>
-                  <p>2307 Beverley Rd Brooklyn, New York 11226 United States.</p>
-                  <a href="contact-us.html" class="btn btn__white btn__link mr-30">
-                    <i class="fas fa-map-marker-alt"></i> <span>Get Directions</span>
+                  <p>Puri Botanical Residence Blok H9 No.11, Jakarta - Indonesia.</p>
+                  <a href="kontak_kami" class="btn btn__white btn__link mr-30">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Get Directions</span>
                   </a>
-                </div><!-- /.footer-widget-contact -->
-              </div><!-- /.col-xl-2 -->
-              <div class="col-sm-6 col-md-4 col-lg-2">
+                </div>
+                <!-- /.footer-widget-contact -->
+                <ul
+                  class="social-icons list-unstyled justify-content-start mb-0">
+                  <li>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                  </li>
+                </ul>
+              </div>
+              <!-- /.col-lg-2 -->
+              <div class="col-sm-6 col-md-4 col-lg-2 offset-lg-3">
                 <div class="footer-widget-nav">
-                  <h6 class="footer-widget__title">Company</h6>
+                  <!-- <h6 class="footer-widget__title">Services</h6> -->
+                  <h5 class="ft-title">QUICK <span>LINK</span></h5>
                   <nav>
                     <ul class="list-unstyled">
-                      <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="team.html">Leadership Team</a></li>
-                      <li><a href="blog.html">News & Media</a></li>
-                      <li><a href="shop.html">Our Products</a></li>
-                      <li><a href="reviews.html">Reviews</a></li>
+                      <li>
+                        <a href="siapa_kami">Siapa Kami</a>
+                      </li>
+                      <li><a href="legalitas">Legalitas Perusahaan</a></li>
+                      <li><a href="struktur">Struktur Perusahaan</a></li>
+                      <li><a href="galeri">Dokumentasi Perusahaan</a></li>
+                      <li>
+                        <a href="jasa_keamanan">Layanan Keamanan Kami</a>
+                      </li>
+                      <li>
+                        <a href="jasa_operasional">Layanan Fasilitas &amp; Kami</a>
+                      </li>
+                      <li><a href="karir">Karir</a></li>
                     </ul>
                   </nav>
-                </div><!-- /.footer-widget-nav -->
-              </div><!-- /.col-lg-2 -->
-              <div class="col-sm-6 col-md-4 col-lg-2">
-                <div class="footer-widget-nav">
-                  <h6 class="footer-widget__title">Services</h6>
-                  <nav>
-                    <ul class="list-unstyled">
-                      <li><a href="services-single.html">Business Security</a></li>
-                      <li><a href="services-single.html">Fire Detection</a></li>
-                      <li><a href="services-single.html">Access control</a></li>
-                      <li><a href="services-single.html">Alarm Systems</a></li>
-                      <li><a href="services-single.html">CCTV & Video</a></li>
-                      <li><a href="services-single.html">Smart Home </a></li>
-                    </ul>
-                  </nav>
-                </div><!-- /.footer-widget-nav -->
-              </div><!-- /.col-lg-2 -->
-              <div class="col-sm-6 col-md-4 col-lg-2">
-                <div class="footer-widget-nav">
-                  <h6 class="footer-widget__title">Help</h6>
-                  <nav>
-                    <ul class="list-unstyled">
-                      <li><a href="#">Knowledge base</a></li>
-                      <li><a href="#">Security resources</a></li>
-                      <li><a href="#">Terms & Conditions</a></li>
-                      <li><a href="#">Shipping Policy</a></li>
-                      <li><a href="contact-us.html">Contact us</a></li>
-                    </ul>
-                  </nav>
-                </div><!-- /.footer-widget-nav -->
-              </div><!-- /.col-lg-2 -->
+                </div>
+                <!-- /.footer-widget-nav -->
+              </div>
+              <!-- /.col-lg-2 -->
               <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="footer-widget-social text-right">
-                  <h6 class="footer-widget__title">Have A Project?</h6>
-                  <a href="" class="btn btn__primary mb-40">Get A Free Quote</a>
-                  <ul class="social-icons list-unstyled justify-content-end mb-0">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                  </ul><!-- /.social-icons -->
-                </div><!-- /.footer-widget-social -->
-              </div><!-- /.col-lg-2 -->
-            </div><!-- /.row -->
-          </div><!-- /.container -->
-        </div><!-- /.footer-primary -->
-        <div class="footer-scroll text-center">
-          <button id="scrollTopBtn">
-            <i class="fas fa-long-arrow-alt-up"></i>
-            <span class="scroll__text">Back To Top</span>
-          </button>
-        </div><!-- /.footer-scroll -->
+                <div class="footer-widget-nav">
+                  <!-- <h6 class="footer-widget__title">Help</h6> -->
+                  <h5 class="ft-title">MITRA &amp; <span>TRAINING</span></h5>
+                  <nav>
+                    <ul class="list-unstyled">
+                      <li><a href="klien_kami">Klien Kami</a></li>
+                      <li>
+                        <a href="mitra_pelatihan">Mitra Pelatihan</a>
+                      </li>
+                      <li>
+                        <a href="pelatihan_konig">Pelatihan Khusus</a>
+                      </li>
+                      <li><a href="kontak_kami">Kontak Kami</a></li>
+                    </ul>
+                  </nav>
+                </div>
+                <!-- /.footer-widget-nav -->
+              </div>
+              <!-- /.col-lg-2 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.footer-primary -->
+        <div class="footer-scroll text-center"></div>
+        <!-- /.footer-scroll -->
         <div class="footer-secondary bg-white">
           <div class="container">
             <div class="row align-items-center">
               <div
                 class="col-sm-12 col-md-8 col-lg-12 col-xl-8 offset-xl-2 d-flex flex-wrap justify-content-between align-items-center">
                 <div class="footer__copyrights">
-                  <span class="fz-14">&copy; 2022 Sekure, All Rights Reserved. With Love by </span>
-                  <a class="fz-14 color-primary" href="http://themeforest.net/user/7oroof">7oroof.com</a>
+                  <span class="fz-14">&copy; 2025 Konig Guard Bureau, All Rights Reserved
+                  </span>
                 </div>
-                <nav>
-                  <ul class="list-unstyled footer__copyright-links d-flex flex-wrap mb-0">
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookies</a></li>
-                  </ul>
-                </nav>
-              </div><!-- /.col-xl-10 -->
-            </div><!-- /.row -->
-          </div><!-- /.container -->
-        </div><!-- /.footer-secondary -->
+              </div>
+              <!-- /.col-xl-10 -->
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!-- /.footer-secondary -->
       </footer><!-- /.Footer -->
   </div><!-- /.wrapper -->
-  <div class="search-popup">
-    <button type="button" class="search-popup__close"><i class="fas fa-times"></i></button>
-    <form class="search-popup__form">
-      <input type="text" class="search-popup__form__input" placeholder="Type Words Then Enter">
-      <button class="search-popup__btn"><i class="icon-search"></i></button>
-    </form>
-  </div><!-- /. search-popup -->
+  <div class="cursor"></div>
+  <!-- scrollUp btn -->
+  <div class="progress-wrap">
+    <svg
+      class="progress-circle svg-content"
+      width="100%"
+      height="100%"
+      viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
 
   <script src="assets/js/jquery-3.5.1.min.js"></script>
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>

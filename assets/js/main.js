@@ -1,28 +1,3 @@
-/*--------------------------
-    Project Name: Sekure
-    Version: 1.0
-    Author: 7oorof
-    Relase Date: April 2022
----------------------------*/
-/*---------------------------
-      Table of Contents
-    --------------------
-    01- Pre Loading
-    02- Mobile Menu
-    03- Sticky Navbar
-    04- Scroll Top Button
-    05- Close Topbar
-    06- Set Background-img to section 
-    07- Add active class to accordions
-    08- Contact Form validation
-    09- Slick Carousel
-    10- Popup Video
-    11- Progress bars
-    12- NiceSelect Plugin
-    13- Range Slider
-     
- ----------------------------*/
-
 $(function () {
   "use strict";
 
@@ -410,44 +385,48 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // GALERY
 document.addEventListener("DOMContentLoaded", () => {
-  // Ambil elemen-elemen DOM yang dibutuhkan
+  // Ambil elemen lightbox
   const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.querySelector(".lightbox-img");
-  const lightboxCaption = document.querySelector(".lightbox-caption");
-  const closeBtn = document.querySelector(".lightbox-close");
+  if (!lightbox) return; // Hentikan script jika lightbox tidak ada
 
-  // Pastikan elemen-elemen ada sebelum menambahkan event listener
-  if (lightbox && lightboxImg && lightboxCaption && closeBtn) {
-    // Menambahkan event listener untuk setiap gambar dalam elemen polaroid
-    document.querySelectorAll(".polaroid img").forEach((img) => {
+  // Ambil elemen lain hanya jika lightbox ada
+  const lightboxImg = lightbox.querySelector(".lightbox-img");
+  const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+  const closeBtn = lightbox.querySelector(".lightbox-close");
+
+  // Pastikan semua elemen penting ada
+  if (!lightboxImg || !lightboxCaption || !closeBtn) return;
+
+  // Event listener untuk setiap gambar polaroid
+  const polaroidImages = document.querySelectorAll(".polaroid img");
+  if (polaroidImages.length > 0) {
+    polaroidImages.forEach((img) => {
       img.addEventListener("click", () => {
         lightboxImg.src = img.src;
         lightboxCaption.textContent = img.nextElementSibling?.textContent || "";
         lightbox.classList.add("show");
       });
     });
-
-    // Menambahkan event listener untuk tombol close pada lightbox
-    closeBtn.addEventListener("click", () => {
-      lightbox.classList.remove("show");
-    });
-
-    // Menambahkan event listener untuk menutup lightbox ketika mengklik area luar gambar
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.classList.remove("show");
-      }
-    });
-
-    // Menambahkan event listener untuk menutup lightbox ketika menekan tombol "Escape"
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        lightbox.classList.remove("show");
-      }
-    });
-  } else {
-    console.error("Elemen-elemen yang dibutuhkan tidak ditemukan.");
   }
+
+  // Close lightbox saat klik tombol close
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("show");
+  });
+
+  // Close lightbox saat klik di luar gambar
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("show");
+    }
+  });
+
+  // Close lightbox saat tekan tombol Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      lightbox.classList.remove("show");
+    }
+  });
 });
 
 // Artikel Detail Page
@@ -475,38 +454,3 @@ function validateCommentForm() {
   return true;
 }
 
-// SEARCH BOX
-document.addEventListener("DOMContentLoaded", function () {
-  const searchInput = document.getElementById("search-bar");
-  const resultsDiv = document.getElementById("search-results");
-
-  // prevent form reload
-  document
-    .getElementById("search-form")
-    .addEventListener("submit", function (e) {
-      e.preventDefault();
-    });
-
-  searchInput.addEventListener("keyup", function () {
-    const query = searchInput.value.trim();
-
-    if (query.length === 0) {
-      resultsDiv.innerHTML = "";
-      return;
-    }
-
-    fetch("ajax-search.php", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: "q=" + encodeURIComponent(query),
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        resultsDiv.innerHTML = data;
-      })
-      .catch((err) => {
-        resultsDiv.innerHTML = "<p>Error saat mencari data</p>";
-        console.error(err);
-      });
-  });
-});

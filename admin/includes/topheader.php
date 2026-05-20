@@ -2,7 +2,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="dashboard.php" class="logo"><span>KONIG<span>CONTENT</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="dashboard" class="logo"><span>KONIG<span>KONTENT</span></span><i class="mdi mdi-layers"></i></a>
                     <!-- Image logo -->
                     <!--<a href="index.html" class="logo">-->
                         <!--<span>-->
@@ -43,9 +43,9 @@
                                         <h5>Hi, Admin</h5>
                                     </li>
                               
-                                    <li><a href="change-password.php"><i class="ti-settings m-r-5"></i> Ganti Password</a></li>
+                                    <li><a href="ganti_password"><i class="ti-settings m-r-5"></i> Ganti Password</a></li>
                            
-                                    <li><a href="logout.php"><i class="ti-power-off m-r-5"></i> Logout</a></li>
+                                    <li><a href="logout"><i class="ti-power-off m-r-5"></i> Logout</a></li>
                                 </ul>
                             </li>
 

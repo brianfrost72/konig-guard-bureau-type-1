@@ -172,7 +172,7 @@ function renderServices(filterKey, isIndexPage) {
     moreServicesBox.innerHTML = `
       <div class="fancybox__img">
         <div class="bg-img">
-          <img src="path/to/your/image.jpg" alt="Jasa Lebih Lanjut">
+          <img src="assets/images/jasa/" alt="Jasa Lebih Lanjut">
         </div>
       </div>
       <div class="fancybox__body text-center">
@@ -199,64 +199,6 @@ if (page.endsWith("index.html") || page === "/" || page === "") {
 
 // JASA LAYANAN KEAMANAN
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof servicesData === "undefined") {
-    console.error("servicesData tidak ditemukan");
-    return;
-  }
-
-  servicesData.forEach((service) => {
-    const tabPane = document.querySelector(
-      `.tab-pane[data-key="${service.key}"]`
-    );
-
-    if (!tabPane) {
-      console.warn("Tab pane tidak ada:", service.key);
-      return;
-    }
-
-    // TITLE
-    const titleEl = tabPane.querySelector(".process__title");
-    if (titleEl) {
-      titleEl.innerHTML = service.title;
-    }
-
-    // DESC
-    const descEl = tabPane.querySelector(".process__desc");
-    if (descEl) {
-      descEl.innerHTML = service.desc;
-    }
-
-    // IMAGE
-    const imgEl = tabPane.querySelector("#service-image");
-
-    if (imgEl) {
-      imgEl.src = service.imgService;
-      imgEl.alt = service.title;
-    } else {
-      console.warn("IMG tidak ditemukan di:", service.key);
-    }
-  });
-});
-
-// URL JASA KEAMANAN
-document.addEventListener("DOMContentLoaded", function () {
-  // Saat halaman dibuka pakai hash
-  if (window.location.hash) {
-    const hash = window.location.hash;
-    const tab = document.querySelector('.nav-tabs a[href="' + hash + '"]');
-    if (tab) tab.click();
-  }
-
-  // Saat tab diklik → update URL
-  document.querySelectorAll(".nav-tabs a").forEach((tab) => {
-    tab.addEventListener("click", function () {
-      const target = this.getAttribute("href");
-      history.pushState(null, "", target);
-    });
-  });
-});
-
 // =========================== PRELOADER =================================
 // preloader
 
@@ -266,41 +208,39 @@ document.addEventListener("DOMContentLoaded", function () {
   const progress = document.getElementById("progress");
   const loadingText = document.querySelector(".loading-text");
 
-  // Simulate loading progress
+  if (content) content.style.display = "block"; // supaya bisa fade-in
+
+  if (!preloader || !progress || !loadingText) {
+    if (preloader) preloader.style.display = "none";
+    if (content) content.style.opacity = "1";
+    return;
+  }
+
   let width = 0;
   const interval = setInterval(() => {
+    width += Math.floor(Math.random() * 5) + 1;
+    width = Math.min(width, 100);
+    progress.style.width = width + "%";
+
+    if (width > 80) loadingText.textContent = "ALMOST THERE";
+    else if (width > 50) loadingText.textContent = "LOADING";
+
     if (width >= 100) {
       clearInterval(interval);
       loadingText.textContent = "READY";
 
       setTimeout(() => {
-        // Hide preloader with transform
+        // Tambahkan kelas untuk fade-out preloader
         preloader.classList.add("preloader-done");
 
-        // Show content
-        content.style.display = "block";
+        // Fade-in content
+        if (content) content.style.opacity = "1";
 
-        // Trigger reflow
-        void content.offsetWidth;
-
-        // Fade in content
-        content.style.opacity = "1";
-
-        // Remove preloader after animation
+        // Hapus preloader setelah animasi selesai
         setTimeout(() => {
           preloader.style.display = "none";
-        }, 800);
+        }, 800); // harus sama dengan transition CSS
       }, 600);
-    } else {
-      width += Math.floor(Math.random() * 5) + 1;
-      width = Math.min(width, 100);
-      progress.style.width = width + "%";
-
-      if (width > 80) {
-        loadingText.textContent = "ALMOST THERE";
-      } else if (width > 50) {
-        loadingText.textContent = "LOADING";
-      }
     }
   }, 100);
 });
@@ -347,3 +287,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 })(jQuery);
+
+// KONTAK KAMI

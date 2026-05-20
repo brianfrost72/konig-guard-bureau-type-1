@@ -7,7 +7,7 @@
                             <li class="menu-title">Navigasi</li>
 
                             <li class="has_sub">
-                                <a href="dashboard.php" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
+                                <a href="dashboard" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
 
                             </li>
 
@@ -19,24 +19,24 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Kategori Artikel </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-category.php">Tambah Kategori Artikel</a></li>
-                                    <li><a href="manage-categories.php">Kelola Kategori Artikel</a></li>
+                                    <li><a href="tambah_kategori_artikel">Tambah Kategori Artikel</a></li>
+                                    <li><a href="kelola_kategori_artikel">Kelola Kategori Artikel</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span>Sub Kategori Artikel</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-subcategory.php">Tambah Sub Kategori Artikel</a></li>
-                                    <li><a href="manage-subcategories.php">Kelola Sub Kategori Artikel</a></li>
+                                    <li><a href="tambah_subkategori_artikel">Tambah Sub Kategori Artikel</a></li>
+                                    <li><a href="kelola_subkategori_artikel">Kelola Sub Kategori Artikel</a></li>
                                 </ul>
                             </li>
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Postingan Artikel </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-post.php">Tambah Postingan Artikel</a></li>
-                                    <li><a href="manage-posts.php">Kelola Postingan Artikel</a></li>
-                                    <li><a href="trash-posts.php">Sampah Postingan Artikel</a></li>
+                                    <li><a href="tambah_postingan_artikel">Tambah Postingan Artikel</a></li>
+                                    <li><a href="kelola_postingan_artikel">Kelola Postingan Artikel</a></li>
+                                    <li><a href="sampah_postingan_artikel">Sampah Postingan Artikel</a></li>
                                 </ul>
                             </li>
 
@@ -49,23 +49,24 @@
                                 </ul>
                             </li> -->
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Komenan </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Komentar </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="unapprove-comment.php">Menunggu Persetujuan </a></li>
-                                    <li><a href="manage-comments.php">Komentar yang Disetujui</a></li>
+                                    <li><a href="komentar_masuk">Menunggu Persetujuan </a></li>
+                                    <li><a href="Kelola_komentar">Komentar yang Disetujui</a></li>
                                 </ul>
                             </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Galeri </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-gallery.php">Tambah Galeri</a></li>
-                                    <li><a href="manage-gallery.php">Kelola Galeri</a></li>
+                                    <li><a href="tambah_galeri">Tambah Galeri</a></li>
+                                    <li><a href="kelola_galeri">Kelola Galeri</a></li>
                                 </ul>
                             </li>
 
 
-                            <li class="has_sub">
+
+                            <!-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Kategori Jasa </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-jasa.php">Tambah Kategori Jasa</a></li>
@@ -80,27 +81,27 @@
                                     <li><a href="add-gallery.php">Tambah Posting Jasa</a></li>
                                     <li><a href="manage-gallery.php">Kelola Posting Jasa</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
 
 
-                            <li class="has_sub">
+                            <!-- <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Struktur Organisasi </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-gallery.php">Tambah Struktur Organisasi</a></li>
                                     <li><a href="manage-gallery.php">Kelola Struktur Organisasi</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
 
 
                             <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Mitra Kita </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Klien Kita </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-gallery.php">Tambah Mitra Kita</a></li>
-                                    <li><a href="manage-gallery.php">Kelola Mitra Kita</a></li>
+                                    <li><a href="tambah_klien.php">Tambah Klien Kita</a></li>
+                                    <li><a href="kelola_klien.php">Kelola Klien Kita</a></li>
                                 </ul>
                             </li>
 
-                            
+
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Testimoni </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">

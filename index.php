@@ -1,15 +1,10 @@
-<?php
-include('koneksi.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="X-UA-Compatible" content="" />
   <meta name="description" content="" />
   <link href="assets/images/favicon/favicon.png" rel="icon" />
   <title>
@@ -32,7 +27,7 @@ include('koneksi.php');
 </head>
 
 <body>
-  <div id="preloader">
+  <!-- <div id="preloader">
     <div class="loader-container">
       <img
         src="assets/images/logo/logo.png"
@@ -43,364 +38,127 @@ include('koneksi.php');
       </div>
       <div class="loading-text">Loading</div>
     </div>
-  </div>
+  </div> -->
   <div class="wrapper">
     <!-- =========================
         Header
     =========================== -->
     <header class="header header-transparent header-layout1">
-      <nav class="navbar navbar-expand-lg sticky-navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            <img
-              src="assets/images/logo/logo_terang.png"
-              class="logo-light"
-              alt="logo" />
-            <img
-              src="assets/images/logo/logo_terang.png"
-              class="logo-dark"
-              alt="logo" />
-          </a>
-          <button class="navbar-toggler" type="button">
-            <span class="menu-lines"><span></span></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mainNavigation">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav__item">
-                <a href="/" class="nav__item-link active">Beranda</a>
-              </li>
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link">Tentang Kami</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item">
-                    <a href="siapa_kami" class="nav__item-link">Siapa Kami?</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="legalitas" class="nav__item-link">Legalitas Perusahaan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="struktur" class="nav__item-link">Struktur Perusahaan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="karir" class="nav__item-link">Karir</a>
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-                <!-- /.dropdown-menu -->
-              </li>
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link">Layanan Kami</a>
-                <ul class="dropdown-menu wide-dropdown-menu">
-                  <li class="nav__item">
-                    <div class="row mx-0">
-                      <div class="col-sm-6 dropdown-menu-col">
-                        <a
-                          href="jasa_keamanan"
-                          class="nav__item-link dropdown-menu-title">Jasa Keamanan</a>
-                        <ul class="nav flex-column">
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_security">Pengamanan (Satpam)</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_bodyguard">Bodyguard</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_pengamanan_event">Pengamanan Event</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_detektif_swasta">Detektif swasta</a>
-                          </li>
-                          <!-- /.nav-item -->
-                        </ul>
-                      </div>
-                      <!-- /.col-sm-6 -->
-                      <div class="col-sm-6 dropdown-menu-col">
-                        <a
-                          href="jasa_operasional"
-                          class="nav__item-link dropdown-menu-title">Fasilitas & Operasional</a>
-                        <ul class="nav flex-column">
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_parkir">Pengelolaan Parkir</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_driver">Jasa Driver</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_cleaning_service">Cleaning Services</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_pramubakti">Jasa Pramubakti</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_pengacara">Jasa Pengacara</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <!-- /.nav-item -->
-                        </ul>
-                      </div>
-                      <!-- /.col-sm-6 -->
-                    </div>
-                    <!-- /.row -->
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-              </li>
-              <!-- /.nav-item -->
-
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link">Mitra &amp; Pelatihan</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item">
-                    <a href="mitra_konig" class="nav__item-link">Mitra Pengamanan Kami</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="mitra_pelatihan" class="nav__item-link">Mitra Pelatihan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="pelatihan_konig" class="nav__item-link">Pelatihan Khusus</a>
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-                <!-- /.dropdown-menu -->
-              </li>
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link">Media & Informasi</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item">
-                    <a href="artikel" class="nav__item-link">Artikel</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="testimony" class="nav__item-link">Testimoni Pelanggan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="galeri" class="nav__item-link">Galeri</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="kontak_kami" class="nav__item-link">Kontak Kami</a>
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-                <!-- /.dropdown-menu -->
-              </li>
-            </ul>
-            <!-- /.navbar-nav -->
-            <button class="close-mobile-menu d-block d-lg-none">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-          <!-- /.navbar-collapse -->
-          <ul
-            class="navbar-actions d-none d-xl-flex align-items-center list-unstyled mb-0">
-            <!-- <li>
-                <a href="#" class="btn btn__white action__btn login_btn"
-                  >Login</a
-                >
-              </li> -->
-            <li>
-              <div class="phone__number">
-                <div class="phone__icon">
-                  <i class="icon-phone"></i>
-                </div>
-                <div>
-                  <a class="phone__link d-block" href="tel:08111902759">0811 1902 759</a>
-                  <a class="email__link d-block" href="mailto:cs@konig.co.id">cs@konig.co.id</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <!-- /.container -->
-      </nav>
-      <!-- /.navabr -->
+      <?php include 'includes/navbar.php'; ?>
     </header>
     <!-- /.Header -->
 
     <!-- ============================
         Slider
     ============================== -->
-    <section class="slider">
-      <div
-        class="slick-carousel carousel-arrows-light carousel-dots-light m-slides-0"
-        data-slick='{"slidesToShow": 1, "arrows": true, "dots": true, "speed": 700,"fade": true,"cssEase": "linear"}'>
-        <div class="slide-item bg-overlay align-v-h">
-          <div class="bg-img">
-            <img src="assets/images/sliders/1.jpg" alt="slide img" />
+    <!-- =========================
+        BANNER SLIDER
+========================= -->
+
+    <section class="hero-slider">
+
+      <div class="slider-container">
+
+        <!-- SLIDE 1 -->
+        <div class="slide active">
+          <img src="https://picsum.photos/id/1018/1600/700" alt="">
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+            <span class="slider-subtitle">
+              Welcome To Our Website
+            </span>
+
+            <h1>
+              Modern Dashboard <br>
+              UI Experience
+            </h1>
+
+            <p>
+              Banner slider dengan animasi smooth, dot indicator,
+              dan loading timer progress.
+            </p>
+
+            <a href="#" class="btn btn__secondary">
+              Explore Now
+            </a>
           </div>
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
-                <div class="slide__content">
-                  <!-- <span class="slide__subtitle"
-                      >Home Security Products Everyone Can Install, Afford, And
-                      Use!</span
-                    > -->
-                  <h2 class="slide__title">
-                    Keamanan Terjamin, Kepercayaan Terbangun
-                  </h2>
-                  <p class="slide__desc">
-                    Layanan pengamanan handal dengan personel bersertifikat
-                    dan sistem keamanan terintegrasi.
-                  </p>
-                  <div class="d-flex flex-wrap align-items-center">
-                    <a
-                      href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan"
-                      target="_blank"
-                      class="btn btn__primary btn__xl mr-30">
-                      <span>Layanan Marketing Kami</span>
-                      <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                    <!-- <a href="services.html" class="btn btn__white btn__xl">
-                        More About Us!
-                      </a> -->
-                  </div>
-                </div>
-                <!-- /.slide-content -->
-              </div>
-              <!-- /.col-xl-7 -->
-              <!-- <div
-                  class="col-sm-12 col-md-12 col-lg-12 col-xl-3 offset-xl-2 d-none d-xl-block"
-                >
-                  <div class="cta-banner">
-                    <h4 class="cta__title">
-                      Custom Alerts For Friends And Family
-                    </h4>
-                    <img
-                      src="assets/images/cta/1.jpg"
-                      alt="cta__img"
-                      class="cta__img"
-                    />
-                    <p class="cta__desc">
-                      Door, window, and Glass Break Detectors designed to
-                      monitor and protect home and family.
-                    </p>
-                    <a href="services.html" class="btn btn__primary btn__link">
-                      <i class="icon-arrow-right icon-filled"></i>
-                      <span>Protect Your Home</span>
-                    </a>
-                  </div>
-                </div> -->
-              <!-- /.col-xl-2 -->
-            </div>
-            <!-- /.row -->
-          </div>
-          <!-- /.container -->
         </div>
-        <!-- /.slide-item -->
-        <div class="slide-item bg-overlay align-v-h">
-          <div class="bg-img">
-            <img src="assets/images/sliders/2.jpg" alt="slide img" />
+
+        <!-- SLIDE 2 -->
+        <div class="slide">
+          <img src="https://picsum.photos/id/1015/1600/700" alt="">
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+            <span class="slider-subtitle">
+              Elegant Design
+            </span>
+
+            <h1>
+              Responsive <br>
+              Banner Slider
+            </h1>
+
+            <p>
+              Menggunakan CSS milik kamu dengan warna premium navy gold.
+            </p>
+
+            <a href="#" class="btn btn__primary">
+              Get Started
+            </a>
           </div>
-          <div class="container">
-            <div class="row align-items-center">
-              <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
-                <div class="slide__content">
-                  <!-- <span class="slide__subtitle"
-                      >Home Security Products Everyone Can Install, Afford, And
-                      Use!</span
-                    > -->
-                  <h2 class="slide__title">Dukungan Fasilitas Profesional</h2>
-                  <p class="slide__desc">
-                    Tim profesional siap mendukung setiap kebutuhan fasilitas
-                    dengan pelayanan yang cepat, rapi, dan dapat diandalkan.
-                  </p>
-                  <div class="d-flex flex-wrap align-items-center">
-                    <a
-                      href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20mengenai%20-%20Dukungan%20fasilitas"
-                      target="_blank"
-                      class="btn btn__primary btn__xl mr-30">
-                      <span>Layanan Marketing Kami</span>
-                      <i class="fa-brands fa-whatsapp"></i>
-                    </a>
-                    <!-- <a href="services.html" class="btn btn__white btn__xl">
-                        More About Us!
-                      </a> -->
-                  </div>
-                </div>
-                <!-- /.slide-content -->
-              </div>
-              <!-- /.col-xl-7 -->
-              <!-- <div
-                  class="col-sm-12 col-md-12 col-lg-12 col-xl-3 offset-xl-2 d-none d-xl-block"
-                >
-                  <div class="cta-banner">
-                    <h4 class="cta__title">
-                      Custom Alerts For Friends And Family
-                    </h4>
-                    <img
-                      src="assets/images/cta/1.jpg"
-                      alt="cta__img"
-                      class="cta__img"
-                    />
-                    <p class="cta__desc">
-                      Door, window, and Glass Break Detectors designed to
-                      monitor and protect home and family.
-                    </p>
-                    <a href="services.html" class="btn btn__primary btn__link">
-                      <i class="icon-arrow-right icon-filled"></i>
-                      <span>Protect Your Home</span>
-                    </a>
-                  </div>
-                </div> -->
-              <!-- /.col-xl-2 -->
-            </div>
-            <!-- /.row -->
-          </div>
-          <!-- /.container -->
         </div>
-        <!-- /.slide-item -->
+
+        <!-- SLIDE 3 -->
+        <div class="slide">
+          <img src="https://picsum.photos/id/1005/1600/700" alt="">
+          <div class="slide-overlay"></div>
+
+          <div class="slide-content">
+            <span class="slider-subtitle">
+              Smooth Animation
+            </span>
+
+            <h1>
+              Auto Slider <br>
+              With Timer Bar
+            </h1>
+
+            <p>
+              Dilengkapi loading bar otomatis sebagai indikator pergantian slide.
+            </p>
+
+            <a href="#" class="btn btn__secondary">
+              Learn More
+            </a>
+          </div>
+        </div>
+
+        <!-- BUTTON -->
+        <button class="slider-btn prev">
+          ❮
+        </button>
+
+        <button class="slider-btn next">
+          ❯
+        </button>
+
+        <!-- DOT -->
+        <div class="slider-dots">
+          <span class="dot active"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <!-- TIMER BAR -->
+        <div class="timer-bar">
+          <div class="timer-progress"></div>
+        </div>
+
       </div>
-      <!-- /.carousel -->
+
     </section>
-    <!-- /.slider -->
 
     <!-- ========================
       About Layout 1
@@ -587,7 +345,7 @@ include('koneksi.php');
     <!-- ======================
      Clients
     ========================= -->
-    <section class="clients border-top pt-50 pb-50">
+    <!-- <section class="clients border-top pt-50 pb-50">
       <div class="container">
         <div class="row d-flex justify-content-center bounce-in">
           <div class="col-sm-12 col-md-12 col-lg-8">
@@ -596,33 +354,33 @@ include('koneksi.php');
               data-slick='{"slidesToShow": 4, "arrows": false, "dots": false, "autoplay": true,"autoplaySpeed": 2000, "infinite": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 3}}, {"breakpoint": 767, "settings": {"slidesToShow": 2}}, {"breakpoint": 480, "settings": {"slidesToShow": 2}}]}'>
               <div class="client">
                 <img src="assets/images/clients/8.png" alt="client" />
-              </div>
-              <!-- /.client -->
-              <div class="client">
+              </div> -->
+    <!-- /.client -->
+    <!-- <div class="client">
                 <img src="assets/images/clients/9.png" alt="client" />
-              </div>
-              <!-- /.client -->
-              <div class="client">
+              </div> -->
+    <!-- /.client -->
+    <!-- <div class="client">
                 <img src="assets/images/clients/10.png" alt="client" />
-              </div>
-              <!-- /.client -->
-              <div class="client">
+              </div> -->
+    <!-- /.client -->
+    <!-- <div class="client">
                 <img src="assets/images/clients/11.png" alt="client" />
-              </div>
-              <!-- /.client -->
-              <div class="client">
+              </div> -->
+    <!-- /.client -->
+    <!-- <div class="client">
                 <img src="assets/images/clients/9.png" alt="client" />
-              </div>
-              <!-- /.client -->
-            </div>
-            <!-- /.carousel -->
-          </div>
-          <!-- /.col-lg-6 -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container -->
-    </section>
+              </div> -->
+    <!-- /.client -->
+    <!-- </div> -->
+    <!-- /.carousel -->
+    <!-- </div> -->
+    <!-- /.col-lg-6 -->
+    <!-- </div> -->
+    <!-- /.row -->
+    <!-- </div> -->
+    <!-- /.container -->
+    <!-- </section> -->
     <!-- /.Clients -->
     <!-- ======================
       Blog Grid
@@ -642,84 +400,45 @@ include('koneksi.php');
         <!-- /.row -->
         <div class="row">
           <!-- Post Item #1 -->
-          <?php
-          if (isset($_GET['pageno'])) {
-            $pageno = $_GET['pageno'];
-          } else {
-            $pageno = 1;
-          }
-          $no_of_records_per_page = 3;
-          $offset = ($pageno - 1) * $no_of_records_per_page;
-
-
-          $total_pages_sql = "SELECT COUNT(*) FROM tblposts";
-          $result = mysqli_query($con, $total_pages_sql);
-          $total_rows = mysqli_fetch_array($result)[0];
-          $total_pages = ceil($total_rows / $no_of_records_per_page);
-
-
-          $query = mysqli_query($con, "select tblposts.id as pid,tblposts.PostTitle as posttitle,tblposts.PostImage,tblcategory.CategoryName as category,tblcategory.id as cid,tblsubcategory.Subcategory as subcategory,tblposts.PostDetails as postdetails,tblposts.PostingDate as postingdate,tblposts.PostUrl as url from tblposts left join tblcategory on tblcategory.id=tblposts.CategoryId left join  tblsubcategory on  tblsubcategory.SubCategoryId=tblposts.SubCategoryId where tblposts.Is_Active=1 order by tblposts.id desc  LIMIT $offset, $no_of_records_per_page");
-          while ($row = mysqli_fetch_array($query)) {
-
-          ?>
-            <div class="col-sm-12 col-md-6 col-lg-4 flip-item">
-              <div class="post-item">
-                <div class="post__img">
-                  <a href="artikel_detail?nid=<?php echo htmlentities($row['pid']) ?>">
-                    <img
-                      src="admin/postimages/<?php echo htmlentities($row['PostImage']); ?>"
-                      alt="<?php echo htmlentities($row['posttitle']); ?>"
-                      loading="lazy" />
-                  </a>
-                  <div class="post__meta-cat">
-                    <a href="category?catid=<?php echo htmlentities($row['cid']) ?>"><?php echo htmlentities($row['category']); ?></a>
-                  </div>
-                  <!-- /.blog-meta-cat -->
+          <div class="col-sm-12 col-md-6 col-lg-4 flip-item">
+            <div class="post-item">
+              <div class="post__img">
+                <a href="artikel_detail">
+                  <img
+                    src="admin/postimages/"
+                    alt=""
+                    loading="lazy" />
+                </a>
+                <div class="post__meta-cat">
+                  <a href="category"></a>
                 </div>
-                <!-- /.post__img -->
-                <div class="post__body">
-                  <h4 class="post__title">
-                    <?php echo htmlentities($row['posttitle']); ?>
-                  </h4>
-                  <div class="post__meta d-flex">
-                    <span class="post__meta-date">Terbit pada <?php echo htmlentities($row['postingdate']); ?></span>
-                    <!-- <div class="post__meta-author">
+                <!-- /.blog-meta-cat -->
+              </div>
+              <!-- /.post__img -->
+              <div class="post__body">
+                <h4 class="post__title">
+
+                </h4>
+                <div class="post__meta d-flex">
+                  <span class="post__meta-date">Terbit pada </span>
+                  <!-- <div class="post__meta-author">
                       <a href="#">John Ezak</a>
                     </div> -->
-                  </div>
-                  <p class="post__desc-index">
-                    <?php
-                    $text = str_replace(array('<p>', '</p>'), '', $row['postdetails']);
-
-                    if (!isset($_GET['detail'])) {
-                      // MODE INDEX
-                      $maxLength = 100;
-                      if (strlen($text) > $maxLength) {
-                        $text = substr($text, 0, $maxLength) . '...';
-                      }
-                    }
-
-                    echo $text;
-                    ?>
-
-                  </p>
-                  <a
-                    href="artikel_detail?nid=<?php echo htmlentities($row['pid']) ?>"
-                    class="btn btn__secondary btn__outlined">
-                    <i class="icon-arrow-right"></i>
-                    <span>Read More</span>
-                  </a>
                 </div>
-                <!-- /.post__body -->
-              </div>
-              <!-- /.post-item -->
-            </div>
-          <?php } ?>
-          <!-- /.col-lg-4 -->
-          <!-- Post Item #2 -->
-          <!-- /.col-lg-4 -->
-          <!-- Post Item #3 -->
+                <p class="post__desc-index">
 
+                </p>
+                <a
+                  href="artikel_detail"
+                  class="btn btn__secondary btn__outlined">
+                  <i class="icon-arrow-right"></i>
+                  <span>Read More</span>
+                </a>
+              </div>
+              <!-- /.post__body -->
+            </div>
+            <!-- /.post-item -->
+          </div>
           <!-- /.col-lg-4 -->
         </div>
         <!-- /.row -->
@@ -740,172 +459,12 @@ include('koneksi.php');
       Footer
     ========================== -->
     <footer class="footer">
-      <div class="footer-primary">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-4">
-              <div class="footer-widget-contact">
-                <!-- <h6 class="footer-widget__title">Quick Contacts</h6> -->
-                <h5 class="ft-title">ABOUT <span>US</span></h5>
-
-                <a href="/"><img
-                    src="assets/images/logo/logo_terang.png"
-                    class="mb-20 w-100 h-60"
-                    alt="logo-footer" /></a>
-                <p>
-                  PT. KONIG GUARD BUREAU adalah Perusahaan Penyedia Jasa
-                  Outsourcing yang menghadirkan layanan Security, Cleaning
-                  Service, Administrasi, dan Driver untuk lingkungan kerja
-                  yang AMAN, NYAMAN, dan PROFESIONAL.
-                </p>
-                <ul class="contact__list list-unstyled">
-                  <li>
-                    <a href="mailto:cs@konig.co.id">
-                      <i class="contact__icon icon-email"></i>
-                      <span>cs@konig.co.id</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="tel:08111902759">
-                      <i class="contact__icon icon-phone"></i>
-                      <span>(+62) 811 1902 759</span>
-                    </a>
-                  </li>
-                </ul>
-                <p>[ISI ALAMAT KANTOR], Jakarta - Indonesia.</p>
-                <a
-                  href="kontak_kami"
-                  class="btn btn__white btn__link mr-30">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>Get Directions</span>
-                </a>
-              </div>
-              <!-- /.footer-widget-contact -->
-              <ul
-                class="social-icons list-unstyled justify-content-start mb-0">
-                <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.col-xl-2 -->
-            <!-- <div class="col-sm-6 col-md-4 col-lg-2">
-                <div class="footer-widget-nav">
-                  <h5 class="ft-title">CONTACT <span>US</span></h5>
-                  <nav>
-                    <ul class="list-unstyled">
-                      <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="team.html">Leadership Team</a></li>
-                      <li><a href="blog.html">News & Media</a></li>
-                      <li><a href="shop.html">Our Products</a></li>
-                      <li><a href="reviews.html">Reviews</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div> -->
-            <!-- /.col-lg-2 -->
-            <div class="col-sm-6 col-md-4 col-lg-2 offset-lg-3">
-              <div class="footer-widget-nav">
-                <!-- <h6 class="footer-widget__title">Services</h6> -->
-                <h5 class="ft-title">QUICK <span>LINK</span></h5>
-                <nav>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="siapa_kami">Siapa Kami</a>
-                    </li>
-                    <li><a href="legalitas">Legalitas Perusahaan</a></li>
-                    <li><a href="struktur">Struktur Perusahaan</a></li>
-                    <li><a href="galeri">Dokumentasi Perusahaan</a></li>
-                    <li>
-                      <a href="jasa_keamanan">Layanan Keamanan Kami</a>
-                    </li>
-                    <li>
-                      <a href="jasa_operasional">Layanan Fasilitas &amp; Kami</a>
-                    </li>
-                    <li><a href="karir">Karir</a></li>
-                  </ul>
-                </nav>
-              </div>
-              <!-- /.footer-widget-nav -->
-            </div>
-            <!-- /.col-lg-2 -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="footer-widget-nav">
-                <!-- <h6 class="footer-widget__title">Help</h6> -->
-                <h5 class="ft-title">MITRA &amp; <span>TRAINING</span></h5>
-                <nav>
-                  <ul class="list-unstyled">
-                    <li><a href="mitra_konig">Mitra Pengamanan</a></li>
-                    <li>
-                      <a href="mitra_pelatihan">Mitra Pelatihan</a>
-                    </li>
-                    <li>
-                      <a href="pelatihan_konig">Pelatihan Khusus</a>
-                    </li>
-                    <li><a href="kontak_kami">Kontak Kami</a></li>
-                  </ul>
-                </nav>
-              </div>
-              <!-- /.footer-widget-nav -->
-            </div>
-            <!-- /.col-lg-2 -->
-
-            <!-- /.col-lg-2 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container -->
-      </div>
-      <!-- /.footer-primary -->
-      <div class="footer-scroll text-center"></div>
-      <!-- /.footer-scroll -->
-      <div class="footer-secondary bg-white">
-        <div class="container">
-          <div class="row align-items-center">
-            <div
-              class="col-sm-12 col-md-8 col-lg-12 col-xl-8 offset-xl-2 d-flex flex-wrap justify-content-between align-items-center">
-              <div class="footer__copyrights">
-                <span class="fz-14">&copy; 2025 Konig Guard Bureau, All Rights Reserved
-                </span>
-              </div>
-              <!-- <nav>
-                  <ul
-                    class="list-unstyled footer__copyright-links d-flex flex-wrap mb-0"
-                  >
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookies</a></li>
-                  </ul>
-                </nav> -->
-            </div>
-            <!-- /.col-xl-10 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container -->
-      </div>
-      <!-- /.footer-secondary -->
+       <?php include 'includes/footer.php'; ?>
     </footer>
     <!-- /.Footer -->
   </div>
 
   <!-- /.wrapper -->
-  <div class="search-popup">
-    <button type="button" class="search-popup__close">
-      <i class="fas fa-times"></i>
-    </button>
-    <form class="search-popup__form">
-      <input
-        type="text"
-        class="search-popup__form__input"
-        placeholder="Type Words Then Enter" />
-      <button class="search-popup__btn"><i class="icon-search"></i></button>
-    </form>
-  </div>
-  <!-- /. search-popup -->
   <div class="cursor"></div>
   <!-- scrollUp btn -->
   <div class="progress-wrap">
@@ -923,6 +482,79 @@ include('koneksi.php');
   <script src="assets/js/plugins.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/script.js"></script>
+
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+    const nextBtn = document.querySelector(".next");
+    const prevBtn = document.querySelector(".prev");
+    const progress = document.querySelector(".timer-progress");
+
+    let current = 0;
+    let interval;
+
+    function showSlide(index) {
+
+      slides.forEach(slide => slide.classList.remove("active"));
+      dots.forEach(dot => dot.classList.remove("active"));
+
+      slides[index].classList.add("active");
+      dots[index].classList.add("active");
+
+      progress.style.animation = "none";
+      progress.offsetHeight;
+      progress.style.animation = null;
+
+    }
+
+    function nextSlide() {
+      current++;
+      if (current >= slides.length) {
+        current = 0;
+      }
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current--;
+      if (current < 0) {
+        current = slides.length - 1;
+      }
+      showSlide(current);
+    }
+
+    nextBtn.addEventListener("click", () => {
+      nextSlide();
+      resetAutoSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      prevSlide();
+      resetAutoSlide();
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        current = index;
+        showSlide(current);
+        resetAutoSlide();
+      });
+    });
+
+    function autoSlide() {
+      interval = setInterval(() => {
+        nextSlide();
+      }, 5000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(interval);
+      autoSlide();
+    }
+
+    autoSlide();
+  </script>
+
 </body>
 
 </html>

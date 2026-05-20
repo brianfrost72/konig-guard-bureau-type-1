@@ -192,7 +192,7 @@ include('koneksi.php');
                   class="dropdown-toggle nav__item-link">Mitra &amp; Pelatihan</a>
                 <ul class="dropdown-menu">
                   <li class="nav__item">
-                    <a href="mitra_konig" class="nav__item-link">Mitra Pengamanan Kami</a>
+                    <a href="klien_kami" class="nav__item-link">Klien Kami</a>
                   </li>
                   <!-- /.nav-item -->
                   <li class="nav__item">
@@ -302,8 +302,8 @@ include('koneksi.php');
     ========================= -->
 
     <form class="search-container mt-30 mb-30" name="search" action="search.php" method="post">
-      <input type="text" id="search-bar" name="search-title" placeholder="Artikel apa yang kamu cari?" required>
-      <button type="submit" class="search-icon" type="submit">
+      <input type="text" id="search-bar" name="searchtitle" placeholder="Artikel apa yang kamu cari?" required>
+      <button class="search-icon" type="submit">
         <i class="fa-solid fa-magnifying-glass"></i>
       </button>
     </form>
@@ -366,7 +366,7 @@ include('koneksi.php');
 
                     if (!isset($_GET['detail'])) {
                       // MODE INDEX
-                      $maxLength = 100;
+                      $maxLength = 300;
                       if (strlen($text) > $maxLength) {
                         $text = substr($text, 0, $maxLength) . '...';
                       }
@@ -461,7 +461,7 @@ include('koneksi.php');
                     </a>
                   </li>
                 </ul>
-                <p>[ISI ALAMAT KANTOR], Jakarta - Indonesia.</p>
+                <p>Puri Botanical Residence Blok H9 No.11, Jakarta - Indonesia.</p>
                 <a
                   href="kontak_kami"
                   class="btn btn__white btn__link mr-30">
@@ -481,21 +481,6 @@ include('koneksi.php');
               </ul>
             </div>
             <!-- /.col-xl-2 -->
-            <!-- <div class="col-sm-6 col-md-4 col-lg-2">
-                <div class="footer-widget-nav">
-                  <h5 class="ft-title">CONTACT <span>US</span></h5>
-                  <nav>
-                    <ul class="list-unstyled">
-                      <li><a href="about-us.html">About Us</a></li>
-                      <li><a href="team.html">Leadership Team</a></li>
-                      <li><a href="blog.html">News & Media</a></li>
-                      <li><a href="shop.html">Our Products</a></li>
-                      <li><a href="reviews.html">Reviews</a></li>
-                    </ul>
-                  </nav>
-                </div>
-              </div> -->
-            <!-- /.col-lg-2 -->
             <div class="col-sm-6 col-md-4 col-lg-2 offset-lg-3">
               <div class="footer-widget-nav">
                 <!-- <h6 class="footer-widget__title">Services</h6> -->
@@ -527,7 +512,7 @@ include('koneksi.php');
                 <h5 class="ft-title">MITRA &amp; <span>TRAINING</span></h5>
                 <nav>
                   <ul class="list-unstyled">
-                    <li><a href="mitra_konig">Mitra Pengamanan</a></li>
+                    <li><a href="klien_kami">Klien Kami</a></li>
                     <li>
                       <a href="mitra_pelatihan">Mitra Pelatihan</a>
                     </li>
@@ -540,8 +525,6 @@ include('koneksi.php');
               </div>
               <!-- /.footer-widget-nav -->
             </div>
-            <!-- /.col-lg-2 -->
-
             <!-- /.col-lg-2 -->
           </div>
           <!-- /.row -->
@@ -560,15 +543,6 @@ include('koneksi.php');
                 <span class="fz-14">&copy; 2025 Konig Guard Bureau, All Rights Reserved
                 </span>
               </div>
-              <!-- <nav>
-                  <ul
-                    class="list-unstyled footer__copyright-links d-flex flex-wrap mb-0"
-                  >
-                    <li><a href="#">Terms & Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Cookies</a></li>
-                  </ul>
-                </nav> -->
             </div>
             <!-- /.col-xl-10 -->
           </div>
@@ -581,19 +555,6 @@ include('koneksi.php');
     <!-- /.Footer -->
   </div>
   <!-- /.wrapper -->
-  <div class="search-popup">
-    <button type="button" class="search-popup__close">
-      <i class="fas fa-times"></i>
-    </button>
-    <form class="search-popup__form">
-      <input
-        type="text"
-        class="search-popup__form__input"
-        placeholder="Type Words Then Enter" />
-      <button class="search-popup__btn"><i class="icon-search"></i></button>
-    </form>
-  </div>
-  <!-- /. search-popup -->
   <div class="cursor"></div>
   <!-- scrollUp btn -->
   <div class="progress-wrap">
