@@ -1,3 +1,5 @@
+<?php include 'includes/visitor_tracker.php'; ?>
+
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -350,6 +352,8 @@
         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
       </svg>
     </div>
+
+    <?php include 'includes/ad_modal.php'; ?>
 
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/animation.js"></script>

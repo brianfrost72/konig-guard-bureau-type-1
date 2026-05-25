@@ -1,21 +1,60 @@
+<?php include 'includes/visitor_tracker.php'; ?>
+
 <?php
-include('koneksi.php');
+require_once "koneksi.php";
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+/*
+|--------------------------------------------------------------------------
+| PAGINATION
+|--------------------------------------------------------------------------
+*/
 
-$query = mysqli_query($con, "
-    SELECT gambar, deskripsi 
-    FROM tblgaleri 
+$limit = 10;
+
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+
+if ($page < 1) {
+  $page = 1;
+}
+
+$offset = ($page - 1) * $limit;
+
+/*
+|--------------------------------------------------------------------------
+| TOTAL DATA
+|--------------------------------------------------------------------------
+*/
+
+$totalQuery = mysqli_query($conn, "SELECT COUNT(*) as total FROM gallery");
+
+$totalData = mysqli_fetch_assoc($totalQuery)['total'];
+
+$totalPages = ceil($totalData / $limit);
+
+/*
+|--------------------------------------------------------------------------
+| AMBIL DATA GALLERY
+|--------------------------------------------------------------------------
+*/
+
+$queryGallery = mysqli_query($conn, "
+    SELECT id, name_gallery, picture, created_at
+    FROM gallery
     ORDER BY id DESC
+    LIMIT $limit OFFSET $offset
 ");
 
-$total = mysqli_num_rows($query);
+/*
+|--------------------------------------------------------------------------
+| CHECK DATA
+|--------------------------------------------------------------------------
+*/
+
+$totalGallery = mysqli_num_rows($queryGallery);
 ?>
 
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
   <meta charset="UTF-8" />
@@ -41,6 +80,49 @@ $total = mysqli_num_rows($query);
   <link rel="stylesheet" href="assets/css/animation.css" />
   <link rel="stylesheet" href="assets/css/libraries.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <style>
+    .pagination-area {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pagination-number,
+    .pagination-btn {
+      min-width: 45px;
+      height: 45px;
+      padding: 0 15px;
+      border-radius: 50px;
+      background: #111;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: 0.3s ease;
+      font-weight: 600;
+    }
+
+    .pagination-number:hover,
+    .pagination-btn:hover {
+      background: #f5b301;
+      color: #000;
+    }
+
+    .pagination-number.active {
+      background: #f5b301;
+      color: #000;
+    }
+
+    .pagination-dots {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0 5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -61,222 +143,7 @@ $total = mysqli_num_rows($query);
         Header
     =========================== -->
     <header class="header header-transparent header-layout1">
-      <nav class="navbar navbar-expand-lg sticky-navbar">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-            <img
-              src="assets/images/logo/logo_terang.png"
-              class="logo-light"
-              alt="logo" />
-            <img
-              src="assets/images/logo/logo_terang.png"
-              class="logo-dark"
-              alt="logo" />
-          </a>
-          <!-- <div class="nav-logo">
-              <img src="assets/images/logo/logo.png" alt="logo" />
-              <a href="#" class="shimmer-text">KONIG GUARD BUREAU&#174;</a>
-            </div> -->
-          <button class="navbar-toggler" type="button">
-            <span class="menu-lines"><span></span></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mainNavigation">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav__item">
-                <a href="/" class="nav__item-link">Beranda</a>
-              </li>
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link">Tentang Kami</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item">
-                    <a href="siapa_kami" class="nav__item-link">Siapa Kami?</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="legalitas" class="nav__item-link">Legalitas Perusahaan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="struktur" class="nav__item-link">Struktur Perusahaan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="karir" class="nav__item-link">Karir</a>
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-                <!-- /.dropdown-menu -->
-              </li>
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link">Layanan Kami</a>
-                <ul class="dropdown-menu wide-dropdown-menu">
-                  <li class="nav__item">
-                    <div class="row mx-0">
-                      <div class="col-sm-6 dropdown-menu-col">
-                        <a
-                          href="jasa_keamanan"
-                          class="nav__item-link dropdown-menu-title">Jasa Keamanan</a>
-                        <ul class="nav flex-column">
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_security">Pengamanan (Satpam)</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_bodyguard">Bodyguard</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_pengamanan_event">Pengamanan Event</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_keamanan#jasa_detektif_swasta">Detektif swasta</a>
-                          </li>
-                          <!-- /.nav-item -->
-                        </ul>
-                      </div>
-                      <!-- /.col-sm-6 -->
-                      <div class="col-sm-6 dropdown-menu-col">
-                        <a
-                          href="jasa_operasional"
-                          class="nav__item-link dropdown-menu-title">Fasilitas & Operasional</a>
-                        <ul class="nav flex-column">
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_parkir">Pengelolaan Parkir</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_driver">Jasa Driver</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_cleaning_service">Cleaning Services</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_pramubakti">Jasa Pramubakti</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <li class="nav__item">
-                            <a
-                              class="nav__item-link"
-                              href="jasa_operasional#jasa_pengacara">Jasa Pengacara</a>
-                          </li>
-                          <!-- /.nav-item -->
-                          <!-- /.nav-item -->
-                        </ul>
-                      </div>
-                      <!-- /.col-sm-6 -->
-                    </div>
-                    <!-- /.row -->
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-              </li>
-              <!-- /.nav-item -->
-
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link">Mitra &amp; Pelatihan</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item">
-                    <a href="klien_kami" class="nav__item-link">Klien Kami</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="mitra_pelatihan" class="nav__item-link">Mitra Pelatihan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="pelatihan_konig" class="nav__item-link">Pelatihan Khusus</a>
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-                <!-- /.dropdown-menu -->
-              </li>
-              <!-- /.nav-item -->
-              <li class="nav__item has-dropdown">
-                <a
-                  href="#"
-                  data-toggle="dropdown"
-                  class="dropdown-toggle nav__item-link active">Media & Informasi</a>
-                <ul class="dropdown-menu">
-                  <li class="nav__item">
-                    <a href="artikel" class="nav__item-link">Artikel</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="testimony" class="nav__item-link">Testimoni Pelanggan</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="galeri" class="nav__item-link active">Galeri</a>
-                  </li>
-                  <!-- /.nav-item -->
-                  <li class="nav__item">
-                    <a href="kontak_kami" class="nav__item-link">Kontak Kami</a>
-                  </li>
-                  <!-- /.nav-item -->
-                </ul>
-                <!-- /.dropdown-menu -->
-              </li>
-            </ul>
-            <!-- /.navbar-nav -->
-            <button class="close-mobile-menu d-block d-lg-none">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-          <!-- /.navbar-collapse -->
-          <ul
-            class="navbar-actions d-none d-xl-flex align-items-center list-unstyled mb-0">
-            <!-- <li>
-                <a href="#" class="btn btn__white action__btn login_btn"
-                  >Login</a
-                >
-              </li> -->
-            <li>
-              <div class="phone__number">
-                <div class="phone__icon">
-                  <i class="icon-phone"></i>
-                </div>
-                <div>
-                  <a class="phone__link d-block" href="tel:08111902759">0811 1902 759</a>
-                  <a class="email__link d-block" href="mailto:cs@konig.co.id">cs@konig.co.id</a>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <!-- /.container -->
-      </nav>
-      <!-- /.navabr -->
+      <?php include 'includes/navbar.php'; ?>
     </header>
     <!-- /.Header -->
 
@@ -329,8 +196,7 @@ $total = mysqli_num_rows($query);
     <!-- ========================
      gallery 
     =========================== -->
-    <?php if ($total == 0) { ?>
-
+    <?php if ($totalGallery == 0): ?>
       <section class="marquees-wrapper">
         <!-- POLICE LINE ATAS -->
         <div class="marquee marquee-1">
@@ -339,17 +205,17 @@ $total = mysqli_num_rows($query);
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
-            <li>Police line do not cross</li>
+            <li>police line do not cross</li>
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
           </ul>
           <ul class="marquee__content scroll" aria-hidden="true">
-            <li>Police line do not cross</li>
+            <li>police line do not cross</li>
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
-            <li>Police line do not cross</li>
+            <li>police line do not cross</li>
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
@@ -357,15 +223,33 @@ $total = mysqli_num_rows($query);
         </div>
 
         <main>
-          <div class="error-area bg-default" data-background="assets/img/404/bg.jpg">
+          <!-- 404 area start -->
+          <div
+            class="error-area bg-default"
+            data-background="assets/img/404/bg.jpg">
             <div class="container">
               <div class="row">
                 <div class="col-12">
                   <div class="error-content text-center">
-                    <h1 class="error-content-title">404</h1>
-                    <h2 class="error-content-subtitle">Oops! Page Not Found</h2>
-                    <p class="error-content-text">Coming Soon...</p>
-                    <a href="https://wa.me/628111902759" target="_blank" class="btn_mitra">
+                    <h1
+                      class="error-content-title wow fadeInUp"
+                      data-wow-delay="0.1s">
+                      404
+                    </h1>
+                    <h2
+                      class="error-content-subtitle wow fadeInUp"
+                      data-wow-delay="0.3s">
+                      Oops! Page Not Found
+                    </h2>
+                    <p
+                      class="error-content-text wow fadeInUp"
+                      data-wow-delay="0.5s">
+                      Coming Soon...
+                    </p>
+                    <a
+                      href="https://wa.me/628111902759"
+                      target="_blank"
+                      class="btn_mitra">
                       <span>Layanan Marketing Kami</span>
                       <i class="fa-brands fa-whatsapp"></i>
                     </a>
@@ -374,194 +258,145 @@ $total = mysqli_num_rows($query);
               </div>
             </div>
           </div>
+          <!-- 404 area end -->
         </main>
 
-        <!-- POLICE LINE BAWAH -->
         <div class="marquee marquee-2">
           <ul class="marquee__content scroll">
-            <li>Police line do not cross</li>
+            <li>police line do not cross</li>
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
-            <li>Police line do not cross</li>
+            <li>police line do not cross</li>
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
           </ul>
           <ul class="marquee__content scroll" aria-hidden="true">
-            <li>Police line do not cross</li>
+            <li>police line do not cross</li>
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
-            <li>Police line do not cross</li>
+            <li>police line do not cross</li>
             <li>·</li>
             <li>crime scene do not cross</li>
             <li>·</li>
           </ul>
         </div>
       </section>
+    <?php endif; ?>
 
-    <?php } ?>
+    <section class="gallery pt-130 pb-90">
+      <div class="container">
+        <div class="row">
+          <?php if ($totalGallery > 0): ?>
 
-    <?php if ($total > 0) { ?>
-
-      <section class="gallery pt-130 pb-90">
-        <div class="container">
-          <div class="row">
             <div class="gallery-container">
 
-              <?php while ($row = mysqli_fetch_assoc($query)) { ?>
+              <?php while ($gallery = mysqli_fetch_assoc($queryGallery)): ?>
+
                 <figure class="polaroid">
+
                   <img
-                    src="admin/assets/galeri/<?php echo htmlspecialchars($row['gambar']); ?>"
-                    alt="dokumentasi">
+                    src="uploads/gallery/<?= htmlspecialchars($gallery['picture']); ?>"
+                    alt="<?= htmlspecialchars($gallery['name_gallery']); ?>" />
+
                   <figcaption>
-                    <?php echo htmlspecialchars($row['deskripsi']); ?>
+                    <?= htmlspecialchars($gallery['name_gallery']); ?>
                   </figcaption>
+
                 </figure>
-              <?php } ?>
+
+              <?php endwhile; ?>
 
             </div>
-          </div>
+
+          <?php endif; ?>
         </div>
+        <!-- /.row -->
+        <!-- </div> -->
+
+        <?php if ($totalPages > 1): ?>
+
+          <div class="pagination-area text-center mt-60">
+
+            <!-- PREV -->
+            <?php if ($page > 1): ?>
+              <a class="pagination-btn"
+                href="?page=<?= $page - 1; ?>">
+                Prev
+              </a>
+            <?php endif; ?>
+
+            <?php
+            $startPage = max(1, $page - 2);
+            $endPage   = min($totalPages, $page + 2);
+            ?>
+
+            <!-- PAGE 1 -->
+            <?php if ($startPage > 1): ?>
+              <a class="pagination-number" href="?page=1">1</a>
+
+              <?php if ($startPage > 2): ?>
+                <span class="pagination-dots">...</span>
+              <?php endif; ?>
+            <?php endif; ?>
+
+            <!-- PAGE LOOP -->
+            <?php for ($i = $startPage; $i <= $endPage; $i++): ?>
+
+              <a class="pagination-number <?= ($i == $page) ? 'active' : ''; ?>"
+                href="?page=<?= $i; ?>">
+
+                <?= $i; ?>
+
+              </a>
+
+            <?php endfor; ?>
+
+            <!-- LAST PAGE -->
+            <?php if ($endPage < $totalPages): ?>
+
+              <?php if ($endPage < $totalPages - 1): ?>
+                <span class="pagination-dots">...</span>
+              <?php endif; ?>
+
+              <a class="pagination-number"
+                href="?page=<?= $totalPages; ?>">
+
+                <?= $totalPages; ?>
+
+              </a>
+
+            <?php endif; ?>
+
+            <!-- NEXT -->
+            <?php if ($page < $totalPages): ?>
+              <a class="pagination-btn"
+                href="?page=<?= $page + 1; ?>">
+                Next
+              </a>
+            <?php endif; ?>
+
+          </div>
+
+        <?php endif; ?>
 
         <!-- LIGHTBOX -->
         <div class="lightbox" id="lightbox">
           <span class="lightbox-close">&times;</span>
-          <img class="lightbox-img" src="" alt="">
+          <img class="lightbox-img" src="" alt="" />
           <p class="lightbox-caption"></p>
         </div>
-      </section>
-
-    <?php } ?>
+        <!-- /.container -->
+    </section>
     <!-- /.gallery -->
 
     <!-- ========================
       Footer
     ========================== -->
     <footer class="footer">
-      <div class="footer-primary">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-6 col-md-4 col-lg-4">
-              <div class="footer-widget-contact">
-                <!-- <h6 class="footer-widget__title">Quick Contacts</h6> -->
-                <h5 class="ft-title">ABOUT <span>US</span></h5>
-
-                <a href="/"><img
-                    src="assets/images/logo/logo_terang.png"
-                    class="mb-20 w-100 h-60"
-                    alt="logo-footer" /></a>
-                <p>
-                  PT. KONIG GUARD BUREAU adalah Perusahaan Penyedia Jasa
-                  Outsourcing yang menghadirkan layanan Security, Cleaning
-                  Service, Administrasi, dan Driver untuk lingkungan kerja
-                  yang AMAN, NYAMAN, dan PROFESIONAL.
-                </p>
-                <ul class="contact__list list-unstyled">
-                  <li>
-                    <a href="mailto:cs@konig.co.id">
-                      <i class="contact__icon icon-email"></i>
-                      <span>cs@konig.co.id</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="tel:08111902759">
-                      <i class="contact__icon icon-phone"></i>
-                      <span>(+62) 811 1902 759</span>
-                    </a>
-                  </li>
-                </ul>
-                <p>Puri Botanical Residence Blok H9 No.11, Jakarta - Indonesia.</p>
-                <a
-                  href="kontak_kami"
-                  class="btn btn__white btn__link mr-30">
-                  <i class="fas fa-map-marker-alt"></i>
-                  <span>Get Directions</span>
-                </a>
-              </div>
-              <!-- /.footer-widget-contact -->
-              <ul
-                class="social-icons list-unstyled justify-content-start mb-0">
-                <li>
-                  <a href="#"><i class="fab fa-linkedin"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                </li>
-              </ul>
-            </div>
-            <!-- /.col-xl-2 -->
-            <div class="col-sm-6 col-md-4 col-lg-2 offset-lg-3">
-              <div class="footer-widget-nav">
-                <!-- <h6 class="footer-widget__title">Services</h6> -->
-                <h5 class="ft-title">QUICK <span>LINK</span></h5>
-                <nav>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="siapa_kami">Siapa Kami</a>
-                    </li>
-                    <li><a href="legalitas">Legalitas Perusahaan</a></li>
-                    <li><a href="struktur">Struktur Perusahaan</a></li>
-                    <li><a href="galeri">Dokumentasi Perusahaan</a></li>
-                    <li>
-                      <a href="jasa_keamanan">Layanan Keamanan Kami</a>
-                    </li>
-                    <li>
-                      <a href="jasa_operasional">Layanan Fasilitas &amp; Kami</a>
-                    </li>
-                    <li><a href="karir">Karir</a></li>
-                  </ul>
-                </nav>
-              </div>
-              <!-- /.footer-widget-nav -->
-            </div>
-            <!-- /.col-lg-2 -->
-            <div class="col-sm-6 col-md-4 col-lg-3">
-              <div class="footer-widget-nav">
-                <!-- <h6 class="footer-widget__title">Help</h6> -->
-                <h5 class="ft-title">MITRA &amp; <span>TRAINING</span></h5>
-                <nav>
-                  <ul class="list-unstyled">
-                    <li><a href="klien_kami">Klien Kami</a></li>
-                    <li>
-                      <a href="mitra_pelatihan">Mitra Pelatihan</a>
-                    </li>
-                    <li>
-                      <a href="pelatihan_konig">Pelatihan Khusus</a>
-                    </li>
-                    <li><a href="kontak_kami">Kontak Kami</a></li>
-                  </ul>
-                </nav>
-              </div>
-              <!-- /.footer-widget-nav -->
-            </div>
-            <!-- /.col-lg-2 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container -->
-      </div>
-      <!-- /.footer-primary -->
-      <div class="footer-scroll text-center"></div>
-      <!-- /.footer-scroll -->
-      <div class="footer-secondary bg-white">
-        <div class="container">
-          <div class="row align-items-center">
-            <div
-              class="col-sm-12 col-md-8 col-lg-12 col-xl-8 offset-xl-2 d-flex flex-wrap justify-content-between align-items-center">
-              <div class="footer__copyrights">
-                <span class="fz-14">&copy; 2025 Konig Guard Bureau, All Rights Reserved
-                </span>
-              </div>
-            </div>
-            <!-- /.col-xl-10 -->
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container -->
-      </div>
-      <!-- /.footer-secondary -->
+      <?php include 'includes/footer.php'; ?>
     </footer>
     <!-- /.Footer -->
   </div>
@@ -577,6 +412,8 @@ $total = mysqli_num_rows($query);
       <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
   </div>
+
+  <?php include 'includes/ad_modal.php'; ?>
 
   <script src="assets/js/jquery-3.5.1.min.js"></script>
   <script src="assets/js/plugins.js"></script>

@@ -1,3 +1,5 @@
+<?php include 'includes/visitor_tracker.php'; ?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -97,196 +99,202 @@
         <!-- ========================
      Pengamanan
     =========================== -->
+        <?php
+        require_once 'koneksi.php';
 
-        <section class="marquees-wrapper">
-            <!-- POLICE LINE ATAS -->
-            <div class="marquee marquee-1">
-                <ul class="marquee__content scroll">
-                    <li>Police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-                <ul class="marquee__content scroll" aria-hidden="true">
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-            </div>
+        /*
+|--------------------------------------------------------------------------
+| AMBIL DATA CLIENT
+|--------------------------------------------------------------------------
+*/
 
-            <main>
-                <!-- 404 area start -->
-                <div
-                    class="error-area bg-default"
-                    data-background="assets/img/404/bg.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="error-content text-center">
-                                    <h1
-                                        class="error-content-title wow fadeInUp"
-                                        data-wow-delay="0.1s">
-                                        404
-                                    </h1>
-                                    <h2
-                                        class="error-content-subtitle wow fadeInUp"
-                                        data-wow-delay="0.3s">
-                                        Oops! Page Not Found
-                                    </h2>
-                                    <p
-                                        class="error-content-text wow fadeInUp"
-                                        data-wow-delay="0.5s">
-                                        Jadilah pelanggan Konig Guard Bureau
-                                    </p>
-                                    <a
-                                        href="https://wa.me/628111902759"
-                                        target="_blank"
-                                        class="btn_mitra">
-                                        <span>Layanan Marketing Kami</span>
-                                        <i class="fa-brands fa-whatsapp"></i>
-                                    </a>
+        $queryClients = mysqli_query($conn, "
+    SELECT 
+        id,
+        client_name,
+        client_pic,
+        client_desc
+    FROM list_clients
+    ORDER BY id DESC
+");
+
+        $totalClients = mysqli_num_rows($queryClients);
+        ?>
+
+        <?php if ($totalClients <= 0): ?>
+
+            <section class="marquees-wrapper">
+                <!-- POLICE LINE ATAS -->
+                <div class="marquee marquee-1">
+                    <ul class="marquee__content scroll">
+                        <li>Police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
+                    <ul class="marquee__content scroll" aria-hidden="true">
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
+                </div>
+
+                <main>
+                    <!-- 404 area start -->
+                    <div
+                        class="error-area bg-default"
+                        data-background="assets/img/404/bg.jpg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="error-content text-center">
+                                        <h1
+                                            class="error-content-title wow fadeInUp"
+                                            data-wow-delay="0.1s">
+                                            404
+                                        </h1>
+                                        <h2
+                                            class="error-content-subtitle wow fadeInUp"
+                                            data-wow-delay="0.3s">
+                                            Oops! Page Not Found
+                                        </h2>
+                                        <p
+                                            class="error-content-text wow fadeInUp"
+                                            data-wow-delay="0.5s">
+                                            Jadilah pelanggan Konig Guard Bureau
+                                        </p>
+                                        <a
+                                            href="https://wa.me/628111902759"
+                                            target="_blank"
+                                            class="btn_mitra">
+                                            <span>Layanan Marketing Kami</span>
+                                            <i class="fa-brands fa-whatsapp"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- 404 area end -->
+                </main>
+
+                <div class="marquee marquee-2">
+                    <ul class="marquee__content scroll">
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
+                    <ul class="marquee__content scroll" aria-hidden="true">
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
                 </div>
-                <!-- 404 area end -->
-            </main>
+            </section>
 
-            <div class="marquee marquee-2">
-                <ul class="marquee__content scroll">
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-                <ul class="marquee__content scroll" aria-hidden="true">
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-            </div>
-        </section>
+        <?php else: ?>
 
-        <!-- =========================
-        GALLERY PHOTO
+            <!-- =========================
+        Klien Kami
 ========================== -->
 
-        <section class="gallery-section pt-80 pb-80">
-            <div class="container">
+            <section class="client-section pt-80 pb-80">
+                <div class="container">
 
-                <!-- TITLE -->
-                <div class="heading-layout2 text-center mb-50">
-                    <span class="heading__subtitle">
-                        Galeri Dokumentasi
-                    </span>
+                    <!-- TITLE -->
+                    <div class="heading-layout2 text-center mb-50">
+                        <span class="heading__subtitle">
+                            Mitra Pengamanan
+                        </span>
 
-                    <h2 class="heading__title">
-                        Momen <span>Terbaik</span>
-                    </h2>
+                        <h2 class="heading__title">
+                            <span>Klien </span> Kami
+                        </h2>
 
-                    <p class="heading__desc">
-                        Kumpulan dokumentasi kegiatan dengan tampilan modern dan elegan.
-                    </p>
-                </div>
-
-                <!-- GRID -->
-                <div class="gallery-grid">
-
-                    <!-- ITEM -->
-                    <div class="gallery-item"
-                        onclick="openGallery(
-                'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400',
-                'Pemandangan Alam',
-                'Keindahan alam pegunungan saat matahari terbit.'
-            )">
-
-                        <div class="gallery-frame">
-                            <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1400">
-
-                            <div class="gallery-overlay">
-                                <h4>Pemandangan Alam</h4>
-                                <p>Keindahan alam pegunungan.</p>
-                            </div>
-                        </div>
+                        <p class="heading__desc">
+                            Beberapa perusahaan dan instansi yang telah mempercayai layanan kami.
+                        </p>
                     </div>
 
-                    <!-- ITEM -->
-                    <div class="gallery-item"
-                        onclick="openGallery(
-                'https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400',
-                'Modern Interior',
-                'Desain interior modern dengan pencahayaan elegan.'
-            )">
+                    <!-- GRID -->
+                    <div class="client-grid">
+                        <?php while ($client = mysqli_fetch_assoc($queryClients)) : ?>
 
-                        <div class="gallery-frame">
-                            <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1400">
+                            <!-- ITEM -->
+                            <div class="client-item"
+                                onclick="openClient('<?php echo htmlspecialchars($client['client_pic']); ?>', '<?php echo htmlspecialchars($client['client_name']); ?>', '<?php echo htmlspecialchars($client['client_desc']); ?>')">
 
-                            <div class="gallery-overlay">
-                                <h4>Modern Interior</h4>
-                                <p>Desain interior elegan.</p>
+                                <div class="client-frame">
+                                    <?php
+                                    /*
+                            |--------------------------------------------------------------------------
+                            | LOKASI FILE GAMBAR
+                            |--------------------------------------------------------------------------
+                            | Karena homepage dan dashboard beda folder:
+                            |
+                            | contoh:
+                            | ../dashboard/assets/uploads/clients/
+                            |
+                            | sesuaikan sendiri nanti
+                            |--------------------------------------------------------------------------
+                            */
+                                    ?>
+                                    <img
+                                        src="../dashboard/assets/uploads/clients/<?php echo htmlspecialchars($client['client_pic']); ?>" style="width: 1400px;"
+                                        alt="<?php echo htmlspecialchars($client['client_name']); ?>">
+
+                                    <div class="client-overlay">
+                                        <h4><?php echo htmlspecialchars($client['client_name']); ?></h4>
+                                        <p><?php echo htmlspecialchars($client['client_desc']); ?></p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- ITEM -->
-                    <div class="gallery-item"
-                        onclick="openGallery(
-                'https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1400',
-                'City Night',
-                'Pemandangan kota di malam hari dengan lampu neon.'
-            )">
+                        <?php endwhile; ?>
 
-                        <div class="gallery-frame">
-                            <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?q=80&w=1400">
-
-                            <div class="gallery-overlay">
-                                <h4>City Night</h4>
-                                <p>Kota malam penuh cahaya.</p>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
+            </section>
 
-            </div>
-        </section>
+        <?php endif; ?>
 
         <!-- =========================
-        MODAL GALLERY
+        MODAL KLIEN
 ========================== -->
 
-        <div class="gallery-modal" id="galleryModal">
+        <div class="client-modal" id="clientModal">
 
-            <span class="gallery-close" onclick="closeGallery()">
+            <span class="client-close" onclick="closeClient()">
                 &times;
             </span>
 
-            <div class="gallery-modal-content">
+            <div class="client-modal-content">
 
-                <img id="galleryImage">
+                <img id="clientImage">
 
-                <div class="gallery-info">
-                    <h3 id="galleryTitle"></h3>
-                    <p id="gallerySubtitle"></p>
+                <div class="client-info">
+                    <h3 id="clientTitle"></h3>
+                    <p id="clientSubtitle"></p>
                 </div>
 
             </div>
@@ -302,19 +310,7 @@
         <!-- /.Footer -->
     </div>
     <!-- /.wrapper -->
-    <div class="search-popup">
-        <button type="button" class="search-popup__close">
-            <i class="fas fa-times"></i>
-        </button>
-        <form class="search-popup__form">
-            <input
-                type="text"
-                class="search-popup__form__input"
-                placeholder="Type Words Then Enter" />
-            <button class="search-popup__btn"><i class="icon-search"></i></button>
-        </form>
-    </div>
-    <!-- /. search-popup -->
+    
     <div class="cursor"></div>
     <!-- scrollUp btn -->
     <div class="progress-wrap">
@@ -327,40 +323,42 @@
         </svg>
     </div>
 
+    <?php include 'includes/ad_modal.php'; ?>
+
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/script.js"></script>
 
     <script>
-        function openGallery(image, title, subtitle) {
+        function openClient(image, title, subtitle) {
 
-            document.getElementById("galleryModal")
+            document.getElementById("clientModal")
                 .classList.add("active");
 
-            document.getElementById("galleryImage")
+            document.getElementById("clientImage")
                 .src = image;
 
-            document.getElementById("galleryTitle")
+            document.getElementById("clientTitle")
                 .innerText = title;
 
-            document.getElementById("gallerySubtitle")
+            document.getElementById("clientSubtitle")
                 .innerText = subtitle;
         }
 
-        function closeGallery() {
+        function closeClient() {
 
-            document.getElementById("galleryModal")
+            document.getElementById("clientModal")
                 .classList.remove("active");
         }
 
         /* CLOSE CLICK OUTSIDE */
 
-        document.getElementById("galleryModal")
+        document.getElementById("clientModal")
             .addEventListener("click", function(e) {
 
-                if (e.target.id === "galleryModal") {
-                    closeGallery();
+                if (e.target.id === "clientModal") {
+                    closeClient();
                 }
 
             });

@@ -1,3 +1,5 @@
+<?php include 'includes/visitor_tracker.php'; ?>
+
 <!doctype html>
 <html lang="id">
 
@@ -90,201 +92,198 @@
         </div>
         <!-- /.breadcrumb-area -->
 
+        <?php
+        require_once 'koneksi.php';
+
+        /*
+|--------------------------------------------------------------------------
+| AMBIL DATA LOWONGAN
+|--------------------------------------------------------------------------
+*/
+
+        $sql = "
+SELECT 
+    jv.*,
+    r.region_name
+FROM job_vacancy jv
+LEFT JOIN regions r ON jv.id_region = r.id
+ORDER BY jv.id DESC
+";
+
+        $result = mysqli_query($conn, $sql);
+
+        $totalVacancy = mysqli_num_rows($result);
+        ?>
+
         <!-- ========================= 
+     careers empty state
+========================= -->
+
+        <?php if ($totalVacancy == 0): ?>
+
+            <!-- ========================= 
          careers
     =========================  -->
-        <section class="marquees-wrapper">
-            <!-- POLICE LINE ATAS -->
-            <div class="marquee marquee-1">
-                <ul class="marquee__content scroll">
-                    <li>Police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-                <ul class="marquee__content scroll" aria-hidden="true">
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-            </div>
+            <section class="marquees-wrapper">
+                <!-- POLICE LINE ATAS -->
+                <div class="marquee marquee-1">
+                    <ul class="marquee__content scroll">
+                        <li>Police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
+                    <ul class="marquee__content scroll" aria-hidden="true">
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
+                </div>
 
-            <main>
-                <!-- 404 area start -->
-                <div
-                    class="error-area bg-default"
-                    data-background="assets/img/404/bg.jpg">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="error-content text-center">
-                                    <h1
-                                        class="error-content-title wow fadeInUp"
-                                        data-wow-delay="0.1s">
-                                        404
-                                    </h1>
-                                    <h2
-                                        class="error-content-subtitle wow fadeInUp"
-                                        data-wow-delay="0.3s">
-                                        Oops! Page Not Found
-                                    </h2>
-                                    <p
-                                        class="error-content-text wow fadeInUp"
-                                        data-wow-delay="0.5s">
-                                        Belum ada lowongan pekerjaan yang tersedia saat ini.
-                                    </p>
-                                    <a
-                                        href="https://wa.me/628111902759"
-                                        target="_blank"
-                                        class="btn_mitra">
-                                        <span>Layanan Marketing Kami</span>
-                                        <i class="fa-brands fa-whatsapp"></i>
-                                    </a>
+                <main>
+                    <!-- 404 area start -->
+                    <div
+                        class="error-area bg-default"
+                        data-background="assets/img/404/bg.jpg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="error-content text-center">
+                                        <h1
+                                            class="error-content-title wow fadeInUp"
+                                            data-wow-delay="0.1s">
+                                            404
+                                        </h1>
+                                        <h2
+                                            class="error-content-subtitle wow fadeInUp"
+                                            data-wow-delay="0.3s">
+                                            Oops! Page Not Found
+                                        </h2>
+                                        <p
+                                            class="error-content-text wow fadeInUp"
+                                            data-wow-delay="0.5s">
+                                            Belum ada lowongan pekerjaan yang tersedia saat ini.
+                                        </p>
+                                        <a
+                                            href="https://wa.me/628111902759"
+                                            target="_blank"
+                                            class="btn_mitra">
+                                            <span>Layanan Marketing Kami</span>
+                                            <i class="fa-brands fa-whatsapp"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- 404 area end -->
-            </main>
+                    <!-- 404 area end -->
+                </main>
 
-            <div class="marquee marquee-2">
-                <ul class="marquee__content scroll">
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-                <ul class="marquee__content scroll" aria-hidden="true">
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                    <li>police line do not cross</li>
-                    <li>·</li>
-                    <li>crime scene do not cross</li>
-                    <li>·</li>
-                </ul>
-            </div>
-        </section>
-        <!-- /.careers -->
-        <section class="careers">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
-                        <div class="heading text-center mb-50 bounce">
-                            <h3 class="heading__title">Bangun Karier Bersama Kami</h3>
-                            <p class="heading__desc">
-                                Bergabunglah dengan tim kami dan raih kesempatan untuk
-                                berkembang bersama perusahaan yang terus bertumbuh. Kami
-                                mencari talenta terbaik untuk menciptakan solusi yang lebih
-                                besar di masa depan.
-                            </p>
-                        </div>
-                        <!-- /.heading -->
-                    </div>
-                    <!-- /.col-lg-10 -->
+                <div class="marquee marquee-2">
+                    <ul class="marquee__content scroll">
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
+                    <ul class="marquee__content scroll" aria-hidden="true">
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                        <li>police line do not cross</li>
+                        <li>·</li>
+                        <li>crime scene do not cross</li>
+                        <li>·</li>
+                    </ul>
                 </div>
-                <!-- /.row -->
-                <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                        <div
-                            class="slick-carousel"
-                            data-slick='{"slidesToShow": 3, "slidesToScroll": 3, "arrows": false, "dots": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 2}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
-                            <!-- job item #1 -->
-                            <div class="job-item bounce-in">
-                                <div class="job__meta d-flex align-items-center">
-                                    <span class="job__type">Full Time</span>
-                                    <span class="job__location">New York</span>
-                                </div>
-                                <h4 class="job__title">Chief Executive Officer</h4>
-                                <p class="job__desc">
-                                    A chief executive officer (CEO) is the highest-ranking
-                                    executive in a company, and their primary responsibilities
-                                    include making major corporate decisions.
+            </section>
+
+        <?php else: ?>
+            <!-- /.careers -->
+            <section class="careers">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
+                            <div class="heading text-center mb-50 bounce">
+                                <h3 class="heading__title">Bangun Karier Bersama Kami</h3>
+                                <p class="heading__desc">
+                                    Bergabunglah dengan tim kami dan raih kesempatan untuk
+                                    berkembang bersama perusahaan yang terus bertumbuh. Kami
+                                    mencari talenta terbaik untuk menciptakan solusi yang lebih
+                                    besar di masa depan.
                                 </p>
-                                <a href="#" class="btn btn__secondary btn__outlined">
-                                    <i class="icon-arrow-right"></i>
-                                    <span>Explore More</span>
-                                </a>
                             </div>
-                            <!-- /.job-item -->
-                            <!-- job item #2 -->
-                            <div class="job-item bounce-in">
-                                <div class="job__meta d-flex align-items-center">
-                                    <span class="job__type">Full Time</span>
-                                    <span class="job__location">Latin America</span>
-                                </div>
-                                <h4 class="job__title">Chief Financial Officer</h4>
-                                <p class="job__desc">
-                                    A chief Financial officer (CFO) is the highest-ranking
-                                    executive in a company, and their primary responsibilities
-                                    include making major corporate decisions.
-                                </p>
-                                <a href="#" class="btn btn__secondary btn__outlined">
-                                    <i class="icon-arrow-right"></i>
-                                    <span>Explore More</span>
-                                </a>
-                            </div>
-                            <!-- /.job-item -->
-                            <!-- job item #3 -->
-                            <div class="job-item bounce-in">
-                                <div class="job__meta d-flex align-items-center">
-                                    <span class="job__type">Full Time</span>
-                                    <span class="job__location">New York</span>
-                                </div>
-                                <h4 class="job__title">Global Sales & Marketing</h4>
-                                <p class="job__desc">
-                                    These global operations generate a high demand for suitably
-                                    qualified sales and marketing personnel. The geographical
-                                    focus of the degree programme.
-                                </p>
-                                <a href="#" class="btn btn__secondary btn__outlined">
-                                    <i class="icon-arrow-right"></i>
-                                    <span>Explore More</span>
-                                </a>
-                            </div>
-                            <!-- /.job-item -->
-                            <!-- job item #4 -->
-                            <div class="job-item bounce-in">
-                                <div class="job__meta d-flex align-items-center">
-                                    <span class="job__type">Full Time</span>
-                                    <span class="job__location">New York</span>
-                                </div>
-                                <h4 class="job__title">Chief Financial Officer</h4>
-                                <p class="job__desc">
-                                    A chief executive officer (CEO) is the highest-ranking
-                                    executive in a company, and their primary responsibilities
-                                    include making major corporate decisions.
-                                </p>
-                                <a href="#" class="btn btn__secondary btn__outlined">
-                                    <i class="icon-arrow-right"></i>
-                                    <span>Explore More</span>
-                                </a>
-                            </div>
-                            <!-- /.job-item -->
+                            <!-- /.heading -->
                         </div>
-                        <!-- /.carousel -->
+                        <!-- /.col-lg-10 -->
                     </div>
-                    <!-- /.col-lg-12 -->
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div
+                                class="slick-carousel"
+                                data-slick='{"slidesToShow": 3, "slidesToScroll": 3, "arrows": false, "dots": true, "responsive": [ {"breakpoint": 992, "settings": {"slidesToShow": 2}}, {"breakpoint": 767, "settings": {"slidesToShow": 2}}, {"breakpoint": 480, "settings": {"slidesToShow": 1}}]}'>
+                                <?php while ($row = mysqli_fetch_assoc($result)): ?>
+                                    <!-- job item #1 -->
+                                    <div class="job-item bounce-in">
+                                        <div class="job__meta d-flex align-items-center">
+                                            <span class="job__type"> <?= htmlspecialchars($row['type_vacancy']); ?></span>
+                                            <span class="job__location"> <?= htmlspecialchars($row['region_name'] ?? '-'); ?></span>
+                                        </div>
+                                        <h4 class="job__title"><?= htmlspecialchars($row['job_title']); ?></h4>
+                                        <p class="job__desc">
+                                            <?php
+                                            $desc = strip_tags($row['job_desc']);
+
+                                            if (strlen($desc) > 170) {
+                                                echo substr($desc, 0, 170) . '...';
+                                            } else {
+                                                echo $desc;
+                                            }
+                                            ?>
+                                        </p>
+                                        <div class="mb-3">
+
+                                            <small>
+                                                Kuota:
+                                                <strong>
+                                                    <?= (int)$row['job_quota']; ?>
+                                                </strong>
+                                            </small>
+
+                                        </div>
+                                        <a href="<?= htmlspecialchars($row['link_info']); ?>" target="_blank" class="btn btn__secondary btn__outlined">
+                                            <i class="icon-arrow-right"></i>
+                                            <span>Explore More</span>
+                                        </a>
+                                    </div>
+                                    <!-- /.job-item -->
+                                <?php endwhile; ?>
+                            </div>
+                            <!-- /.carousel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
                 </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container -->
-        </section>
+                <!-- /.container -->
+            </section>
+
+        <?php endif; ?>
         <!-- <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12 text-center">
           <div
@@ -379,6 +378,8 @@
             <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
         </svg>
     </div>
+
+    <?php include 'includes/ad_modal.php'; ?>
 
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/plugins.js"></script>

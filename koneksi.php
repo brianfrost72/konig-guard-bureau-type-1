@@ -1,21 +1,14 @@
 <?php
-// konfigurasi koneksi database
-// $host = "localhost";      // biasanya localhost
-// $username = "root";       // username database
-// $password = "";           // password database
-// $database = "newsportal"; // ganti dengan nama database kamu
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "konig_guard";
 
-// membuat koneksi
-// $koneksi = new mysqli($host, $username, $password, $database);
+$conn = mysqli_connect($host, $user, $pass, $db);
 
-// cek koneksi
-// if ($koneksi->connect_error) {
-//     die("Koneksi gagal: " . $koneksi->connect_error);
-// }
-
-// jika berhasil
-// echo "Koneksi berhasil!";
-$con = mysqli_connect("localhost", "root", "", "newsportal");
-if (!$con) {
-    error_log("DB connection failed: " . mysqli_connect_error());
+if (!$conn) {
+    die("Koneksi database gagal: " . mysqli_connect_error());
 }
+
+date_default_timezone_set('Asia/Jakarta');
+mysqli_query($conn, "SET time_zone = '+07:00'");

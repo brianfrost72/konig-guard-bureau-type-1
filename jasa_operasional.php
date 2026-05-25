@@ -1,5 +1,3 @@
-<?php include 'includes/visitor_tracker.php'; ?>
-
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -8,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="" />
     <link href="assets/images/favicon/favicon.png" rel="icon" />
-    <title>Jasa Keamanan - KONIG GUARD BUREAU</title>
+    <title>Jasa Operasional - KONIG GUARD BUREAU</title>
 
     <link
       rel="stylesheet"
@@ -57,14 +55,16 @@
       <section class="page-title-layout2 page-title-light bg-overlay">
         <div class="bg-img">
           <img
-            src="assets/images/page-titles/layanan_keamanan.jpg"
+            src="assets/images/page-titles/layanan_operasional.jpg"
             alt="background"
           />
         </div>
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-6">
-              <h1 class="pagetitle__heading">Layanan Keamanan</h1>
+              <h1 class="pagetitle__heading">
+                Layanan Fasilitas &amp; Operasional
+              </h1>
             </div>
             <!-- /.col-xl-6 -->
           </div>
@@ -81,7 +81,7 @@
                 <ol class="breadcrumb justify-content-center mb-0">
                   <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                   <li class="breadcrumb-item active" aria-current="page">
-                    Jasa Keamanan
+                    Jasa Fasilitas &amp; Operasional
                   </li>
                 </ol>
               </nav>
@@ -132,41 +132,49 @@
                   <a
                     class="nav__link active bounce-in"
                     data-toggle="tab"
-                    href="#jasa_security"
+                    href="#jasa_parkir"
                   >
                     <span class="nav__number">1</span>
-                    <span>Jasa Security</span>
+                    <span>Jasa Petugas &amp; Pengelolaan Parkir</span>
                   </a>
                   <a
                     class="nav__link bounce-in"
                     data-toggle="tab"
-                    href="#jasa_bodyguard"
+                    href="#jasa_driver"
                   >
                     <span class="nav__number">2</span>
-                    <span>Jasa Bodyguard</span>
+                    <span>Jasa Driver</span>
                   </a>
                   <a
                     class="nav__link bounce-in"
                     data-toggle="tab"
-                    href="#jasa_pengamanan_event"
+                    href="#jasa_cleaning_service"
                   >
                     <span class="nav__number">3</span>
-                    <span>Jasa Pengamanan Event</span>
+                    <span>Jasa Cleaning Service</span>
                   </a>
                   <a
                     class="nav__link bounce-in"
                     data-toggle="tab"
-                    href="#jasa_detektif_swasta"
+                    href="#jasa_pramubakti"
                   >
                     <span class="nav__number">4</span>
-                    <span>Jasa Detektif Swasta</span>
+                    <span>Jasa Pramubakti</span>
+                  </a>
+                  <a
+                    class="nav__link bounce-in"
+                    data-toggle="tab"
+                    href="#jasa_pengacara"
+                  >
+                    <span class="nav__number">5</span>
+                    <span>Jasa Pengacara</span>
                   </a>
                 </nav>
                 <div class="tab-content">
                   <div
                     class="tab-pane fade active show"
-                    id="jasa_security"
-                    data-key="security"
+                    id="jasa_parkir"
+                    data-key="pengelola_parkir"
                   >
                     <div class="process-item row">
                       <div class="col-lg-6-sm-12 col-md-12 col-lg-6 flip-item">
@@ -174,7 +182,7 @@
                           <h4 class="process__title"></h4>
                           <p class="process__desc"></p>
                           <a
-                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20security"
+                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20pengelolaan%20parkir"
                             class="btn btn__secondary btn__outlined btn__xl justify-content-around bounce-in"
                           >
                             <span>Pesan Sekarang</span>
@@ -183,7 +191,34 @@
                         </div>
                       </div>
                       <!-- /.col -->
-                      <div class="col-sm-12 col-md-12 col-lg-6 flip-item">
+                      <div class="col-sm-12 col-md-12 col-lg-6 bounce-in">
+                        <div class="process__img">
+                          <img class="service-image" alt="img" />
+                        </div>
+                        <!-- /.process__img -->
+                      </div>
+                      <!-- /.col-lg-6 -->
+                    </div>
+                    <!-- /.process-item -->
+                  </div>
+                  <!-- /.tab-pane -->
+                  <div class="tab-pane fade" id="jasa_driver" data-key="driver">
+                    <div class="process-item row">
+                      <div class="col-lg-6-sm-12 col-md-12 col-lg-6 flip-item">
+                        <div class="process__text">
+                          <h4 class="process__title"></h4>
+                          <p class="process__desc"></p>
+                          <a
+                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20driver"
+                            class="btn btn__secondary btn__outlined btn__xl justify-content-around bounce-in"
+                          >
+                            <span>Pesan Sekarang</span>
+                            <i class="icon-arrow-right"></i>
+                          </a>
+                        </div>
+                      </div>
+                      <!-- /.col -->
+                      <div class="col-sm-12 col-md-12 col-lg-6 bounce-in">
                         <div class="process__img">
                           <img class="service-image" alt="img" />
                         </div>
@@ -196,8 +231,8 @@
                   <!-- /.tab-pane -->
                   <div
                     class="tab-pane fade"
-                    id="jasa_bodyguard"
-                    data-key="bodyguard"
+                    id="jasa_cleaning_service"
+                    data-key="cleaning_service"
                   >
                     <div class="process-item row">
                       <div class="col-lg-6-sm-12 col-md-12 col-lg-6 flip-item">
@@ -205,7 +240,7 @@
                           <h4 class="process__title"></h4>
                           <p class="process__desc"></p>
                           <a
-                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20bodyguard"
+                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20cleaning%20service"
                             class="btn btn__secondary btn__outlined btn__xl justify-content-around bounce-in"
                           >
                             <span>Pesan Sekarang</span>
@@ -214,7 +249,7 @@
                         </div>
                       </div>
                       <!-- /.col -->
-                      <div class="col-sm-12 col-md-12 col-lg-6 flip-item">
+                      <div class="col-sm-12 col-md-12 col-lg-6 bounce-in">
                         <div class="process__img">
                           <img class="service-image" alt="img" />
                         </div>
@@ -227,8 +262,8 @@
                   <!-- /.tab-pane -->
                   <div
                     class="tab-pane fade"
-                    id="jasa_pengamanan_event"
-                    data-key="pengamanan_event"
+                    id="jasa_pramubakti"
+                    data-key="pramubakti"
                   >
                     <div class="process-item row">
                       <div class="col-lg-6-sm-12 col-md-12 col-lg-6 flip-item">
@@ -236,7 +271,7 @@
                           <h4 class="process__title"></h4>
                           <p class="process__desc"></p>
                           <a
-                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20pengamanan%20event"
+                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20pramubakti"
                             class="btn btn__secondary btn__outlined btn__xl justify-content-around bounce-in"
                           >
                             <span>Pesan Sekarang</span>
@@ -245,7 +280,7 @@
                         </div>
                       </div>
                       <!-- /.col -->
-                      <div class="col-sm-12 col-md-12 col-lg-6 flip-item">
+                      <div class="col-sm-12 col-md-12 col-lg-6 bounce-in">
                         <div class="process__img">
                           <img class="service-image" alt="img" />
                         </div>
@@ -258,8 +293,8 @@
                   <!-- /.tab-pane -->
                   <div
                     class="tab-pane fade"
-                    id="jasa_detektif_swasta"
-                    data-key="detektif_swasta"
+                    id="jasa_pengacara"
+                    data-key="pengacara"
                   >
                     <div class="process-item row">
                       <div class="col-lg-6-sm-12 col-md-12 col-lg-6 flip-item">
@@ -267,7 +302,7 @@
                           <h4 class="process__title"></h4>
                           <p class="process__desc"></p>
                           <a
-                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20detektif%20swasta"
+                            href="https://wa.me/628111902759?text=Halo%20saya%20ingin%20bertanya%20tentang%20Konig%20Guard%20Bureau%20-%20Jasa%20keamanan%20-%20jasa%20pramubakti"
                             class="btn btn__secondary btn__outlined btn__xl justify-content-around bounce-in"
                           >
                             <span>Pesan Sekarang</span>
@@ -276,7 +311,7 @@
                         </div>
                       </div>
                       <!-- /.col -->
-                      <div class="col-sm-12 col-md-12 col-lg-6 flip-item">
+                      <div class="col-sm-12 col-md-12 col-lg-6 bounce-in">
                         <div class="process__img">
                           <img class="service-image" alt="img" />
                         </div>
@@ -449,12 +484,10 @@
       </svg>
     </div>
 
-    <?php include 'includes/ad_modal.php'; ?>
-
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/script.js"></script>
-    <script src="assets/js/keamanan.js"></script>
+    <script src="assets/js/operasional.js"></script>
   </body>
 </html>

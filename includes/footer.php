@@ -86,7 +86,7 @@
                                 <a href="mitra_pelatihan">Mitra Pelatihan</a>
                             </li>
                             <li>
-                                <a href="pelatihan_konig">Pelatihan Khusus</a>
+                                <a href="pelatihan">Pelatihan Khusus</a>
                             </li>
                             <li><a href="kontak_kami">Kontak Kami</a></li>
                         </ul>

@@ -1,3 +1,7 @@
+<?php
+$current_page = basename($_SERVER['PHP_SELF'], '.php');
+?>
+
 <nav class="navbar navbar-expand-lg sticky-navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="/">
@@ -16,29 +20,42 @@
         <div class="collapse navbar-collapse" id="mainNavigation">
             <ul class="navbar-nav mx-auto">
                 <li class="nav__item">
-                    <a href="/" class="nav__item-link active">Beranda</a>
+                    <a href="/"
+                        class="nav__item-link <?= ($current_page == 'index' || $current_page == '') ? 'active' : ''; ?>">
+                        Beranda
+                    </a>
                 </li>
                 <!-- /.nav-item -->
                 <li class="nav__item has-dropdown">
-                    <a
-                        href="#"
+                    <a href="#"
                         data-toggle="dropdown"
-                        class="dropdown-toggle nav__item-link">Tentang Kami</a>
+                        class="dropdown-toggle nav__item-link <?= in_array($current_page, ['siapa_kami', 'legalitas', 'struktur', 'karir']) ? 'active' : ''; ?>">
+                        Tentang Kami
+                    </a>
                     <ul class="dropdown-menu">
                         <li class="nav__item">
-                            <a href="siapa_kami" class="nav__item-link">Siapa Kami?</a>
+                            <a href="siapa_kami"
+                                class="nav__item-link <?= ($current_page == 'siapa_kami') ? 'active' : ''; ?>">
+                                Siapa Kami?
+                            </a>
                         </li>
                         <!-- /.nav-item -->
                         <li class="nav__item">
-                            <a href="legalitas" class="nav__item-link">Legalitas Perusahaan</a>
+                            <a href="legalitas" class="nav__item-link <?= ($current_page == 'legalitas') ? 'active' : ''; ?>">
+                                Legalitas Perusahaan
+                            </a>
                         </li>
                         <!-- /.nav-item -->
                         <li class="nav__item">
-                            <a href="struktur" class="nav__item-link">Struktur Perusahaan</a>
+                            <a href="struktur" class="nav__item-link <?= ($current_page == 'struktur') ? 'active' : ''; ?>">
+                                Struktur Perusahaan
+                            </a>
                         </li>
                         <!-- /.nav-item -->
                         <li class="nav__item">
-                            <a href="karir" class="nav__item-link">Karir</a>
+                            <a href="karir" class="nav__item-link <?= ($current_page == 'karir') ? 'active' : ''; ?>">
+                                Karir
+                            </a>
                         </li>
                         <!-- /.nav-item -->
                     </ul>
@@ -49,36 +66,36 @@
                     <a
                         href="#"
                         data-toggle="dropdown"
-                        class="dropdown-toggle nav__item-link">Layanan Kami</a>
+                        class="dropdown-toggle nav__item-link  <?= in_array($current_page, ['jasa_keamanan', 'jasa_operasional']) ? 'active' : ''; ?>">Layanan Kami</a>
                     <ul class="dropdown-menu wide-dropdown-menu">
                         <li class="nav__item">
                             <div class="row mx-0">
                                 <div class="col-sm-6 dropdown-menu-col">
                                     <a
                                         href="jasa_keamanan"
-                                        class="nav__item-link dropdown-menu-title">Jasa Keamanan</a>
+                                        class="nav__item-link dropdown-menu-title <?= ($current_page == 'jasa_keamanan') ? 'active' : ''; ?>">Jasa Keamanan</a>
                                     <ul class="nav flex-column">
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_keamanan#jasa_security') ? 'active' : ''; ?>"
                                                 href="jasa_keamanan#jasa_security">Pengamanan (Satpam)</a>
                                         </li>
                                         <!-- /.nav-item -->
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_keamanan#jasa_bodyguard') ? 'active' : ''; ?>"
                                                 href="jasa_keamanan#jasa_bodyguard">Bodyguard</a>
                                         </li>
                                         <!-- /.nav-item -->
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_keamanan#jasa_pengamanan_event') ? 'active' : ''; ?>"
                                                 href="jasa_keamanan#jasa_pengamanan_event">Pengamanan Event</a>
                                         </li>
                                         <!-- /.nav-item -->
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_keamanan#jasa_detektif_swasta') ? 'active' : ''; ?>"
                                                 href="jasa_keamanan#jasa_detektif_swasta">Detektif swasta</a>
                                         </li>
                                         <!-- /.nav-item -->
@@ -87,39 +104,38 @@
                                 <!-- /.col-sm-6 -->
                                 <div class="col-sm-6 dropdown-menu-col">
                                     <a
-                                        href="jasa_operasional.html"
-                                        class="nav__item-link dropdown-menu-title">Fasilitas & Operasional</a>
+                                        href="jasa_operasional"
+                                        class="nav__item-link dropdown-menu-title <?= ($current_page == 'jasa_operasional') ? 'active' : ''; ?>">Fasilitas & Operasional</a>
                                     <ul class="nav flex-column">
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_operasional#jasa_parkir') ? 'active' : ''; ?>"
                                                 href="jasa_operasional#jasa_parkir">Pengelolaan Parkir</a>
                                         </li>
                                         <!-- /.nav-item -->
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_operasional#jasa_driver') ? 'active' : ''; ?>"
                                                 href="jasa_operasional#jasa_driver">Jasa Driver</a>
                                         </li>
                                         <!-- /.nav-item -->
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_operasional#jasa_cleaning_service') ? 'active' : ''; ?>"
                                                 href="jasa_operasional#jasa_cleaning_service">Cleaning Services</a>
                                         </li>
                                         <!-- /.nav-item -->
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_operasional#jasa_pramubakti') ? 'active' : ''; ?>"
                                                 href="jasa_operasional#jasa_pramubakti">Jasa Pramubakti</a>
                                         </li>
                                         <!-- /.nav-item -->
                                         <li class="nav__item">
                                             <a
-                                                class="nav__item-link"
+                                                class="nav__item-link <?= ($current_page == 'jasa_operasional#jasa_pengacara') ? 'active' : ''; ?>"
                                                 href="jasa_operasional#jasa_pengacara">Jasa Pengacara</a>
                                         </li>
-                                        <!-- /.nav-item -->
                                         <!-- /.nav-item -->
                                     </ul>
                                 </div>
@@ -137,18 +153,18 @@
                     <a
                         href="#"
                         data-toggle="dropdown"
-                        class="dropdown-toggle nav__item-link">Mitra &amp; Pelatihan</a>
+                        class="dropdown-toggle nav__item-link <?= ($current_page == 'mitra_pelatihan' || $current_page == 'pelatihan') ? 'active' : ''; ?>">Mitra &amp; Pelatihan</a>
                     <ul class="dropdown-menu">
                         <li class="nav__item">
-                            <a href="mitra_konig" class="nav__item-link">Klien Kami</a>
+                            <a href="klien_kami" class="nav__item-link <?= ($current_page == 'klien_kami') ? 'active' : ''; ?>">Klien Kami</a>
                         </li>
                         <!-- /.nav-item -->
                         <li class="nav__item">
-                            <a href="mitra_pelatihan.html" class="nav__item-link">Mitra Pelatihan</a>
+                            <a href="mitra_pelatihan" class="nav__item-link <?= ($current_page == 'mitra_pelatihan') ? 'active' : ''; ?>">Mitra Pelatihan</a>
                         </li>
                         <!-- /.nav-item -->
                         <li class="nav__item">
-                            <a href="pelatihan_konig.html" class="nav__item-link">Pelatihan Khusus</a>
+                            <a href="pelatihan" class="nav__item-link <?= ($current_page == 'pelatihan') ? 'active' : ''; ?>">Pelatihan Khusus</a>
                         </li>
                         <!-- /.nav-item -->
                     </ul>
@@ -159,22 +175,22 @@
                     <a
                         href="#"
                         data-toggle="dropdown"
-                        class="dropdown-toggle nav__item-link">Media & Informasi</a>
+                        class="dropdown-toggle nav__item-link <?= ($current_page == 'artikel' || $current_page == 'galeri' || $current_page == 'kontak_kami') ? 'active' : ''; ?>">Media & Informasi</a>
                     <ul class="dropdown-menu">
                         <li class="nav__item">
-                            <a href="berita.html" class="nav__item-link">Berita</a>
+                            <a href="artikel" class="nav__item-link <?= ($current_page == 'artikel') ? 'active' : ''; ?>">Berita</a>
                         </li>
                         <!-- /.nav-item -->
-                        <li class="nav__item">
+                        <!-- <li class="nav__item">
                             <a href="testimony.html" class="nav__item-link">Testimoni Pelanggan</a>
+                        </li> -->
+                        <!-- /.nav-item -->
+                        <li class="nav__item">
+                            <a href="galeri" class="nav__item-link <?= ($current_page == 'galeri') ? 'active' : ''; ?>">Galeri</a>
                         </li>
                         <!-- /.nav-item -->
                         <li class="nav__item">
-                            <a href="galeri.html" class="nav__item-link">Galeri</a>
-                        </li>
-                        <!-- /.nav-item -->
-                        <li class="nav__item">
-                            <a href="kontak_kami.html" class="nav__item-link">Kontak Kami</a>
+                            <a href="kontak_kami" class="nav__item-link <?= ($current_page == 'kontak_kami') ? 'active' : ''; ?>">Kontak Kami</a>
                         </li>
                         <!-- /.nav-item -->
                     </ul>
