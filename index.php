@@ -441,7 +441,7 @@
                     <div class="post__img">
                       <a href="artikel_detail?id=<?= $post['id']; ?>">
                         <img
-                          src="admin/postimages/"
+                          src="myapp/dashboard/assets/images/uploads/posts/<?= $post['post_img']; ?>"
                           alt=""
                           loading="lazy" />
                       </a>

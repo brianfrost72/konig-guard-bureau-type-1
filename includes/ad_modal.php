@@ -24,7 +24,8 @@ $adData = mysqli_fetch_assoc($adQuery);
 if ($adData):
 
     $adTitle = htmlspecialchars($adData['ad_title']);
-    $adImg   = htmlspecialchars($adData['ad_img']);
+    // lokasi folder gambar ads
+    $adImg = "myapp/dashboard/assets/images/uploads/ads/" . htmlspecialchars($adData['ad_img']);
     $adLink  = htmlspecialchars($adData['ad_link']);
 
 ?>

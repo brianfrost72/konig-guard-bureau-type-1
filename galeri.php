@@ -298,7 +298,7 @@ $totalGallery = mysqli_num_rows($queryGallery);
                 <figure class="polaroid">
 
                   <img
-                    src="uploads/gallery/<?= htmlspecialchars($gallery['picture']); ?>"
+                    src="myapp/dashboard/assets/images/uploads/gallery/<?= htmlspecialchars($gallery['picture']); ?>"
                     alt="<?= htmlspecialchars($gallery['name_gallery']); ?>" />
 
                   <figcaption>

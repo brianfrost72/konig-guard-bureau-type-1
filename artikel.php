@@ -295,13 +295,13 @@ $result = mysqli_stmt_get_result($stmt);
                                     <div class="post__img">
                                         <a href="artikel_detail.php?id=<?= $row['id'] ?>">
                                             <img
-                                                src="assets/images/blog/grid/1.jpg"
+                                                src="myapp/dashboard/assets/images/uploads/posts/<?= $row['post_img']; ?>"
                                                 alt="post image"
                                                 loading="lazy" />
                                         </a>
                                         <!-- KATEGORI -->
                                         <div class="post__meta-cat">
-                                            <a href="#">
+                                            <a href="artikel_detail.php?id=<?= $row['id'] ?>">
                                                 <?= htmlspecialchars($row['name_category'] ?? '-') ?>
                                             </a>
                                         </div>
@@ -311,7 +311,7 @@ $result = mysqli_stmt_get_result($stmt);
                                     <div class="post__body">
                                         <!-- JUDUL -->
                                         <h4 class="post__title">
-                                            <a href="#">
+                                            <a href="artikel_detail.php?id=<?= $row['id'] ?>">
                                                 <?= htmlspecialchars($row['title_post']) ?>
                                             </a>
                                         </h4>

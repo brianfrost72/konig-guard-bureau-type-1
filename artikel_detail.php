@@ -241,9 +241,9 @@ $tanggal_post = date('d M Y, H:i', strtotime($post['created_at']));
           <div class="col-sm-12 col-md-12 col-lg-8">
             <div class="post-item mb-7">
               <div class="post__img">
-                <a href="#">
+                <a href="artikel_detail.php?id=<?= $post['id']; ?>">
                   <img
-                    src="assets/images/blog/single/1.jpg"
+                    src="myapp/dashboard/assets/images/uploads/posts/<?= $post['post_img']; ?>"
                     alt="post image" />
                 </a>
                 <div
@@ -351,7 +351,7 @@ $tanggal_post = date('d M Y, H:i', strtotime($post['created_at']));
 
                       <div class="comment__avatar">
                         <img
-                          src="<?= htmlspecialchars($comment['pict_commenters']); ?>"
+                          src="assets/images/comment_posts/<?= htmlspecialchars($comment['pict_commenters']); ?>"
                           alt="avatar"
                           style="
                                 width:70px;
@@ -546,7 +546,7 @@ $tanggal_post = date('d M Y, H:i', strtotime($post['created_at']));
                         <a href="artikel_detail.php?id=<?= $recent['id']; ?>">
 
                           <img
-                            src="assets/images/blog/thumbs/1.jpg"
+                            src="myapp/dashboard/assets/images/uploads/posts/<?= $recent['post_img']; ?>"
                             alt="thumb" />
 
                         </a>
