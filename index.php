@@ -20,6 +20,22 @@
     ORDER BY p.id DESC
     LIMIT 3
 ");
+
+  // ===============================
+  // AMBIL DATA BANNER
+  // ===============================
+  $queryBanner = mysqli_query($conn, "
+    SELECT *
+    FROM banners
+    WHERE status = 'active'
+    AND (
+        schedule_datetime IS NULL
+        OR schedule_datetime <= NOW()
+    )
+    ORDER BY id DESC
+");
+
+  $totalBanner = mysqli_num_rows($queryBanner);
   ?>
 
   <!DOCTYPE html>
@@ -48,22 +64,37 @@
     <link rel="stylesheet" href="assets/css/animation.css" />
     <link rel="stylesheet" href="assets/css/libraries.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      .hero-slider .slider-btn {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        pointer-events: none;
+      }
+
+      .hero-slider.show-nav .slider-btn {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+      }
+    </style>
   </head>
 
   <body>
 
     <div id="preloader">
-    <div class="loader-container">
-      <img
-        src="assets/images/logo/logo.png"
-        alt="Logo"
-        class="preloader-logo" />
-      <div class="progress-bar">
-        <div class="progress" id="progress"></div>
+      <div class="loader-container">
+        <img
+          src="assets/images/logo/logo.png"
+          alt="Logo"
+          class="preloader-logo" />
+        <div class="progress-bar">
+          <div class="progress" id="progress"></div>
+        </div>
+        <div class="loading-text">Loading</div>
       </div>
-      <div class="loading-text">Loading</div>
     </div>
-  </div>
     <div class="wrapper">
       <!-- =========================
         Header
@@ -73,117 +104,106 @@
       </header>
       <!-- /.Header -->
 
-      <!-- ============================
-        Slider
-    ============================== -->
+
       <!-- =========================
         BANNER SLIDER
 ========================= -->
+      <!-- =========================
+    BANNER SLIDER
+========================= -->
 
-      <section class="hero-slider">
+      <?php if ($totalBanner > 0): ?>
 
-        <div class="slider-container">
+        <section class="hero-slider">
 
-          <!-- SLIDE 1 -->
-          <div class="slide active">
-            <img src="https://picsum.photos/id/1018/1600/700" alt="">
-            <div class="slide-overlay"></div>
+          <div class="slider-container">
 
-            <div class="slide-content">
-              <span class="slider-subtitle">
-                Welcome To Our Website
-              </span>
+            <?php
+            $no = 0;
+            while ($banner = mysqli_fetch_assoc($queryBanner)):
+              $active = ($no == 0) ? 'active' : '';
 
-              <h1>
-                Modern Dashboard <br>
-                UI Experience
-              </h1>
+              // path gambar
+              $bannerImage = "myapp/dashboard/assets/images/uploads/banner/" . $banner['image'];
+            ?>
 
-              <p>
-                Banner slider dengan animasi smooth, dot indicator,
-                dan loading timer progress.
-              </p>
+              <!-- SLIDE -->
+              <div class="slide <?= $active; ?>">
 
-              <a href="#" class="btn btn__secondary">
-                Explore Now
-              </a>
+                <img
+                  src="<?= htmlspecialchars($bannerImage); ?>"
+                  alt="<?= htmlspecialchars($banner['title']); ?>">
+
+                <div class="slide-overlay"></div>
+
+                <div class="slide-content">
+
+                  <?php if (!empty($banner['subtitle'])): ?>
+                    <span class="slider-subtitle">
+                      <?= htmlspecialchars($banner['subtitle']); ?>
+                    </span>
+                  <?php endif; ?>
+
+                  <?php if (!empty($banner['title'])): ?>
+                    <h1>
+                      <?= nl2br(htmlspecialchars($banner['title'])); ?>
+                    </h1>
+                  <?php endif; ?>
+
+                  <?php if (!empty($banner['desc'])): ?>
+                    <p>
+                      <?= nl2br(htmlspecialchars($banner['desc'])); ?>
+                    </p>
+                  <?php endif; ?>
+
+                  <?php if (!empty($banner['link'])): ?>
+                    <a
+                      href="<?= htmlspecialchars($banner['link']); ?>"
+                      class="btn btn__secondary">
+
+                      Explore Now
+                    </a>
+                  <?php endif; ?>
+
+                </div>
+
+              </div>
+
+            <?php
+              $no++;
+            endwhile;
+            ?>
+
+            <!-- BUTTON -->
+            <button class="slider-btn prev">
+              ❮
+            </button>
+
+            <button class="slider-btn next">
+              ❯
+            </button>
+
+            <!-- DOT -->
+            <div class="slider-dots">
+
+              <?php for ($i = 0; $i < $totalBanner; $i++): ?>
+
+                <span class="dot <?= ($i == 0) ? 'active' : ''; ?>"></span>
+
+              <?php endfor; ?>
+
             </div>
-          </div>
 
-          <!-- SLIDE 2 -->
-          <div class="slide">
-            <img src="https://picsum.photos/id/1015/1600/700" alt="">
-            <div class="slide-overlay"></div>
-
-            <div class="slide-content">
-              <span class="slider-subtitle">
-                Elegant Design
-              </span>
-
-              <h1>
-                Responsive <br>
-                Banner Slider
-              </h1>
-
-              <p>
-                Menggunakan CSS milik kamu dengan warna premium navy gold.
-              </p>
-
-              <a href="#" class="btn btn__primary">
-                Get Started
-              </a>
+            <!-- TIMER BAR -->
+            <div class="timer-bar">
+              <div class="timer-progress"></div>
             </div>
+
           </div>
 
-          <!-- SLIDE 3 -->
-          <div class="slide">
-            <img src="https://picsum.photos/id/1005/1600/700" alt="">
-            <div class="slide-overlay"></div>
+        </section>
 
-            <div class="slide-content">
-              <span class="slider-subtitle">
-                Smooth Animation
-              </span>
-
-              <h1>
-                Auto Slider <br>
-                With Timer Bar
-              </h1>
-
-              <p>
-                Dilengkapi loading bar otomatis sebagai indikator pergantian slide.
-              </p>
-
-              <a href="#" class="btn btn__secondary">
-                Learn More
-              </a>
-            </div>
-          </div>
-
-          <!-- BUTTON -->
-          <button class="slider-btn prev">
-            ❮
-          </button>
-
-          <button class="slider-btn next">
-            ❯
-          </button>
-
-          <!-- DOT -->
-          <div class="slider-dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </div>
-
-          <!-- TIMER BAR -->
-          <div class="timer-bar">
-            <div class="timer-progress"></div>
-          </div>
-
-        </div>
-
-      </section>
+      <?php endif; ?>
 
       <!-- ========================
       About Layout 1
@@ -230,7 +250,7 @@
             <!-- /.col-xl-6 -->
             <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5 offset-xl-1">
               <div class="video-banner-layout2 mb-50">
-                <img src="assets/images/about/security.jpg" alt="about" />
+                <img src="assets/images/about/security.png" alt="about" />
               </div>
               <!-- /.video-banner -->
             </div>
@@ -307,7 +327,7 @@
                 class="flip-container bounce-in"
                 ontouchstart="this.classList.toggle('hover');">
                 <figure>
-                  <img src="assets/images/work-process/nilai1.jpg" />
+                  <img src="assets/images/work-process/nilai1.png" />
                   <figcaption>
                     <p>Tangkas</p>
                   </figcaption>
@@ -317,7 +337,7 @@
                 class="flip-container bounce-in"
                 ontouchstart="this.classList.toggle('hover');">
                 <figure>
-                  <img src="assets/images/work-process/nilai2.jpg" />
+                  <img src="assets/images/work-process/nilai2.png" />
                   <figcaption>
                     <p>Tangguh</p>
                   </figcaption>
@@ -327,7 +347,7 @@
                 class="flip-container bounce-in"
                 ontouchstart="this.classList.toggle('hover');">
                 <figure>
-                  <img src="assets/images/work-process/nilai3.jpg" />
+                  <img src="assets/images/work-process/nilai3.png" />
                   <figcaption>
                     <p>Kompeten</p>
                   </figcaption>
@@ -337,7 +357,7 @@
                 class="flip-container bounce-in"
                 ontouchstart="this.classList.toggle('hover');">
                 <figure>
-                  <img src="assets/images/work-process/nilai4.jpg" />
+                  <img src="assets/images/work-process/nilai4.png" />
                   <figcaption>
                     <p>Disiplin</p>
                   </figcaption>
@@ -347,7 +367,7 @@
                 class="flip-container bounce-in"
                 ontouchstart="this.classList.toggle('hover');">
                 <figure>
-                  <img src="assets/images/work-process/nilai5.jpg" />
+                  <img src="assets/images/work-process/nilai5.png" />
                   <figcaption>
                     <p>Tanggung Jawab</p>
                   </figcaption>
@@ -357,7 +377,7 @@
                 class="flip-container bounce-in"
                 ontouchstart="this.classList.toggle('hover');">
                 <figure>
-                  <img src="assets/images/work-process/nilai6.jpg" />
+                  <img src="assets/images/work-process/nilai6.png" />
                   <figcaption>
                     <p>Amanah</p>
                   </figcaption>
@@ -540,69 +560,108 @@
       const prevBtn = document.querySelector(".prev");
       const progress = document.querySelector(".timer-progress");
 
-      let current = 0;
-      let interval;
+      if (slides.length > 0) {
 
-      function showSlide(index) {
+        let current = 0;
+        let interval;
 
-        slides.forEach(slide => slide.classList.remove("active"));
-        dots.forEach(dot => dot.classList.remove("active"));
+        function showSlide(index) {
 
-        slides[index].classList.add("active");
-        dots[index].classList.add("active");
+          slides.forEach(slide => slide.classList.remove("active"));
+          dots.forEach(dot => dot.classList.remove("active"));
 
-        progress.style.animation = "none";
-        progress.offsetHeight;
-        progress.style.animation = null;
+          slides[index].classList.add("active");
+          dots[index].classList.add("active");
 
-      }
+          progress.style.animation = "none";
+          progress.offsetHeight;
+          progress.style.animation = null;
 
-      function nextSlide() {
-        current++;
-        if (current >= slides.length) {
-          current = 0;
         }
-        showSlide(current);
-      }
 
-      function prevSlide() {
-        current--;
-        if (current < 0) {
-          current = slides.length - 1;
-        }
-        showSlide(current);
-      }
+        function nextSlide() {
+          current++;
 
-      nextBtn.addEventListener("click", () => {
-        nextSlide();
-        resetAutoSlide();
-      });
+          if (current >= slides.length) {
+            current = 0;
+          }
 
-      prevBtn.addEventListener("click", () => {
-        prevSlide();
-        resetAutoSlide();
-      });
-
-      dots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          current = index;
           showSlide(current);
+        }
+
+        function prevSlide() {
+
+          current--;
+
+          if (current < 0) {
+            current = slides.length - 1;
+          }
+
+          showSlide(current);
+
+        }
+
+        nextBtn.addEventListener("click", () => {
+          nextSlide();
           resetAutoSlide();
         });
-      });
 
-      function autoSlide() {
-        interval = setInterval(() => {
-          nextSlide();
-        }, 5000);
-      }
+        prevBtn.addEventListener("click", () => {
+          prevSlide();
+          resetAutoSlide();
+        });
 
-      function resetAutoSlide() {
-        clearInterval(interval);
+        dots.forEach((dot, index) => {
+
+          dot.addEventListener("click", () => {
+
+            current = index;
+            showSlide(current);
+            resetAutoSlide();
+
+          });
+
+        });
+
+        function autoSlide() {
+
+          interval = setInterval(() => {
+            nextSlide();
+          }, 5000);
+
+        }
+
+        function resetAutoSlide() {
+
+          clearInterval(interval);
+          autoSlide();
+
+        }
+
         autoSlide();
-      }
 
-      autoSlide();
+        const heroSlider = document.querySelector(".hero-slider");
+
+        let navTimeout;
+
+        function showSliderNav() {
+
+          heroSlider.classList.add("show-nav");
+
+          clearTimeout(navTimeout);
+
+          navTimeout = setTimeout(() => {
+            heroSlider.classList.remove("show-nav");
+          }, 1000);
+
+        }
+
+        heroSlider.addEventListener("mousemove", showSliderNav);
+        heroSlider.addEventListener("touchstart", showSliderNav);
+
+        showSliderNav();
+
+      }
     </script>
 
   </body>
