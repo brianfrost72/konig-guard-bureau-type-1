@@ -54,7 +54,7 @@
         class="page-title-layout1 page-title-light bg-overlay text-center"
       >
         <div class="bg-img">
-          <img src="assets/images/page-titles/pelatihan.jpg" alt="background" />
+          <img src="assets/images/page-titles/pelatihan.png" alt="background" />
         </div>
         <div class="container">
           <div class="row">
@@ -153,7 +153,7 @@
             <figure class="pelatihan bg">
               <img
                 class="img-fluid"
-                src="assets/images/pelatihan/p_kebakaran.png"
+                src="assets/images/pelatihan/pelatihan_kebakaran.png"
                 alt="image"
               />
               <a href="#img3">
@@ -169,7 +169,7 @@
             <figure class="pelatihan bg">
               <img
                 class="img-fluid"
-                src="assets/images/pelatihan/pbb.png"
+                src="assets/images/pelatihan/ctpat.png"
                 alt="image"
               />
               <a href="#img3">

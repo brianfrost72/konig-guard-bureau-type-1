@@ -221,7 +221,7 @@ $result = mysqli_stmt_get_result($stmt);
         <section
             class="page-title-layout3 page-title-light bg-overlay text-center">
             <div class="bg-img">
-                <img src="assets/images/page-titles/pelatihan.jpg" alt="background" />
+                <img src="assets/images/page-titles/mitra_kami.png" alt="background" />
             </div>
             <div class="container">
                 <div class="row">

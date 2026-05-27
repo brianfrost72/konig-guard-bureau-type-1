@@ -57,7 +57,7 @@
       <section class="page-title-layout2 page-title-light bg-overlay">
         <div class="bg-img">
           <img
-            src="assets/images/page-titles/layanan_keamanan.jpg"
+            src="assets/images/page-titles/layanan_keamanan.png"
             alt="background"
           />
         </div>

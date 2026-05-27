@@ -8,8 +8,8 @@ const servicesData = [
     desc: `Keamanan solid adalah landasan utama dalam kelangsungan operasional sebuah perusahaan. Konig Guard Bureau menyediakan layanan Jasa Security dengan standar profesional tinggi untuk memastikan setiap area kerja, fasilitas, dan aset perusahaan terlindungi dari berbagai potensi ancaman.
 
 Petugas keamanan kami telah melalui pelatihan intensif dalam prosedur pengamanan modern, analisa risiko, hingga komunikasi taktis. Mereka tidak hanya menjaga lingkungan tetap aman, namun juga menghadirkan ketenangan bagi seluruh pihak di dalamnya. Dengan kehadiran satpam Konig Guard Bureau yang sigap, disiplin, dan berintegritas, produktivitas perusahaan akan meningkat karena seluruh kegiatan dapat berlangsung tanpa gangguan.`,
-    imgIndex: "assets/images/jasa/security/security.jpg",
-    imgService: "assets/images/jasa/security/security.jpg",
+    imgIndex: "assets/images/jasa/security/security.png",
+    imgService: "assets/images/jasa/security/security.png",
     link: "jasa_keamanan.html#jasa_security",
     showOnIndex: true,
     showOnService: true,
@@ -22,8 +22,8 @@ Petugas keamanan kami telah melalui pelatihan intensif dalam prosedur pengamanan
     desc: `Perlindungan personal merupakan kebutuhan penting bagi eksekutif perusahaan, tokoh publik, atau tamu kehormatan. Konig Guard Bureau menghadirkan layanan Jasa Bodyguard yang mengutamakan keselamatan, kenyamanan, dan kepercayaan penuh bagi setiap klien, tanpa membatasi aktivitas mereka dalam pekerjaan maupun kehidupan sehari-hari.
 
 Bodyguard kami memiliki keahlian dalam bela diri, pengamatan ancaman, protokol keselamatan, serta pengaturan rute pengawalan. Setiap pengawalan direncanakan melalui analisa risiko yang matang dan metode pengamanan yang selalu disesuaikan dengan kondisi di lapangan.`,
-    imgIndex: "assets/images/jasa/security/bodyguard.jpg",
-    imgService: "assets/images/jasa/security/bodyguard.jpg",
+    imgIndex: "assets/images/jasa/security/bodyguard.png",
+    imgService: "assets/images/jasa/security/bodyguard.png",
     link: "jasa_keamanan.html#jasa_bodyguard",
     showOnIndex: true,
     showOnService: true,
@@ -36,8 +36,8 @@ Bodyguard kami memiliki keahlian dalam bela diri, pengamatan ancaman, protokol k
     desc: `Kesuksesan suatu acara bukan hanya soal kemeriahan, tetapi juga kepastian keamanan. Konig Guard Bureau menyediakan layanan pengamanan event untuk konser, festival, seminar, hingga kegiatan perusahaan yang melibatkan banyak pengunjung.
 
 Kami melakukan pemetaan area, mengatur arus keluar-masuk, serta mengantisipasi berbagai potensi gangguan. Dengan koordinasi tim yang kuat dan penggunaan prosedur pengamanan profesional, setiap acara dapat berjalan tertib, aman, dan memberikan pengalaman terbaik bagi seluruh peserta.`,
-    imgIndex: "assets/images/jasa/security/eventsecurity.jpg",
-    imgService: "assets/images/jasa/security/eventsecurity.jpg",
+    imgIndex: "assets/images/jasa/security/eventsecurity.png",
+    imgService: "assets/images/jasa/security/eventsecurity.png",
     link: "jasa_keamanan.html#jasa_pengamanan_event",
     showOnIndex: true,
     showOnService: true,
@@ -49,8 +49,8 @@ Kami melakukan pemetaan area, mengatur arus keluar-masuk, serta mengantisipasi b
     desc: `Kepercayaan adalah hal yang penting, namun kadang-kadang kita perlu memastikan bahwa apa yang terlihat benar adanya. Konig Guard Bureau menyediakan layanan detektif swasta untuk membantu mengungkap kebenaran yang tersembunyi di balik kasus pribadi, bisnis, atau hukum.
 
 Kami menggunakan metode penyelidikan yang canggih, dibantu oleh tim profesional yang berpengalaman, untuk memberikan laporan yang akurat dan terpercaya. Apakah itu untuk investigasi pasangan, pemeriksaan latar belakang, atau pengumpulan bukti hukum, kami siap membantu Anda menemukan jawaban yang Anda cari, dengan tetap menjaga kerahasiaan dan integritas prosesnya.`,
-    imgIndex: "assets/images/jasa/security/eventsecurity.jpg",
-    imgService: "assets/images/jasa/security/eventsecurity.jpg",
+    imgIndex: "assets/images/jasa/security/detektif.png",
+    imgService: "assets/images/jasa/security/detektif.png",
     link: "jasa_keamanan.html#jasa_detektif_swasta",
     showOnIndex: true,
     showOnService: true,
@@ -63,8 +63,8 @@ Kami menggunakan metode penyelidikan yang canggih, dibantu oleh tim profesional 
     desc: `Lingkungan kerja yang bersih dan higienis adalah bagian penting dalam menjaga kesehatan karyawan serta profesionalitas perusahaan. Konig Guard Bureau menyediakan tenaga kebersihan terlatih dengan standar operasional tinggi.
 
 Petugas kami memahami teknik kebersihan modern, penggunaan peralatan yang tepat, dan pemilihan bahan pembersih yang aman. Kami siap melayani berbagai area mulai dari perkantoran, fasilitas industri, hingga area publik.`,
-    imgIndex: "assets/images/jasa/facility/cleaningservice.jpg",
-    imgService: "assets/images/jasa/facility/cleaningservice.jpg",
+    imgIndex: "assets/images/jasa/facility/cleaningservice.png",
+    imgService: "assets/images/jasa/facility/cleaningservice.png",
     link: "jasa_operasional.html#jasa_cleaning_service",
     showOnIndex: true,
     showOnService: true,
@@ -77,8 +77,8 @@ Petugas kami memahami teknik kebersihan modern, penggunaan peralatan yang tepat,
     desc: `Pelayanan administrasi yang baik mencerminkan kualitas perusahaan. Konig Guard Bureau menyediakan tenaga pramubakti profesional yang siap mendukung berbagai tugas perkantoran seperti resepsionis, pengarsipan, pelayanan tamu, hingga dukungan operasional harian.
 
 Dengan sikap ramah, cekatan, dan teliti, pramubakti kami membantu meningkatkan kualitas pelayanan perusahaan sehingga setiap proses kerja menjadi lebih teratur.`,
-    imgIndex: "assets/images/jasa/facility/pramubakti.jpg",
-    imgService: "assets/images/jasa/facility/pramubakti.jpg",
+    imgIndex: "assets/images/jasa/facility/pramubakti.png",
+    imgService: "assets/images/jasa/facility/pramubakti.png",
     link: "jasa_operasional.html#jasa_pramubakti",
     showOnIndex: true,
     showOnService: true,
@@ -91,8 +91,8 @@ Dengan sikap ramah, cekatan, dan teliti, pramubakti kami membantu meningkatkan k
     desc: `Dalam dunia bisnis, kepastian hukum menjadi perlindungan terpenting bagi perusahaan. Layanan Jasa Pengacara Konig Guard Bureau menyediakan dukungan hukum profesional untuk membantu penyelesaian permasalahan hukum, pendampingan litigasi, hingga konsultasi regulasi perusahaan.
 
 Dengan pengalaman di berbagai bidang hukum, tim kami mampu memberikan analisa serta solusi tepat demi melindungi kepentingan perusahaan.`,
-    imgIndex: "assets/images/jasa/facility/pengacara.jpg",
-    imgService: "assets/images/jasa/facility/pengacara.jpg",
+    imgIndex: "assets/images/jasa/facility/pengacara.png",
+    imgService: "assets/images/jasa/facility/pengacara.png",
     link: "jasa_operasional.html#jasa_pengacara",
     showOnIndex: true,
     showOnService: true,
@@ -103,8 +103,8 @@ Dengan pengalaman di berbagai bidang hukum, tim kami mampu memberikan analisa se
     tagline:
       "Perjalanan aman, efisiensi maksimal.<br>Profesional dalam berkendara dan pelayanan.",
     desc: `Driver profesional memiliki peran penting dalam kelancaran mobilitas perusahaan. Layanan Jasa Driver Konig Guard Bureau menyediakan pengemudi terlatih yang memahami etika berkendara, keselamatan jalan, serta tata krama pelayanan.`,
-    imgIndex: "assets/images/jasa/facility/driver.jpg",
-    imgService: "assets/images/jasa/facility/driver.jpg",
+    imgIndex: "assets/images/jasa/facility/driver.png",
+    imgService: "assets/images/jasa/facility/driver.png",
     link: "jasa_operasional.html#jasa_driver",
     showOnIndex: true,
     showOnService: true,
@@ -115,8 +115,8 @@ Dengan pengalaman di berbagai bidang hukum, tim kami mampu memberikan analisa se
     tagline:
       "Parkir tertata, pelayanan meningkat.<br>Kelancaran akses meningkatkan citra perusahaan.",
     desc: `Area parkir yang tertata rapi merupakan bagian dari pelayanan kualitas perusahaan terhadap karyawan maupun tamu.`,
-    imgIndex: "assets/images/jasa/facility/parkir.jpg",
-    imgService: "assets/images/jasa/facility/parkir.jpg",
+    imgIndex: "assets/images/jasa/facility/parkir.png",
+    imgService: "assets/images/jasa/facility/parkir.png",
     link: "jasa_operasional.html#jasa_parkir",
     showOnIndex: true,
     showOnService: true,

@@ -154,7 +154,7 @@ $totalGallery = mysqli_num_rows($queryGallery);
       class="page-title-layout1 page-title-light bg-overlay text-center">
       <div class="bg-img">
         <img
-          src="assets/images/page-titles/layanan_keamanan.jpg"
+          src="assets/images/page-titles/layanan_keamanan.png"
           alt="background" />
       </div>
       <div class="container">

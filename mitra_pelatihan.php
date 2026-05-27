@@ -54,7 +54,7 @@
       class="page-title-layout1 page-title-light bg-overlay text-center">
       <div class="bg-img">
         <img
-          src="assets/images/page-titles/m_pengamanan.jpg"
+          src="assets/images/page-titles/pelatihan.png"
           alt="background" />
       </div>
       <div class="container">
